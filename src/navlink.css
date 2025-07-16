@@ -1,0 +1,32 @@
+a.nav_link:hover {
+  cursor: pointer;
+  color: #2e5984;
+}
+
+.nav_link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav_links {
+  text-decoration: none;
+  color: #e4dcc0;
+}
+
+.nav_links:hover {
+  text-decoration: none;
+  color: #1b1e1e;
+}
+
+.menu_link {
+  text-decoration: none;
+  color: #1b1e1e;
+  font-size: 20px;
+  margin-left: 35px;
+  text-align: left;
+}
+
+a.menu_link:hover {
+  cursor: pointer;
+  color: #c2ad90;
+}
