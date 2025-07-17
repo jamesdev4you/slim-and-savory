@@ -1,6 +1,8 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
+import Home from './PageComponents/Home/home.js';
+import NavBar from './PageComponents/NavBar/navbar.js';
 
 const theme = createTheme({
   palette: {
@@ -18,7 +20,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path='/' element={<NavBar />} color='secondary'>
-          <Route path='/' element={<Home headerOp={headerOptions[1]} />} />
+          <Route path='/' element={<Home  />} />
         </Route>
     </Routes>
   </ThemeProvider >

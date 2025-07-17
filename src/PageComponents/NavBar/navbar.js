@@ -23,6 +23,11 @@ const navItems = [
   { text: 'Gallery', href: '/gallery' },
 ];
 
+const secondaryItems = [
+  { text: 'My Favorites', href: '/' },
+  { text: 'Newsletter', href: '/appointment' },
+];
+
 export default function NavBar(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -62,6 +67,18 @@ export default function NavBar(props) {
     <Box sx={{ flexGrow: 1 }}>
       <CssBaseline />
       <AppBar component='nav'>
+        <Box
+      sx={{
+        backgroundColor: '#FFF5E1',
+        padding: '16px',
+        textAlign: 'center',
+        fontFamily: 'Birds',
+        fontSize: '20px',
+        color: '#1B1E1E',
+      }}
+    >
+      Welcome to Slim & Savory!
+    </Box>
         <Toolbar sx={{ backgroundColor: '#E4DCC0' }}>
           <IconButton
             color='inherit'
@@ -91,19 +108,66 @@ export default function NavBar(props) {
               backgroundPosition: 'center',
             }}
           />
+         <Box
+  sx={{
+    display: { xs: 'none', sm: 'none', md: 'flex' },
+    marginLeft: 'auto',
+    alignItems: 'center',
+  }}
+>
+  {navItems.map((item, index) => (
+    <Box
+      key={item.href}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        mx: 4 // ✅ Equal spacing on both sides of the whole unit
+      }}
+    >
+      {/* Divider – only if not the first item */}
+      {index !== 0 && (
+        <Box
+          sx={{
+            width: '1px',
+            height: '24px',
+            backgroundColor: '#000',
+            marginRight: 2, // space between line and link
+          }}
+        />
+      )}
+
+      {/* NavLink */}
+      <NavLink
+        className='menu_link'
+        style={{
+          fontFamily: 'Birds',
+          textTransform: 'none',
+          color: '#1B1E1E',
+          textDecoration: 'none',
+        }}
+        to={item.href}
+      >
+        {item.text}
+      </NavLink>
+    </Box>
+  ))}
+</Box>
+
           <Box
             sx={{
               display: { xs: 'none', sm: 'none', md: 'block' },
               marginLeft: 'auto',
             }}
           >
-            {navItems.map((item) => (
+            {secondaryItems.map((item) => (
               <NavLink
                 key={item.href}
                 className='menu_link'
                 style={{
                   fontFamily: 'Birds',
                   textTransform: 'none',
+                  fontSize: "12px",
+                  textDecoration: 'underline'
                 }}
                 to={item.href}
               >
@@ -119,7 +183,7 @@ export default function NavBar(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true, 
           }}
           sx={{
             display: { xs: 'block', sm: 'block', md: 'block' },
@@ -133,6 +197,7 @@ export default function NavBar(props) {
           {drawer}
         </Drawer>
       </Box>
+      
       <Outlet />
     </Box>
   );
