@@ -1,6 +1,7 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -14,6 +15,10 @@ import Logo from '../assets/Logo.png';
 import '../../navlink.css';
 import '../../index.css';
 import { Outlet } from 'react-router-dom';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const drawerWidth = 240;
 const navItems = [
@@ -22,6 +27,8 @@ const navItems = [
   { text: 'Team', href: '/team' },
   { text: 'Gallery', href: '/gallery' },
 ];
+
+const icons = [FacebookIcon, LinkedInIcon, YouTubeIcon, InstagramIcon]
 
 const secondaryItems = [
   { text: 'My Favorites', href: '/' },
@@ -70,14 +77,66 @@ export default function NavBar(props) {
         <Box
       sx={{
         backgroundColor: '#FFF5E1',
-        padding: '16px',
+        height: '60px',
         textAlign: 'center',
         fontFamily: 'Birds',
-        fontSize: '20px',
-        color: '#1B1E1E',
+        display: 'flex',
+        
       }}
     >
-      Welcome to Slim & Savory!
+      <Box 
+        sx={{width: '85%', backgroundColor: 'red', height: '100%', display: 'flex', fontFamily: 'Birds', alignItems: 'center', justifyContent: 'space-between'}}
+      >
+        <Typography sx={{        fontWeight: 'bold', marginLeft:{ xl: '20em', md:'10em'}, fontSize: '16px',  fontFamily: 'Birds',
+        color: '#1B1E1E',}}>Come check out my content I post weekly on my Social Medias! </Typography>
+         <Typography sx={{        fontSize: '14px', marginRight: '1em',
+        color: '#1B1E1E',  fontFamily: 'Birds', }}>Join my Newsletter to stay up to date! </Typography>
+      </Box>
+      <Box
+    sx={{
+      width: '60px',
+      height: '60px',
+      flexShrink: 0,
+    }}
+  >
+    <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,0 60,0 60,60" fill="black" />
+      <polygon points="0,0 0,60 60,60" fill="red" />
+    </svg>
+  </Box>
+
+           <Box
+  sx={{
+    width: '20%',
+    backgroundColor: 'black',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  }}
+>
+   <Box
+  sx={{
+    width: '100%',
+    backgroundColor: 'black',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  }}
+>
+  {icons.map((Icon, index) => (
+    <Icon
+      key={index}
+      sx={{
+        height: '100%',
+        width: '10%',
+        color: 'white',
+      }}
+    />
+  ))}
+  </Box>
+</Box>
     </Box>
         <Toolbar sx={{ backgroundColor: '#E4DCC0' }}>
           <IconButton
