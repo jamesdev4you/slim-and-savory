@@ -32,7 +32,7 @@ const HomeHeader = () => {
     button: <Button
         variant="contained"
         sx={{
-          width: '60%',
+          width: {xl:'60%', md: '80%'},
           height: '60px',
           fontSize: '1rem',
           borderRadius: '0px',
@@ -47,7 +47,7 @@ const HomeHeader = () => {
     button: <Button
         variant="contained"
         sx={{
-          width: '60%',
+          width: {xl:'60%', md: '80%'},
           height: '60px',
           fontSize: '1rem',
           borderRadius: '0px',
@@ -62,7 +62,7 @@ const HomeHeader = () => {
     button: <Button
         variant="contained"
         sx={{
-          width: '60%',
+          width: {xl:'60%', md: '80%'},
           height: '60px',
           fontSize: '1rem',
           borderRadius: '0px',
