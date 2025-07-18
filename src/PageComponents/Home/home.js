@@ -4,6 +4,8 @@ import HomeHeader from './homeHeader.js';
 import HomeCookbook from './homeCookbook.js';
 import HomeLearnMore from './homeLearnMore.js';
 import HomeBlog from './homeBlog.js'
+import HomeShop from './homeShop.js';
+import HomeContact from './homeContact/homeContact.js'
 
 
 const home = () => {
@@ -14,6 +16,8 @@ const home = () => {
     <HomeCookbook />
     <HomeLearnMore />
     <HomeBlog />
+    <HomeShop />
+    <HomeContact />
     </div>
   )
 }
