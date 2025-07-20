@@ -6,11 +6,17 @@ import NavBar from "./PageComponents/NavBar/navbar.js";
 
 const theme = createTheme({
   palette: {
+    mode: "light",
     primary: {
-      main: "#7C8E76",
+      main: "#7c8e76",
+      light: "#a0c49d",
+      dark: "#373e02",
     },
     secondary: {
-      main: "#F7FFE5",
+      main: "#f7ffe5",
+    },
+    background: {
+      default: "#d9d9d9",
     },
   },
 });
