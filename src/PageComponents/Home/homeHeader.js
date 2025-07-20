@@ -82,7 +82,6 @@ const HomeHeader = () => {
       sx={{
         width: "100%",
         minHeight: "90vh",
-        backgroundColor: "#FFF5E1",
         display: "flex",
         justifyContent: "center",
         paddingTop: "64px", // push down below NavBar (if NavBar is fixed)
@@ -112,7 +111,7 @@ const HomeHeader = () => {
             <Box
               sx={{
                 position: "absolute",
-                bottom: "-30px", // 50% of button height if ~40px tall
+                bottom: "-30px",
                 left: "50%",
                 transform: "translateX(-50%)",
                 width: "100%",

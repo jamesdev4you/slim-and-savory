@@ -86,7 +86,7 @@ export default function NavBar(props) {
           <Box
             sx={{
               width: "85%",
-              backgroundColor: "red",
+              backgroundColor: "primary.light",
               height: "100%",
               display: "flex",
               fontFamily: "Birds",
@@ -124,8 +124,8 @@ export default function NavBar(props) {
             }}
           >
             <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="0,0 60,0 60,60" fill="black" />
-              <polygon points="0,0 0,60 60,60" fill="red" />
+              <polygon points="0,0 60,0 60,60" fill="#373e02" />
+              <polygon points="0,0 0,60 60,60" fill="#a0c49d" />
             </svg>
           </Box>
 
@@ -142,7 +142,7 @@ export default function NavBar(props) {
             <Box
               sx={{
                 width: "100%",
-                backgroundColor: "black",
+                backgroundColor: "primary.dark",
                 height: "100%",
                 display: "flex",
                 justifyContent: "space-around",
@@ -162,7 +162,7 @@ export default function NavBar(props) {
             </Box>
           </Box>
         </Box>
-        <Toolbar sx={{ backgroundColor: "#E4DCC0" }}>
+        <Toolbar sx={{ backgroundColor: "primary.main" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"

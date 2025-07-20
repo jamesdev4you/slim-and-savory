@@ -11,16 +11,22 @@ export default function ContactForm() {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        backgroundColor: "#E4DCC0",
+        backgroundColor: "#7c8e76",
         padding: "20px",
         borderRadius: "15px",
         width: "100%",
+        borderWidth: "2px",
+        borderStyle: "solid",
+        borderColor: "#f7ffe5",
       }}
     >
-      <Typography variant="h2" sx={{ color: "#1B1E1E", fontFamily: "Birds" }}>
+      <Typography
+        variant="h2"
+        sx={{ color: "secondary.main", fontFamily: "Birds" }}
+      >
         Contact
       </Typography>
-      <Typography sx={{ fontSize: "16px", color: "#1B1E1E" }}>
+      <Typography sx={{ fontSize: "16px", color: "#f7ffe5" }}>
         <span style={{ color: "red" }}>*</span> INDICATES REQUIRED FIELD!
       </Typography>
 
@@ -30,7 +36,7 @@ export default function ContactForm() {
           display: "flex",
           flexDirection: "column",
           width: "100%",
-          gap: "15px", // replaces spacing={2}
+          gap: "15px",
         }}
         ref={form}
       >
@@ -41,7 +47,7 @@ export default function ContactForm() {
           variant="outlined"
           fullWidth
           required
-          color="secondary"
+          color="#f7ffe5"
           sx={textFieldStyles}
         />
 
@@ -51,7 +57,7 @@ export default function ContactForm() {
           placeholder="Enter Last Name"
           variant="outlined"
           fullWidth
-          color="error"
+          color="#f7ffe5"
           sx={textFieldStyles}
         />
 
@@ -63,7 +69,7 @@ export default function ContactForm() {
           variant="outlined"
           fullWidth
           required
-          color="error"
+          color="secondary.main"
           sx={textFieldStyles}
         />
 
@@ -75,7 +81,7 @@ export default function ContactForm() {
           variant="outlined"
           fullWidth
           required
-          color="error"
+          color="secondary.main"
           sx={textFieldStyles}
         />
 
@@ -88,7 +94,7 @@ export default function ContactForm() {
           variant="outlined"
           fullWidth
           required
-          color="error"
+          color="secondary.main"
           sx={textFieldStyles}
         />
 
@@ -109,26 +115,26 @@ export default function ContactForm() {
 // Extract repeated styles to avoid duplication
 const textFieldStyles = {
   "& label.Mui-focused": {
-    color: "#1B1E1E",
+    color: "#f7ffe5",
   },
   "& .MuiFormLabel-root": {
-    color: "#1B1E1E",
+    color: "#f7ffe5",
   },
   "& .MuiFormLabel-root.Mui-focused": {
-    color: "#1B1E1E",
+    color: "#f7ffe5",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "#1B1E1E",
+      borderColor: "#f7ffe5",
     },
     "&:hover fieldset": {
-      borderColor: "#1B1E1E",
+      borderColor: "#f7ffe5",
     },
     "&.Mui-focused fieldset": {
       borderColor: "yellow",
     },
   },
   "& .MuiInputBase-root": {
-    color: "#1B1E1E",
+    color: "#f7ffe5",
   },
 };

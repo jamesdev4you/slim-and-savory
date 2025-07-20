@@ -16,6 +16,7 @@ const HomeShop = () => {
         justifyContent: "center",
         width: "100%",
         height: "70vh",
+        backgroundColor: "secondary.main",
       }}
     >
       <Box
@@ -28,7 +29,7 @@ const HomeShop = () => {
           justifyContent: "space-around",
         }}
       >
-        <Typography variant="h2" sx={{ mb: 2 }}>
+        <Typography variant="h2" sx={{ mb: 2, color: "primary.main" }}>
           {" "}
           Come Shop With Me
         </Typography>

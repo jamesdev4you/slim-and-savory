@@ -16,7 +16,7 @@ const HomeContact = () => {
         backgroundSize: "cover",
         backgroundRepeat: "none",
         backgroundPosition: "center",
-        background: "#1B1E1E",
+        backgroundColor: "primary.main",
         paddingTop: "50px",
         padding: "2em",
       }}
@@ -40,10 +40,15 @@ const HomeContact = () => {
             backgroundPosition: "center",
           }}
         />
-        <Typography variant="h3" sx={{ marginTop: ".5em" }}>
+        <Typography
+          variant="h3"
+          sx={{ marginTop: ".5em", color: "secondary.main" }}
+        >
           Don't Be A Stranger
         </Typography>
-        <Typography variant="h5">Will Respond To All Inquires (:</Typography>
+        <Typography variant="h5" sx={{ color: "secondary.main" }}>
+          Will Respond To All Inquires (:
+        </Typography>
       </Box>
       <Box
         sx={{

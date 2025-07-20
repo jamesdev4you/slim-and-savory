@@ -23,7 +23,7 @@ const HomeLearnMore = () => {
         sx={{
           width: "80%",
           height: "80%",
-          backgroundColor: "red",
+          backgroundColor: "background.dark",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
