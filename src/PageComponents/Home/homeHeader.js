@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Box, Button } from "@mui/material";
+import { StyledAnimatedButton } from "../Styled/styledButtons";
 import food1 from "../assets/food1.jpg";
 import food2 from "../assets/food2.jpg";
 import food3 from "../assets/food3.jpg";
@@ -11,17 +12,7 @@ const HomeHeader = () => {
       title: "Learn More",
       picture: food1,
       button: (
-        <Button
-          variant="contained"
-          sx={{
-            width: { xl: "60%", md: "80%" },
-            height: "60px",
-            fontSize: { xl: "1em", md: "1em" },
-            borderRadius: "0px",
-          }}
-        >
-          Learn More
-        </Button>
+        <AnimatedHeaderStyledButton>Learn more</AnimatedHeaderStyledButton>
       ),
     },
     {

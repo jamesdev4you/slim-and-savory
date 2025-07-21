@@ -23,9 +23,10 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 const drawerWidth = 240;
 const navItems = [
   { text: "Home", href: "/" },
-  { text: "Appointment", href: "/appointment" },
-  { text: "Team", href: "/team" },
-  { text: "Gallery", href: "/gallery" },
+  { text: "Shop", href: "/shop" },
+  { text: "About Me", href: "/aboutme" },
+  { text: "Contact Me", href: "/contactme" },
+  { text: "Press", href: "/press" },
 ];
 
 const icons = [FacebookIcon, LinkedInIcon, YouTubeIcon, InstagramIcon];
@@ -178,25 +179,27 @@ export default function NavBar(props) {
           >
             <MenuIcon sx={{ color: "#1B1E1E" }} />
           </IconButton>
-          <Box
-            alt="yooo"
-            sx={{
-              display: { sm: "none", md: "block" },
-              height: "80px",
-              width: "80px",
-              marginLeft: {
-                xs: "auto",
-                sm: "auto",
-                md: "0",
-                lg: "0",
-                xl: "0",
-              },
-              backgroundImage: `url(${Logo})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
+          <NavLink to={"/"}>
+            <Box
+              alt="yooo"
+              sx={{
+                display: { sm: "none", md: "block" },
+                height: "80px",
+                width: "80px",
+                marginLeft: {
+                  xs: "auto",
+                  sm: "auto",
+                  md: "0",
+                  lg: "0",
+                  xl: "0",
+                },
+                backgroundImage: `url(${Logo})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+          </NavLink>
           <Box
             sx={{
               display: { xs: "none", sm: "none", md: "flex" },
@@ -226,17 +229,17 @@ export default function NavBar(props) {
                 )}
 
                 {/* NavLink */}
-                <NavLink
-                  className="menu_link"
-                  style={{
-                    fontFamily: "Birds",
-                    textTransform: "none",
-                    color: "#1B1E1E",
-                    textDecoration: "none",
-                  }}
-                  to={item.href}
-                >
-                  {item.text}
+                <NavLink className="menu_link" to={item.href}>
+                  <Typography
+                    sx={{
+                      fontFamily: "Birds",
+                      textTransform: "none",
+                      color: "#1B1E1E",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {item.text}
+                  </Typography>
                 </NavLink>
               </Box>
             ))}
