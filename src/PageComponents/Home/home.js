@@ -17,7 +17,7 @@ const home = () => {
         sx={{
           width: "100%",
           height: "1px",
-          backgroundColor: "background.dark",
+          backgroundColor: "background.line",
         }}
       />
       <HomeCookbook />
@@ -25,7 +25,7 @@ const home = () => {
         sx={{
           width: "100%",
           height: "1px",
-          backgroundColor: "background.dark",
+          backgroundColor: "background.line",
         }}
       />
       <HomeLearnMore />
@@ -33,7 +33,7 @@ const home = () => {
         sx={{
           width: "100%",
           height: "1px",
-          backgroundColor: "background.dark",
+          backgroundColor: "background.line",
         }}
       />
       <HomeBlog />
@@ -41,7 +41,7 @@ const home = () => {
         sx={{
           width: "100%",
           height: "1px",
-          backgroundColor: "background.dark",
+          backgroundColor: "background.line",
         }}
       />
       <HomeShop />

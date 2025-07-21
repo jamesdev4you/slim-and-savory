@@ -1,6 +1,6 @@
 a.nav_link:hover {
   cursor: pointer;
-  color: #2e5984;
+  color: #7c8e76;
 }
 
 .nav_link {
@@ -15,7 +15,8 @@ a.nav_link:hover {
 
 .nav_links:hover {
   text-decoration: none;
-  color: #1b1e1e;
+  cursor: pointer;
+  color: #7c8e76;
 }
 
 .menu_link {
@@ -28,5 +29,5 @@ a.nav_link:hover {
 
 a.menu_link:hover {
   cursor: pointer;
-  color: #c2ad90;
+  color: #7c8e76;
 }

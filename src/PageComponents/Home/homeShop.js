@@ -26,10 +26,11 @@ const HomeShop = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-around",
+          justifyContent: "space-evenly",
+          gap: "2em",
         }}
       >
-        <Typography variant="h2" sx={{ mb: 1, color: "primary.main" }}>
+        <Typography variant="h2" sx={{ color: "primary.dark" }}>
           {" "}
           Come Shop With Me
         </Typography>
@@ -46,15 +47,15 @@ const HomeShop = () => {
               key={index}
               sx={{
                 width: "22%",
-                height: "80%", // Fixed height for uniformity
-                borderRadius: "8px", // Box-like appearance
-                overflow: "hidden", // Ensures images stay within bounds
-                boxShadow: 3, // Adds depth
+                height: "auto",
+                borderRadius: "8px",
+                overflow: "hidden",
+                boxShadow: 3,
                 "&:hover": { cursor: "pointer" },
                 "& img": {
                   width: "100%",
                   height: "100%",
-                  objectFit: "cover", // Ensures images fill container
+                  objectFit: "cover",
                 },
               }}
             >
@@ -69,6 +70,10 @@ const HomeShop = () => {
             height: "60px",
             fontSize: { xl: "1em", md: "1em" },
             borderRadius: "0px",
+            backgroundColor: "primary.dark",
+            "&:hover": {
+              backgroundColor: "primary.main",
+            },
           }}
         >
           Shop Now

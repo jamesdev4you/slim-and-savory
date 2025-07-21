@@ -59,6 +59,10 @@ export default function NavBar(props) {
                 fontFamily: "Birds",
                 fontSize: "24px",
                 margin: "auto",
+                "&:hover": {
+                  cursor: "pointer",
+                  color: "#7c8e76",
+                },
               }}
               to={item.href}
             >
@@ -111,6 +115,7 @@ export default function NavBar(props) {
                 marginRight: "1em",
                 color: "#1B1E1E",
                 fontFamily: "Birds",
+                "&:hover": { cursor: "pointer", textDecoration: "underline" },
               }}
             >
               Join my Newsletter to stay up to date!{" "}
@@ -156,7 +161,7 @@ export default function NavBar(props) {
                     height: "100%",
                     width: "10%",
                     color: "white",
-                    "&:hover": { cursor: "pointer" },
+                    "&:hover": { cursor: "pointer", color: "#373e02" },
                   }}
                 />
               ))}
@@ -252,6 +257,9 @@ export default function NavBar(props) {
                   textTransform: "none",
                   fontSize: "12px",
                   textDecoration: "underline",
+                  "&:hover": {
+                    cursor: "pointer",
+                  },
                 }}
                 to={item.href}
               >

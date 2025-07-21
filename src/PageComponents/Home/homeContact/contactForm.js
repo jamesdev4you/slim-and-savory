@@ -26,7 +26,7 @@ export default function ContactForm() {
       >
         Contact
       </Typography>
-      <Typography sx={{ fontSize: "16px", color: "#f7ffe5" }}>
+      <Typography sx={{ fontSize: "16px", color: "#f7ffe5", mb: 2 }}>
         <span style={{ color: "red" }}>*</span> INDICATES REQUIRED FIELD!
       </Typography>
 
@@ -104,6 +104,7 @@ export default function ContactForm() {
           variant="contained"
           fullWidth
           color="primary"
+          sx={{ border: "1px solid white" }}
         >
           Submit
         </Button>

@@ -121,6 +121,9 @@ const HomeBlog = () => {
               display: "flex",
               flexDirection: "column",
               marginBottom: "2em",
+              "&:hover": {
+                cursor: "pointer",
+              },
             }}
           >
             {/* Image */}
@@ -133,7 +136,20 @@ const HomeBlog = () => {
               }}
             />
             {/* Content */}
-            <Box sx={{ pl: 2, pr: 2, pt: 1, pb: 1, textAlign: "left" }}>
+            <Box
+              sx={{
+                pl: 2,
+                pr: 2,
+                pt: 1,
+                pb: 2,
+                textAlign: "left",
+                display: "flex",
+                alignItems: "start",
+                justifyCenter: "center",
+                flexDirection: "column",
+                gap: ".5em",
+              }}
+            >
               <Typography variant="h6" sx={{ marginTop: ".em" }}>
                 {item.Title}
               </Typography>
