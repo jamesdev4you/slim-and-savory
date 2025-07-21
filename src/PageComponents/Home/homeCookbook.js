@@ -79,12 +79,12 @@ const HomeCookbook = () => {
                 height: "40px",
                 fontSize: { xl: "1em", md: "1em" },
                 borderRadius: "0px",
-                backgroundColor: "#d9d9d9",
-                color: "#373e02", // Dark Green text
-                border: "2px solid #373e02", // Dark Green border
+                backgroundColor: "#373e02",
+                color: "#d9d9d9", // Dark Green text
+                border: "2px solid #d9d9d9", // Dark Green border
                 fontWeight: "bold",
                 "&:hover": {
-                  backgroundColor: "#F0F0F0", // Optional: subtle hover effect
+                  backgroundColor: "#d9d9d9", // Optional: subtle hover effect
                 },
               }}
             >
@@ -97,9 +97,9 @@ const HomeCookbook = () => {
                 height: "40px",
                 fontSize: { xl: "1em", md: "1em" },
                 borderRadius: "0px",
-                backgroundColor: "#d9d9d9",
-                color: "#373e02", // Dark Green text
-                border: "2px solid #373e02", // Dark Green border
+                backgroundColor: "#373e02",
+                color: "#d9d9d9", // Dark Green text
+                border: "2px solid #d9d9d9", // Dark Green border
                 fontWeight: "bold",
                 "&:hover": {
                   backgroundColor: "#d9d9d9", // Optional: subtle hover effect
