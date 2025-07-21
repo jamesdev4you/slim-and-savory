@@ -162,6 +162,7 @@ export default function NavBar(props) {
                     height: "100%",
                     width: "10%",
                     color: "white",
+                    transition: "all .2s ease",
                     "&:hover": { cursor: "pointer", color: "#373e02" },
                   }}
                 />
@@ -222,7 +223,7 @@ export default function NavBar(props) {
                     sx={{
                       width: "1px",
                       height: "24px",
-                      backgroundColor: "#000",
+                      backgroundColor: "primary.dark",
                       marginRight: 2, // space between line and link
                     }}
                   />
@@ -234,8 +235,12 @@ export default function NavBar(props) {
                     sx={{
                       fontFamily: "Birds",
                       textTransform: "none",
-                      color: "#1B1E1E",
+                      color: "primary.dark",
                       textDecoration: "none",
+                      transition: "all .3s ease",
+                      "&:hover": {
+                        color: "primary.light",
+                      },
                     }}
                   >
                     {item.text}
@@ -260,6 +265,7 @@ export default function NavBar(props) {
                   textTransform: "none",
                   fontSize: "12px",
                   textDecoration: "underline",
+                  transition: "all .3s ease",
                   "&:hover": {
                     cursor: "pointer",
                   },
