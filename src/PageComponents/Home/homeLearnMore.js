@@ -23,7 +23,6 @@ const HomeLearnMore = () => {
         sx={{
           width: "80%",
           height: "80%",
-          backgroundColor: "background.dark",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -41,12 +40,22 @@ const HomeLearnMore = () => {
             justifyContent: "start",
           }}
         >
-          <Typography variant="h4">Learn More About</Typography>
-          <Typography variant="h2">Suzie Aragon</Typography>
-          <Typography variant="h5" sx={{ marginTop: "10px" }}>
+          <Typography variant="h4" sx={{ color: "primary.dark" }}>
+            Learn More About
+          </Typography>
+          <Typography variant="h3" sx={{ color: "primary.dark" }}>
+            Suzie Aragon
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{ marginTop: "10px", color: "primary.dark" }}
+          >
             Join Suzie Aragon's Newsletter and be the first to
           </Typography>
-          <Typography variant="h5" sx={{ marginTop: "10px" }}>
+          <Typography
+            variant="h6"
+            sx={{ marginTop: "10px", color: "primary.dark" }}
+          >
             know when her innovative cookbook arrives!
           </Typography>
 
@@ -64,12 +73,13 @@ const HomeLearnMore = () => {
               <Icon
                 key={index}
                 sx={{
-                  height: "100%",
+                  height: "80%",
                   width: "auto",
                   color: "white",
-                  backgroundColor: "black",
+                  backgroundColor: "primary.dark",
                   borderRadius: "50%",
                   padding: "10px",
+                  "&:hover": { cursor: "pointer" },
                 }}
               />
             ))}
@@ -82,11 +92,12 @@ const HomeLearnMore = () => {
               height: "40px",
               fontSize: { xl: "1em", md: "1em" },
               borderRadius: "0px",
-              backgroundColor: "#FFFFFF",
-              color: "#004225", // Dark Green text
-              border: "2px solid #004225", // Dark Green border
+              backgroundColor: "#f1f1f1",
+              color: "#373e02", // Dark Green text
+              border: "2px solid #373e02", // Dark Green border
+
               "&:hover": {
-                backgroundColor: "#F0F0F0", // Optional: subtle hover effect
+                backgroundColor: "#f1f1f1", // Optional: subtle hover effect
               },
               borderRadius: "15px",
               marginTop: { xl: "1em", md: "1em" },

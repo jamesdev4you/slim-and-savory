@@ -27,7 +27,7 @@ const HomeCookbook = () => {
         <Box
           sx={{
             width: "30%",
-            height: "90%",
+            height: "85%",
             backgroundImage: `url(${food1})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -45,12 +45,22 @@ const HomeCookbook = () => {
             marginTop: "3%",
           }}
         >
-          <Typography variant="h5">Coming Soon!</Typography>
-          <Typography variant="h3">Slim & Savory Cookbook</Typography>
-          <Typography variant="h6" sx={{ marginTop: "20px" }}>
+          <Typography variant="h5" sx={{ color: "primary.dark" }}>
+            Coming Soon!
+          </Typography>
+          <Typography
+            variant="h3"
+            sx={{ color: "primary.dark", fontWeight: "bold" }}
+          >
+            Slim & Savory Cookbook
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{ marginTop: "20px", color: "primary.dark" }}
+          >
             Join Suzie Aragon's Newsletter and be the first to
           </Typography>
-          <Typography variant="h6" sx={{ marginTop: "20px" }}>
+          <Typography variant="h6" sx={{ marginTop: "20px", color: "#373e02" }}>
             know when her innovative cookbook arrives!
           </Typography>
           <Box
@@ -69,9 +79,10 @@ const HomeCookbook = () => {
                 height: "40px",
                 fontSize: { xl: "1em", md: "1em" },
                 borderRadius: "0px",
-                backgroundColor: "#FFFFFF",
-                color: "#004225", // Dark Green text
-                border: "2px solid #004225", // Dark Green border
+                backgroundColor: "#d9d9d9",
+                color: "#373e02", // Dark Green text
+                border: "2px solid #373e02", // Dark Green border
+                fontWeight: "bold",
                 "&:hover": {
                   backgroundColor: "#F0F0F0", // Optional: subtle hover effect
                 },
@@ -86,11 +97,12 @@ const HomeCookbook = () => {
                 height: "40px",
                 fontSize: { xl: "1em", md: "1em" },
                 borderRadius: "0px",
-                backgroundColor: "#FFFFFF",
-                color: "#004225", // Dark Green text
-                border: "2px solid #004225", // Dark Green border
+                backgroundColor: "#d9d9d9",
+                color: "#373e02", // Dark Green text
+                border: "2px solid #373e02", // Dark Green border
+                fontWeight: "bold",
                 "&:hover": {
-                  backgroundColor: "#F0F0F0", // Optional: subtle hover effect
+                  backgroundColor: "#d9d9d9", // Optional: subtle hover effect
                 },
               }}
             >

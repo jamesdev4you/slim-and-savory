@@ -15,7 +15,7 @@ const HomeShop = () => {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        height: "70vh",
+        height: "90vh",
         backgroundColor: "secondary.main",
       }}
     >
@@ -29,7 +29,7 @@ const HomeShop = () => {
           justifyContent: "space-around",
         }}
       >
-        <Typography variant="h2" sx={{ mb: 2, color: "primary.main" }}>
+        <Typography variant="h2" sx={{ mb: 1, color: "primary.main" }}>
           {" "}
           Come Shop With Me
         </Typography>
@@ -50,6 +50,7 @@ const HomeShop = () => {
                 borderRadius: "8px", // Box-like appearance
                 overflow: "hidden", // Ensures images stay within bounds
                 boxShadow: 3, // Adds depth
+                "&:hover": { cursor: "pointer" },
                 "& img": {
                   width: "100%",
                   height: "100%",

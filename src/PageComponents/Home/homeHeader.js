@@ -52,6 +52,7 @@ const HomeHeader = () => {
             height: "60px",
             fontSize: "1rem",
             borderRadius: "0px",
+            backgroundColor: "#7c8e76",
           }}
         >
           Learn More

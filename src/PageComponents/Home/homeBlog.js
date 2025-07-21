@@ -75,6 +75,7 @@ const HomeBlog = () => {
         justifyContent: "center",
         flexDirection: "column",
         p: 2,
+        mt: 2,
       }}
     >
       {/* Top/Header */}
@@ -88,7 +89,11 @@ const HomeBlog = () => {
         }}
       >
         <Typography variant="h4">Our Latest Blogs</Typography>
-        <Typography variant="h6" color="text.secondary">
+        <Typography
+          variant="h6"
+          color="text.secondary"
+          sx={{ textDecoration: "underline", "&:hover": { cursor: "pointer" } }}
+        >
           Updated Weekly
         </Typography>
       </Box>
