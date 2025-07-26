@@ -70,9 +70,15 @@ const HomeShop = () => {
             height: "60px",
             fontSize: { xl: "1em", md: "1em" },
             borderRadius: "0px",
-            backgroundColor: "primary.dark",
+            backgroundColor: "#373e02",
+            color: "#d9d9d9", // Dark Green text
+            border: "2px solid #d9d9d9", // Dark Green border
+            fontWeight: "bold",
             "&:hover": {
-              backgroundColor: "primary.main",
+              color: "primary.light",
+              borderWidth: "2px",
+              borderStyle: "solid",
+              borderColor: "primary.light", // Optional: subtle hover effect
             },
           }}
         >

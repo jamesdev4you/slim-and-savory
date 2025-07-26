@@ -104,7 +104,10 @@ export default function ContactForm() {
           variant="contained"
           fullWidth
           color="primary"
-          sx={{ border: "1px solid white" }}
+          sx={{
+            border: "1px solid white",
+            "&:hover": { backgroundColor: "#373e02" },
+          }}
         >
           Submit
         </Button>
@@ -132,7 +135,7 @@ const textFieldStyles = {
       borderColor: "#f7ffe5",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "yellow",
+      borderColor: "#a0c49d",
     },
   },
   "& .MuiInputBase-root": {

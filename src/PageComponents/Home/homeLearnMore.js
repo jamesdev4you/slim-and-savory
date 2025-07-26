@@ -79,7 +79,13 @@ const HomeLearnMore = () => {
                   backgroundColor: "primary.dark",
                   borderRadius: "50%",
                   padding: "10px",
-                  "&:hover": { cursor: "pointer" },
+                  "&:hover": {
+                    cursor: "pointer",
+                    color: "primary.light",
+                    borderWidht: "1px",
+                    borderStyle: "solid",
+                    borderColor: "primary.light",
+                  },
                 }}
               />
             ))}
@@ -91,15 +97,17 @@ const HomeLearnMore = () => {
               width: { xl: "30%", md: "30%" },
               height: "40px",
               fontSize: { xl: "1em", md: "1em" },
-              borderRadius: "0px",
-              backgroundColor: "#f1f1f1",
-              color: "#373e02", // Dark Green text
-              border: "2px solid #373e02", // Dark Green border
-
-              "&:hover": {
-                backgroundColor: "#f1f1f1", // Optional: subtle hover effect
-              },
+              backgroundColor: "#373e02",
               borderRadius: "15px",
+              color: "#d9d9d9", // Dark Green text
+              border: "2px solid #d9d9d9", // Dark Green border
+              fontWeight: "bold",
+              "&:hover": {
+                color: "primary.light",
+                borderWidth: "2px",
+                borderStyle: "solid",
+                borderColor: "primary.light", // Optional: subtle hover effect
+              },
               marginTop: { xl: "1em", md: "1em" },
             }}
           >

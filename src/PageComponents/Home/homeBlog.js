@@ -4,61 +4,62 @@ import food1 from "../assets/food1.jpg";
 import food2 from "../assets/food2.jpg";
 import food3 from "../assets/food3.jpg";
 import food4 from "../assets/food4.jpg";
+import { DarkButtonBlog } from "../Styled/styledButtons.js";
 
 const HomeBlog = () => {
   const dataList = [
     {
       Picture: food1,
-      Button: <Button variant="contained">Click Me</Button>,
+      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
     },
     {
       Picture: food2,
-      Button: <Button variant="contained">Click Me</Button>,
+      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
     },
     {
       Picture: food3,
-      Button: <Button variant="contained">Click Me</Button>,
+      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
     },
     {
       Picture: food4,
-      Button: <Button variant="contained">Click Me</Button>,
+      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
     },
     {
       Picture: food1,
-      Button: <Button variant="contained">Click Me</Button>,
+      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
     },
     {
       Picture: food2,
-      Button: <Button variant="contained">Click Me</Button>,
+      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
     },
     {
       Picture: food3,
-      Button: <Button variant="contained">Click Me</Button>,
+      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
     },
     {
       Picture: food4,
-      Button: <Button variant="contained">Click Me</Button>,
+      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
@@ -92,7 +93,10 @@ const HomeBlog = () => {
         <Typography
           variant="h6"
           color="text.secondary"
-          sx={{ textDecoration: "underline", "&:hover": { cursor: "pointer" } }}
+          sx={{
+            textDecoration: "underline",
+            "&:hover": { cursor: "pointer", color: "primary.light" },
+          }}
         >
           Updated Weekly
         </Typography>
@@ -124,6 +128,7 @@ const HomeBlog = () => {
               "&:hover": {
                 cursor: "pointer",
               },
+              boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
             }}
           >
             {/* Image */}
@@ -150,13 +155,11 @@ const HomeBlog = () => {
                 gap: ".5em",
               }}
             >
-              <Typography variant="h6" sx={{ marginTop: ".em" }}>
-                {item.Title}
-              </Typography>
-              {item.Button}
-              <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+              <Typography variant="h6">{item.Title}</Typography>
+              <Typography variant="body2" color="text.secondary">
                 {item.Category} | {item.Date}
               </Typography>
+              {item.Button}
             </Box>
           </Box>
         ))}
