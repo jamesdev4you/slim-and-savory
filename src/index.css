@@ -50,6 +50,11 @@ code {
   justify-content: space-around;
 }
 
+.container {
+  width: 100vw;
+  height: 50vh;
+}
+
 @media only screen and (max-width: 1200px) {
   .homeMenuBox {
     height: auto;
