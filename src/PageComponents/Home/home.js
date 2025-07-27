@@ -6,6 +6,7 @@ import HomeLearnMore from "./homeLearnMore.js";
 import HomeBlog from "./homeBlog.js";
 import HomeShop from "./homeShop.js";
 import HomeContact from "./homeContact/homeContact.js";
+import Footer from "../Footer/footer.js";
 import { Box } from "@mui/material";
 
 const home = () => {
@@ -45,7 +46,22 @@ const home = () => {
         }}
       />
       <HomeShop />
+      <Box
+        sx={{
+          width: "100%",
+          height: "1px",
+          backgroundColor: "background.line",
+        }}
+      />
       <HomeContact />
+      <Box
+        sx={{
+          width: "100%",
+          height: "1px",
+          backgroundColor: "secondary.main",
+        }}
+      />
+      <Footer />
     </div>
   );
 };
