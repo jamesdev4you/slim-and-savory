@@ -2,6 +2,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./PageComponents/Home/home.js";
+import Shop from "./PageComponents/Shop/shop.js";
 import NavBar from "./PageComponents/NavBar/navbar.js";
 import Birds from "./Fonts/birds.ttf";
 
@@ -47,6 +48,7 @@ function App() {
       <Routes>
         <Route path="/" element={<NavBar />} color="secondary">
           <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
         </Route>
       </Routes>
     </ThemeProvider>

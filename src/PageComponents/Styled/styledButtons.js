@@ -34,14 +34,14 @@ export const StyledAnimatedButton = styled(Button)(({ theme }) => ({
   },
 
   "&:hover": {
-    borderWidth: "6px", // thick border on hover
+    borderWidth: "6px",
     color: "#f7ffe5",
   },
 }));
 
 export const DarkButtonBlog = styled(Button)(({ theme }) => ({
-  color: "#d9d9d9", // Dark Green text
-  border: "2px solid #d9d9d9", // Dark Green border
+  color: "#d9d9d9",
+  border: "2px solid #d9d9d9",
   fontWeight: "bold",
   backgroundColor: "#373e02",
   width: "50%",
@@ -49,6 +49,22 @@ export const DarkButtonBlog = styled(Button)(({ theme }) => ({
     color: "#a0c49d",
     borderWidth: "2px",
     borderStyle: "solid",
-    borderColor: "#a0c49d", // Optional: subtle hover effect
+    borderColor: "#a0c49d",
+  },
+}));
+
+export const ShopButton = styled(Button, {
+  shouldForwardProp: (prop) => prop !== "active",
+})(({ theme, active }) => ({
+  color: "#d9d9d9",
+  border: "2px solid #d9d9d9",
+  fontWeight: "bold",
+  backgroundColor: active ? "#a0c49d" : "#373e02",
+  width: "18%",
+  "&:hover": {
+    color: "#a0c49d",
+    borderWidth: "2px",
+    borderStyle: "solid",
+    borderColor: "#a0c49d",
   },
 }));
