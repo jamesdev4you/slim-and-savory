@@ -56,15 +56,17 @@ export const DarkButtonBlog = styled(Button)(({ theme }) => ({
 export const ShopButton = styled(Button, {
   shouldForwardProp: (prop) => prop !== "active",
 })(({ theme, active }) => ({
-  color: "#d9d9d9",
-  border: "2px solid #d9d9d9",
+  color: active ? "#373e02" : "#d9d9d9",
+  border: active ? "2px solid #373e02" : "2px solid #d9d9d9",
   fontWeight: "bold",
   backgroundColor: active ? "#a0c49d" : "#373e02",
   width: "18%",
+  borderRadius: "15px",
   "&:hover": {
-    color: "#a0c49d",
+    color: "#373e02",
     borderWidth: "2px",
     borderStyle: "solid",
-    borderColor: "#a0c49d",
+    borderColor: "#373e02",
+    backgroundColor: "#a0c49d",
   },
 }));
