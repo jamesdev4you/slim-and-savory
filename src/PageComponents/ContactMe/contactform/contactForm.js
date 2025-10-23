@@ -11,19 +11,16 @@ export default function ContactForm() {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        backgroundColor: "#373e02",
+        backgroundColor: "#f7ffe5",
         padding: "20px",
         borderRadius: "15px",
         width: "100%",
         borderWidth: "2px",
         borderStyle: "solid",
-        borderColor: "#373e02",
+        borderColor: "#7c8e76",
       }}
     >
-      <Typography
-        variant="h2"
-        sx={{ color: "primary.dark", fontFamily: "Birds" }}
-      >
+      <Typography variant="h2" sx={{ color: "#373e02", fontFamily: "Birds" }}>
         Contact
       </Typography>
       <Typography sx={{ fontSize: "16px", color: "#373e02", mb: 2 }}>
@@ -47,7 +44,7 @@ export default function ContactForm() {
           variant="outlined"
           fullWidth
           required
-          color="#373e02"
+          color="#f7ffe5"
           sx={textFieldStyles}
         />
 
@@ -57,7 +54,7 @@ export default function ContactForm() {
           placeholder="Enter Last Name"
           variant="outlined"
           fullWidth
-          color="#373e02"
+          color="#f7ffe5"
           sx={textFieldStyles}
         />
 
@@ -69,7 +66,7 @@ export default function ContactForm() {
           variant="outlined"
           fullWidth
           required
-          color="#373e02"
+          color="secondary.main"
           sx={textFieldStyles}
         />
 
@@ -81,7 +78,7 @@ export default function ContactForm() {
           variant="outlined"
           fullWidth
           required
-          color="primary.dark"
+          color="secondary.main"
           sx={textFieldStyles}
         />
 
@@ -102,8 +99,8 @@ export default function ContactForm() {
           type="submit"
           value="Send"
           variant="contained"
+          backgroundColor="#373e02"
           fullWidth
-          color="primary"
           sx={{
             border: "1px solid white",
             "&:hover": { backgroundColor: "#373e02" },
@@ -139,6 +136,6 @@ const textFieldStyles = {
     },
   },
   "& .MuiInputBase-root": {
-    color: "#f7ffe5",
+    color: "#373e02",
   },
 };
