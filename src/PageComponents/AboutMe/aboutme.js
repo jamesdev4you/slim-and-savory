@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar/navbar.js";
 import Footer from "../Footer/footer.js";
+import AboutHeader from "../AboutMe/aboutheader.js";
 import { Box } from "@mui/material";
 
 const aboutme = () => {
@@ -14,6 +15,7 @@ const aboutme = () => {
           backgroundColor: "secondary.main",
         }}
       />
+      <AboutHeader />
       <Footer />
     </div>
   );

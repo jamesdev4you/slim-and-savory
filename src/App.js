@@ -3,6 +3,9 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./PageComponents/Home/home.js";
 import Shop from "./PageComponents/Shop/shop.js";
+import AboutMe from "./PageComponents/AboutMe/aboutme.js";
+import Press from "./PageComponents/Press/press.js";
+import ContactMe from "./PageComponents/ContactMe/contactme.js";
 import NavBar from "./PageComponents/NavBar/navbar.js";
 import Birds from "./Fonts/birds.ttf";
 
@@ -49,6 +52,9 @@ function App() {
         <Route path="/" element={<NavBar />} color="secondary">
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/aboutme" element={<AboutMe />} />
+          <Route path="/contactme" element={<ContactMe />} />
+          <Route path="/press" element={<Press />} />
         </Route>
       </Routes>
     </ThemeProvider>
