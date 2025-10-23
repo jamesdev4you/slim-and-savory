@@ -4,6 +4,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import LabelLogo from "../assets/LabelLogo.png";
 import food1 from "../assets/food1.jpg";
 
 const aboutheader = () => {
@@ -11,10 +12,10 @@ const aboutheader = () => {
     <Box
       sx={{
         width: "100%",
-        Height: "90vh",
+        height: "90vh",
         display: "flex",
         justifyContent: "center",
-        paddingTop: "64px",
+        paddingTop: "12vh",
       }}
     >
       <Box
@@ -29,66 +30,45 @@ const aboutheader = () => {
       >
         <Box
           sx={{
-            width: "70%",
-            padding: "3em 0em",
-            height: { xl: "90%", md: "100%" },
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "start",
-            justifyContent: "start",
-          }}
-        >
-          <Typography variant="h4" sx={{ color: "primary.dark" }}>
-            Learn More About
-          </Typography>
-          <Typography variant="h3" sx={{ color: "primary.dark" }}>
-            Suzie Aragon
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{ marginTop: "10px", color: "primary.dark" }}
-          >
-            Join Suzie Aragon's Newsletter and be the first to
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{ marginTop: "10px", color: "primary.dark" }}
-          >
-            know when her innovative cookbook arrives!
-          </Typography>
-
-          <Button
-            variant="contained"
-            sx={{
-              width: { xl: "30%", md: "30%" },
-              height: "40px",
-              fontSize: { xl: "1em", md: "1em" },
-              backgroundColor: "#373e02",
-              borderRadius: "15px",
-              color: "#d9d9d9", // Dark Green text
-              border: "2px solid #d9d9d9", // Dark Green border
-              fontWeight: "bold",
-              "&:hover": {
-                color: "primary.light",
-                borderWidth: "2px",
-                borderStyle: "solid",
-                borderColor: "primary.light", // Optional: subtle hover effect
-              },
-              marginTop: { xl: "1em", md: "1em" },
-            }}
-          >
-            Learn More
-          </Button>
-        </Box>
-        <Box
-          sx={{
-            width: "40vw",
-            height: "90%",
+            width: "30vw",
+            height: "70%",
             backgroundImage: `url(${food1})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         />
+        <Box
+          sx={{
+            width: "50%",
+            padding: "3em 0em",
+            height: { xl: "90%", md: "100%" },
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "start",
+            justifyContent: "center",
+            gap: "1em",
+          }}
+        >
+          <Typography
+            variant="h3"
+            sx={{ color: "primary.dark", fontWeight: "bold" }}
+          >
+            My Name Is Suzie and my Passion is to make everything
+          </Typography>
+          <Box
+            sx={{
+              width: "75%",
+              height: "100px",
+              backgroundImage: `url(${LabelLogo})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <Typography variant="h6" sx={{ color: "primary.dark" }}>
+            My passion is to make food that is healthy and tasty. All my dishes
+            are made for you to enjoy losing weight!
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );
