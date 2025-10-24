@@ -48,6 +48,47 @@ const contactpage = () => {
         >
           <Box
             sx={{
+              width: "70%",
+              gap: "1em",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              sx={{
+                width: {
+                  xl: "100%",
+                  lg: "100%",
+                  md: "100%",
+                  sm: "90%",
+                  xs: "100%",
+                },
+                height: "60vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: {
+                  xl: "0px",
+                  lg: "0px",
+                  md: "50px",
+                  sm: "50px",
+                  xs: "50px",
+                },
+                marginTop: {
+                  xl: "0px",
+                  lg: "0px",
+                  md: "50px",
+                  sm: "50px",
+                  xs: "50px",
+                },
+              }}
+            >
+              <ContactForm />
+            </Box>
+          </Box>
+          <Box
+            sx={{
               width: "50%",
 
               height: { xl: "90%", md: "100%" },
@@ -105,47 +146,6 @@ const contactpage = () => {
                   }}
                 />
               ))}
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              width: "70%",
-              gap: "1em",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Box
-              sx={{
-                width: {
-                  xl: "100%",
-                  lg: "100%",
-                  md: "100%",
-                  sm: "90%",
-                  xs: "100%",
-                },
-                height: "60vh",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: {
-                  xl: "0px",
-                  lg: "0px",
-                  md: "50px",
-                  sm: "50px",
-                  xs: "50px",
-                },
-                marginTop: {
-                  xl: "0px",
-                  lg: "0px",
-                  md: "50px",
-                  sm: "50px",
-                  xs: "50px",
-                },
-              }}
-            >
-              <ContactForm />
             </Box>
           </Box>
         </Box>

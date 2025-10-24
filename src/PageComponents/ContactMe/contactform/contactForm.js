@@ -14,19 +14,12 @@ export default function ContactForm() {
         backgroundColor: "#f7ffe5",
         padding: "20px",
         borderRadius: "15px",
-        width: "100%",
+        width: "70%",
         borderWidth: "2px",
         borderStyle: "solid",
-        borderColor: "#7c8e76",
+        borderColor: "#373e02",
       }}
     >
-      <Typography variant="h2" sx={{ color: "#373e02", fontFamily: "Birds" }}>
-        Contact
-      </Typography>
-      <Typography sx={{ fontSize: "16px", color: "#373e02", mb: 2 }}>
-        <span style={{ color: "red" }}>*</span> INDICATES REQUIRED FIELD!
-      </Typography>
-
       <form
         style={{
           paddingTop: "5px",
