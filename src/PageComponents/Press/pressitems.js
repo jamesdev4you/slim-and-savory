@@ -6,13 +6,29 @@ import food2 from "../assets/food2.jpg";
 import food3 from "../assets/food3.jpg";
 import food4 from "../assets/food4.jpg";
 
-const pressItems = ({ activeSection }) => {
+const PressItems = ({ activeSection }) => {
   const pressData = {
     "All Products": [
-      { picture: food1, href: "#", text: "Press Article - We did it big" },
-      { picture: food2, href: "#", text: "Press Article - We did it big" },
-      { picture: food3, href: "#", text: "Press Article - We did it big" },
-      { picture: food4, href: "#", text: "Press Article - We did it big" },
+      {
+        picture: "/images/shared/food1.jpg",
+        href: "#",
+        text: "Press Article - We did it big",
+      },
+      {
+        picture: "/images/shared/food2.jpg",
+        href: "#",
+        text: "Press Article - We did it big",
+      },
+      {
+        picture: "/images/shared/food3.jpg",
+        href: "#",
+        text: "Press Article - We did it big",
+      },
+      {
+        picture: "/images/shared/food4.jpg",
+        href: "#",
+        text: "Press Article - We did it big",
+      },
     ],
     "Food Related": [
       { picture: food1, href: "#", text: "Press Article - We did it big" },
@@ -101,4 +117,4 @@ const pressItems = ({ activeSection }) => {
     </Box>
   );
 };
-export default pressItems;
+export default PressItems;

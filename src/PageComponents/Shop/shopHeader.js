@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+"use client";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import { ShopButton } from "../Styled/styledButtons";
 
-const shopHeader = ({ activeSection, setActiveSection, shopSections }) => {
+const ShopHeader = ({ activeSection, setActiveSection, shopSections }) => {
   return (
     <Box
       sx={{
@@ -48,4 +47,4 @@ const shopHeader = ({ activeSection, setActiveSection, shopSections }) => {
     </Box>
   );
 };
-export default shopHeader;
+export default ShopHeader;

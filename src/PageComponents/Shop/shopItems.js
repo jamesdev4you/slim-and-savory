@@ -1,26 +1,22 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import food1 from "../assets/food1.jpg";
-import food2 from "../assets/food2.jpg";
-import food3 from "../assets/food3.jpg";
-import food4 from "../assets/food4.jpg";
 
-const shopItems = ({ activeSection }) => {
+const ShopItems = ({ activeSection }) => {
   const shopData = {
     "All Products": [
-      { picture: food1, href: "#" },
-      { picture: food2, href: "#" },
-      { picture: food3, href: "#" },
-      { picture: food4, href: "#" },
+      { picture: "/images/shared/food1.jpg", href: "#" },
+      { picture: "/images/shared/food2.jpg", href: "#" },
+      { picture: "/images/shared/food3.jpg", href: "#" },
+      { picture: "/images/shared/food4.jpg", href: "#" },
     ],
     "Food Related": [
-      { picture: food1, href: "#" },
-      { picture: food2, href: "#" },
+      { picture: "/images/shared/food1.jpg", href: "#" },
+      { picture: "/images/shared/food2.jpg", href: "#" },
     ],
     Beauty: [
-      { picture: food3, href: "#" },
-      { picture: food4, href: "#" },
+      { picture: "/images/shared/food3.jpg", href: "#" },
+      { picture: "/images/shared/food3.jpg", href: "#" },
     ],
     Decorative: [],
     Wellness: [],
@@ -73,4 +69,4 @@ const shopItems = ({ activeSection }) => {
     </Box>
   );
 };
-export default shopItems;
+export default ShopItems;

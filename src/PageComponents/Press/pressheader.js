@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+"use client";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import { ShopButton } from "../Styled/styledButtons";
 
-const pressheader = ({ activeSection, setActiveSection, pressSections }) => {
+const PressHeader = ({ activeSection, setActiveSection, pressSections }) => {
   return (
     <Box
       sx={{
@@ -48,4 +47,4 @@ const pressheader = ({ activeSection, setActiveSection, pressSections }) => {
     </Box>
   );
 };
-export default pressheader;
+export default PressHeader;

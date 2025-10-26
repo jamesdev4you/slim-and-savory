@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+"use client";
+import { useState } from "react";
 import NavBar from "../NavBar/navbar.js";
 import Footer from "../Footer/footer.js";
 import PressHeader from "./pressheader.js";
 import PressItems from "./pressitems.js";
 
-const press = () => {
+const Press = () => {
   const pressSections = [
     "All Products",
     "Food Related",
@@ -28,4 +29,4 @@ const press = () => {
     </div>
   );
 };
-export default press;
+export default Press;

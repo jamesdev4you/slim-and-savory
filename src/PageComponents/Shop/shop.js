@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+"use client";
+import { useState } from "react";
 import NavBar from "../NavBar/navbar.js";
 import Footer from "../Footer/footer.js";
 import ShopHeader from "./shopHeader.js";
 import ShopItems from "./shopItems.js";
-const shop = () => {
+const Shop = () => {
   const shopSections = [
     "All Products",
     "Food Related",
@@ -27,4 +28,4 @@ const shop = () => {
     </div>
   );
 };
-export default shop;
+export default Shop;
