@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import NavBar from "../NavBar/navbar.js";
 import Footer from "../Footer/footer.js";
@@ -6,9 +7,9 @@ import AboutDescription from "../AboutMe/aboutdescription.js";
 import AboutMeShop from "../AboutMe/aboutmeshop.js";
 import { Box } from "@mui/material";
 
-const aboutme = () => {
+const AboutMe = () => {
   return (
-    <div>
+    <Box>
       <NavBar />
       <Box
         sx={{
@@ -42,7 +43,7 @@ const aboutme = () => {
         }}
       />
       <Footer />
-    </div>
+    </Box>
   );
 };
-export default aboutme;
+export default AboutMe;

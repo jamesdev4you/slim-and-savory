@@ -1,13 +1,8 @@
+"use client";
 import React from "react";
 import { Typography, Box, Button } from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LabelLogo from "../assets/LabelLogo.png";
-import food1 from "../assets/food1.jpg";
 
-const aboutheader = () => {
+const AboutHeader = () => {
   return (
     <Box
       sx={{
@@ -32,7 +27,7 @@ const aboutheader = () => {
           sx={{
             width: "30vw",
             height: "70%",
-            backgroundImage: `url(${food1})`,
+            backgroundImage: "url('/images/shared/food1.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -59,7 +54,7 @@ const aboutheader = () => {
             sx={{
               width: "75%",
               height: "100px",
-              backgroundImage: `url(${LabelLogo})`,
+              backgroundImage: "url('/images/shared/LabelLogo.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -73,4 +68,4 @@ const aboutheader = () => {
     </Box>
   );
 };
-export default aboutheader;
+export default AboutHeader;

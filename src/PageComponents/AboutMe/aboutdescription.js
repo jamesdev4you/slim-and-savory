@@ -1,9 +1,8 @@
+"use client";
 import React from "react";
 import { Typography, Box, Button } from "@mui/material";
-import LabelLogo from "../assets/LabelLogo.png";
-import food2 from "../assets/food2.jpg";
 
-const aboutdescription = () => {
+const AboutDescription = () => {
   return (
     <Box
       sx={{
@@ -71,7 +70,7 @@ const aboutdescription = () => {
           sx={{
             width: "30vw",
             height: "70%",
-            backgroundImage: `url(${food2})`,
+            backgroundImage: "url('/images/shared/food2.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -80,4 +79,4 @@ const aboutdescription = () => {
     </Box>
   );
 };
-export default aboutdescription;
+export default AboutDescription;

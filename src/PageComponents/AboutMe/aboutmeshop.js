@@ -1,12 +1,15 @@
+"use client";
 import React from "react";
 import { Typography, Box, Button } from "@mui/material";
-import food1 from "../assets/food1.jpg";
-import food2 from "../assets/food2.jpg";
-import food3 from "../assets/food3.jpg";
-import food4 from "../assets/food4.jpg";
+import Image from "next/image";
 
-const aboutmeshop = () => {
-  const images = [food1, food2, food3, food4];
+const AboutMeShop = () => {
+  const images = [
+    { src: "/images/shared/food1.jpg", alt: "Grilled chicken salad" },
+    { src: "/images/shared/food2.jpg", alt: "Avocado toast with eggs" },
+    { src: "/images/shared/food3.jpg", alt: "Berry yogurt bowl" },
+    { src: "/images/shared/food4.jpg", alt: "Veggie quinoa plate" },
+  ];
 
   return (
     <Box
@@ -59,7 +62,13 @@ const aboutmeshop = () => {
                 },
               }}
             >
-              <img src={image} alt={`Food ${index + 1}`} />
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                style={{ objectFit: "cover" }}
+              />
             </Box>
           ))}
         </Box>
@@ -88,4 +97,4 @@ const aboutmeshop = () => {
     </Box>
   );
 };
-export default aboutmeshop;
+export default AboutMeShop;
