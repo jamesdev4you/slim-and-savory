@@ -1,3 +1,5 @@
+import "./index.css";
+
 export const metadata = {
   title: "Slim & Savory",
   description: "Delicious and healthy recipes for your lifestyle.",
