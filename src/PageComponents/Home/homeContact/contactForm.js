@@ -11,22 +11,22 @@ export default function ContactForm() {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        backgroundColor: "#373e02",
+        backgroundColor: "#7c8e76",
         padding: "20px",
         borderRadius: "15px",
         width: "100%",
         borderWidth: "2px",
         borderStyle: "solid",
-        borderColor: "#373e02",
+        borderColor: "#f7ffe5",
       }}
     >
       <Typography
         variant="h2"
-        sx={{ color: "primary.dark", fontFamily: "Birds" }}
+        sx={{ color: "secondary.main", fontFamily: "Birds" }}
       >
         Contact
       </Typography>
-      <Typography sx={{ fontSize: "16px", color: "#373e02", mb: 2 }}>
+      <Typography sx={{ fontSize: "16px", color: "#f7ffe5", mb: 2 }}>
         <span style={{ color: "red" }}>*</span> INDICATES REQUIRED FIELD!
       </Typography>
 
@@ -47,7 +47,7 @@ export default function ContactForm() {
           variant="outlined"
           fullWidth
           required
-          color="#373e02"
+          color="#f7ffe5"
           sx={textFieldStyles}
         />
 
@@ -57,7 +57,7 @@ export default function ContactForm() {
           placeholder="Enter Last Name"
           variant="outlined"
           fullWidth
-          color="#373e02"
+          color="#f7ffe5"
           sx={textFieldStyles}
         />
 
@@ -69,7 +69,7 @@ export default function ContactForm() {
           variant="outlined"
           fullWidth
           required
-          color="#373e02"
+          color="secondary.main"
           sx={textFieldStyles}
         />
 
@@ -81,7 +81,7 @@ export default function ContactForm() {
           variant="outlined"
           fullWidth
           required
-          color="primary.dark"
+          color="secondary.main"
           sx={textFieldStyles}
         />
 
@@ -119,26 +119,26 @@ export default function ContactForm() {
 // Extract repeated styles to avoid duplication
 const textFieldStyles = {
   "& label.Mui-focused": {
-    color: "#373e02",
+    color: "#1B1E1E",
   },
   "& .MuiFormLabel-root": {
-    color: "#373e02",
+    color: "#1B1E1E",
   },
   "& .MuiFormLabel-root.Mui-focused": {
-    color: "#373e02",
+    color: "#1B1E1E",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "#373e02",
+      borderColor: "#1B1E1E",
     },
     "&:hover fieldset": {
-      borderColor: "#373e02",
+      borderColor: "#1B1E1E",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#373e02",
+      borderColor: "yellow",
     },
   },
   "& .MuiInputBase-root": {
-    color: "#f7ffe5",
+    color: "#1B1E1E",
   },
 };
