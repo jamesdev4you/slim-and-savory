@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import NavBar from "../NavBar/navbar.js";
 import Footer from "../Footer/footer.js";
@@ -5,7 +6,7 @@ import ContactHeader from "./contactheader.js";
 import ContactForm from "./contactform/contactpage.js";
 import { Box } from "@mui/material";
 
-const contactme = () => {
+const ContactMe = () => {
   return (
     <div>
       <NavBar />
@@ -36,4 +37,4 @@ const contactme = () => {
     </div>
   );
 };
-export default contactme;
+export default ContactMe;

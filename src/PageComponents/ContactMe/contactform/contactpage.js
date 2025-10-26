@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Typography, Box, Button, Link } from "@mui/material";
 import ContactForm from "./contactForm";
@@ -5,10 +6,9 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import food1 from "../../assets/food1.jpg";
 const icons = [FacebookIcon, LinkedInIcon, YouTubeIcon, InstagramIcon];
 
-const contactpage = () => {
+const ContactPage = () => {
   return (
     <Box
       sx={{
@@ -154,4 +154,4 @@ const contactpage = () => {
   );
 };
 
-export default contactpage;
+export default ContactPage;

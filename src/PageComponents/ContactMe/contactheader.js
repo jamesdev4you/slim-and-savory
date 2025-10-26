@@ -1,8 +1,8 @@
+"use client";
 import React from "react";
 import { Typography, Box, Button } from "@mui/material";
-import food4 from "../assets/longboy.jpg";
 
-const contactheader = () => {
+const ContactHeader = () => {
   return (
     <Box
       sx={{
@@ -14,7 +14,7 @@ const contactheader = () => {
         alignItems: "center",
         gap: "1em",
         paddingTop: "12vh",
-        backgroundImage: `url(${food4})`,
+        backgroundImage: "url('/images/shared/food2.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -34,4 +34,4 @@ const contactheader = () => {
     </Box>
   );
 };
-export default contactheader;
+export default ContactHeader;
