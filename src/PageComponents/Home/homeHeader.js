@@ -1,31 +1,27 @@
 import React from "react";
-import { Typography, Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { StyledAnimatedButton } from "../Styled/styledButtons.js";
-import food1 from "../assets/food1.jpg";
-import food2 from "../assets/food2.jpg";
-import food3 from "../assets/food3.jpg";
-import food4 from "../assets/food4.jpg";
-
+//"url('/images/shared/food2.jpg')",
 const HomeHeader = () => {
   const headerMaterial = [
     {
       title: "Learn More",
-      picture: food1,
+      picture: "/images/shared/food1.jpg",
       button: <StyledAnimatedButton>Learn more</StyledAnimatedButton>,
     },
     {
       title: "Learn More",
-      picture: food2,
+      picture: "/images/shared/food2.jpg",
       button: <StyledAnimatedButton>Learn more</StyledAnimatedButton>,
     },
     {
       title: "Learn More",
-      picture: food3,
+      picture: "/images/shared/food3.jpg",
       button: <StyledAnimatedButton>Learn more</StyledAnimatedButton>,
     },
     {
       title: "Learn More",
-      picture: food4,
+      picture: "/images/shared/food4.jpg",
       button: <StyledAnimatedButton>Learn more</StyledAnimatedButton>,
     },
   ];

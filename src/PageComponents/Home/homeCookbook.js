@@ -1,6 +1,5 @@
-import React from "react";
+"use client";
 import { Typography, Box, Button } from "@mui/material";
-import food1 from "../assets/food1.jpg";
 
 const HomeCookbook = () => {
   return (
@@ -28,7 +27,7 @@ const HomeCookbook = () => {
           sx={{
             width: "30%",
             height: "85%",
-            backgroundImage: `url(${food1})`,
+            backgroundImage: "url('/images/shared/food2.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

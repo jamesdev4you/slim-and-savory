@@ -1,10 +1,9 @@
-import React from "react";
+"use client";
 import { Typography, Box, Button } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import food1 from "../assets/food1.jpg";
 
 const icons = [FacebookIcon, LinkedInIcon, YouTubeIcon, InstagramIcon];
 
@@ -118,7 +117,7 @@ const HomeLearnMore = () => {
           sx={{
             width: "40%",
             height: "90%",
-            backgroundImage: `url(${food1})`,
+            backgroundImage: "url('/images/shared/food2.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

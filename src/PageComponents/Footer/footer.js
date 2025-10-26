@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { Typography, Box } from "@mui/material";
 import { NavLink } from "react-router-dom";

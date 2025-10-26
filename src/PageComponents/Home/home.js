@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import NavBar from "../NavBar/navbar.js";
 import HomeHeader from "./homeHeader.js";
@@ -9,7 +10,7 @@ import HomeContact from "./homeContact/homeContact.js";
 import Footer from "../Footer/footer.js";
 import { Box } from "@mui/material";
 
-const home = () => {
+const Home = () => {
   return (
     <div>
       <NavBar />
@@ -66,4 +67,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;

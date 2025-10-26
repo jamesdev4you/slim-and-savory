@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-import { Typography, Box, Button, Link } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import ContactForm from "./contactForm";
 import food1 from "../../assets/food1.jpg";
 

@@ -1,36 +1,32 @@
-import React from "react";
+"use client";
 import { Typography, Box, Button } from "@mui/material";
-import food1 from "../assets/food1.jpg";
-import food2 from "../assets/food2.jpg";
-import food3 from "../assets/food3.jpg";
-import food4 from "../assets/food4.jpg";
 import { DarkButtonBlog } from "../Styled/styledButtons.js";
 
 const HomeBlog = () => {
   const dataList = [
     {
-      Picture: food1,
+      Picture: "/images/shared/food1.jpg",
       Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
     },
     {
-      Picture: food2,
+      Picture: "/images/shared/food2.jpg",
       Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
     },
     {
-      Picture: food3,
+      Picture: "/images/shared/food3.jpg",
       Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
       Title: "Orange chicken with a tangy BBQ",
     },
     {
-      Picture: food4,
+      Picture: "/images/shared/food4.jpg",
       Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
       Category: "RECIPE",
       Date: "2025-07-17",
@@ -150,7 +146,6 @@ const HomeBlog = () => {
                 textAlign: "left",
                 display: "flex",
                 alignItems: "start",
-                justifyCenter: "center",
                 flexDirection: "column",
                 gap: ".5em",
               }}
