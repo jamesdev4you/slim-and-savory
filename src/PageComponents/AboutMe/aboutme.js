@@ -25,6 +25,13 @@ const AboutMe = () => {
         }}
       />
       <AboutMeShop />
+      <Box
+        sx={{
+          width: "100%",
+          height: "1px",
+          backgroundColor: "secondary.main",
+        }}
+      />
     </Box>
   );
 };

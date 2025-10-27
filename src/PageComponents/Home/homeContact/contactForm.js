@@ -120,26 +120,26 @@ export default function ContactForm() {
 // Extract repeated styles to avoid duplication
 const textFieldStyles = {
   "& label.Mui-focused": {
-    color: "#1B1E1E",
+    color: "#f7ffe5",
   },
   "& .MuiFormLabel-root": {
-    color: "#1B1E1E",
+    color: "#f7ffe5",
   },
   "& .MuiFormLabel-root.Mui-focused": {
-    color: "#1B1E1E",
+    color: "#f7ffe5",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "#1B1E1E",
+      borderColor: "#f7ffe5",
     },
     "&:hover fieldset": {
-      borderColor: "#1B1E1E",
+      borderColor: "#f7ffe5",
     },
     "&.Mui-focused fieldset": {
       borderColor: "yellow",
     },
   },
   "& .MuiInputBase-root": {
-    color: "#1B1E1E",
+    color: "#f7ffe5",
   },
 };

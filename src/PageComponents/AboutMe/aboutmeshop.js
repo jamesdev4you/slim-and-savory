@@ -49,7 +49,7 @@ const AboutMeShop = () => {
               key={index}
               sx={{
                 width: "22%",
-                height: "35vh",
+                height: "auto",
                 borderRadius: "8px",
                 overflow: "hidden",
                 boxShadow: 3,
@@ -58,14 +58,16 @@ const AboutMeShop = () => {
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
+                  "&:hover": { transform: "scale(1.02)" },
+                  transition: "transform 0.3s ease-in-out",
                 },
               }}
             >
               <Image
                 src={image.src}
                 alt={image.alt}
-                fill
-                sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                width={600}
+                height={600}
                 style={{ objectFit: "cover" }}
               />
             </Box>

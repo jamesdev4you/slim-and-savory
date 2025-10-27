@@ -5,10 +5,10 @@ import { StyledAnimatedButton } from "../Styled/styledButtons.js";
 
 const HomeHeader = () => {
   const headerMaterial = [
-    { Title: "Learn More", Picture: "/images/shared/food1.jpg" },
-    { Title: "Learn More", Picture: "/images/shared/food2.jpg" },
-    { Title: "Learn More", Picture: "/images/shared/food3.jpg" },
-    { Title: "Learn More", Picture: "/images/shared/food4.jpg" },
+    { title: "Learn More", picture: "/images/shared/food1.jpg" },
+    { title: "Learn More", picture: "/images/shared/food2.jpg" },
+    { title: "Learn More", picture: "/images/shared/food3.jpg" },
+    { title: "Learn More", picture: "/images/shared/food4.jpg" },
   ];
 
   return (
@@ -18,30 +18,32 @@ const HomeHeader = () => {
         minHeight: "90vh",
         display: "flex",
         justifyContent: "center",
-        pt: "64px", // space below NavBar if fixed
+        alignItems: "center",
+        pt: "64px",
       }}
     >
       <Box
         sx={{
           width: { xl: "80%", md: "90%", sm: "95%", xs: "95%" },
-          display: "grid",
-          gridTemplateColumns: {
-            xs: "1fr",
-            sm: "repeat(2, 1fr)",
-            md: "repeat(4, 1fr)",
-          },
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "90vh",
           gap: 4,
         }}
       >
-        {headerMaterial.map((item) => (
+        {headerMaterial.map((item, index) => (
           <Box
-            height={250}
-            width={300}
+            key={index}
             sx={{
+              width: "20%",
+              height: "70%",
               borderRadius: "8px",
-              backgroundImage: `url(${item.Picture})`,
+              backgroundImage: `url(${item.picture})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              position: "relative",
+              overflow: "visible",
             }}
           >
             <Box
