@@ -97,18 +97,18 @@ const ContactForm = () => {
               width: { xl: "30%", md: "30%" },
               height: "40px",
               fontSize: { xl: "1em", md: "1em" },
-              backgroundColor: "#373e02",
+              backgroundcolor: "#373e02",
               borderRadius: "15px",
-              color: "#d9d9d9", // Dark Green text
-              border: "2px solid #d9d9d9", // Dark Green border
+              color: "#d9d9d9",
+              border: "2px solid #d9d9d9",
               fontWeight: "bold",
               "&:hover": {
                 color: "primary.light",
                 borderWidth: "2px",
-                borderStyle: "solid",
-                borderColor: "primary.light", // Optional: subtle hover effect
+                borderstyle: "solid",
+                borderColor: "primary.light",
               },
-              marginTop: { xl: "1em", md: "1em" },
+              margintop: { xl: "1em", md: "1em" },
             }}
           >
             Learn More

@@ -1,5 +1,10 @@
 "use client";
+
 import * as React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -8,68 +13,68 @@ import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
-import { NavLink } from "react-router-dom";
 import ListItem from "@mui/material/ListItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Logo from "../assets/Logo.png";
-import "../../navlink.css";
-import "../../index.css";
-import { Outlet } from "react-router-dom";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 const drawerWidth = 240;
+
 const navItems = [
   { text: "Home", href: "/" },
   { text: "Shop", href: "/shop" },
-  { text: "About Me", href: "/aboutme" },
-  { text: "Contact Me", href: "/contactme" },
+  { text: "About Me", href: "/about" },
+  { text: "Contact Me", href: "/contact" },
   { text: "Press", href: "/press" },
 ];
-
-const icons = [FacebookIcon, LinkedInIcon, YouTubeIcon, InstagramIcon];
 
 const secondaryItems = [
   { text: "My Favorites", href: "/" },
   { text: "Newsletter", href: "/appointment" },
 ];
 
-export default function NavBar(props) {
+const icons = [FacebookIcon, LinkedInIcon, YouTubeIcon, InstagramIcon];
+
+export default function NavBar() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
+  const handleDrawerToggle = () => setMobileOpen((p) => !p);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname?.startsWith(href);
 
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
       sx={{ textAlign: "center", backgroundColor: "#E4DCC0" }}
     >
-      <img src={Logo} alt="yooo" style={{ height: "150px", width: "150px" }} />
+      {/* Do NOT prefix with /public. Files in public/ are served from root */}
+      <Image
+        src="/images/shared/logo.png"
+        alt="Logo"
+        height={150}
+        width={150}
+        priority
+      />
       <Divider sx={{ backgroundColor: "#1B1E1E" }} />
       <List sx={{ backgroundColor: "#E4DCC0" }}>
         {navItems.map((item) => (
-          <ListItem key={item.text} sx={{ margin: "30px 0px" }} disablePadding>
-            <NavLink
+          <ListItem key={item.text} sx={{ my: 3 }} disablePadding>
+            <Link
+              href={item.href}
               style={{
                 textDecoration: "none",
                 color: "#1B1E1E",
                 fontFamily: "Birds",
-                fontSize: "24px",
-                margin: "auto",
-                "&:hover": {
-                  cursor: "pointer",
-                  color: "#7c8e76",
-                },
+                fontSize: 24,
               }}
-              to={item.href}
             >
               {item.text}
-            </NavLink>
+            </Link>
           </ListItem>
         ))}
       </List>
@@ -80,10 +85,11 @@ export default function NavBar(props) {
     <Box sx={{ flexGrow: 1 }}>
       <CssBaseline />
       <AppBar component="nav">
+        {/* Top strip */}
         <Box
           sx={{
             backgroundColor: "#FFF5E1",
-            height: "60px",
+            height: 60,
             textAlign: "center",
             fontFamily: "Birds",
             display: "flex",
@@ -103,33 +109,28 @@ export default function NavBar(props) {
             <Typography
               sx={{
                 fontWeight: "bold",
-                marginLeft: { xl: "20em", md: "10em" },
-                fontSize: "16px",
+                ml: { xl: "20em", md: "10em" },
+                fontSize: 16,
                 fontFamily: "Birds",
                 color: "#1B1E1E",
               }}
             >
-              Come check out my content I post weekly on my Social Medias!{" "}
+              Come check out my content I post weekly on my Social Medias!
             </Typography>
             <Typography
               sx={{
-                fontSize: "14px",
-                marginRight: "1em",
+                fontSize: 14,
+                mr: 1,
                 color: "#1B1E1E",
                 fontFamily: "Birds",
                 "&:hover": { cursor: "pointer", textDecoration: "underline" },
               }}
             >
-              Join my Newsletter to stay up to date!{" "}
+              Join my Newsletter to stay up to date!
             </Typography>
           </Box>
-          <Box
-            sx={{
-              width: "60px",
-              height: "60px",
-              flexShrink: 0,
-            }}
-          >
+
+          <Box sx={{ width: 60, height: 60, flexShrink: 0 }}>
             <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
               <polygon points="0,0 0,60 60,60" fill="#a0c49d" />
               <polygon points="0,0 60,0 60,60" fill="#7c8e76" />
@@ -156,9 +157,9 @@ export default function NavBar(props) {
                 alignItems: "center",
               }}
             >
-              {icons.map((Icon, index) => (
+              {icons.map((Icon, i) => (
                 <Icon
-                  key={index}
+                  key={i}
                   sx={{
                     height: "100%",
                     width: "10%",
@@ -171,6 +172,7 @@ export default function NavBar(props) {
             </Box>
           </Box>
         </Box>
+
         <Toolbar sx={{ backgroundColor: "background.paper" }}>
           <IconButton
             color="inherit"
@@ -181,31 +183,23 @@ export default function NavBar(props) {
           >
             <MenuIcon sx={{ color: "#1B1E1E" }} />
           </IconButton>
-          <NavLink to={"/"}>
-            <Box
-              alt="yooo"
-              sx={{
-                display: { sm: "none", md: "block" },
-                height: "80px",
-                width: "80px",
-                marginLeft: {
-                  xs: "auto",
-                  sm: "auto",
-                  md: "0",
-                  lg: "0",
-                  xl: "0",
-                },
-                backgroundImage: `url(${Logo})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
+
+          <Link href="/" style={{ display: "inline-flex" }}>
+            <Image
+              src="/images/shared/logo.png"
+              alt="Logo"
+              width={80}
+              height={80}
+              style={{ display: "none" }}
+              priority
             />
-          </NavLink>
+          </Link>
+
+          {/* Desktop menu */}
           <Box
             sx={{
               display: { xs: "none", sm: "none", md: "flex" },
-              marginLeft: "auto",
+              ml: "auto",
               alignItems: "center",
             }}
           >
@@ -215,78 +209,76 @@ export default function NavBar(props) {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  mx: 4, // ✅ Equal spacing on both sides of the whole unit
+                  mx: 4,
                 }}
               >
-                {/* Divider – only if not the first item */}
                 {index !== 0 && (
                   <Box
                     sx={{
-                      width: "1px",
-                      height: "24px",
+                      width: 1,
+                      height: 24,
                       backgroundColor: "primary.dark",
-                      marginRight: 2, // space between line and link
+                      mr: 2,
                     }}
                   />
                 )}
-
-                {/* NavLink */}
-                <NavLink className="menu_link" to={item.href}>
+                <Link
+                  href={item.href}
+                  className="menu_link"
+                  style={{ textDecoration: "none" }}
+                >
                   <Typography
                     sx={{
                       fontFamily: "Birds",
                       textTransform: "none",
-                      color: "primary.dark",
+                      color: isActive(item.href)
+                        ? "primary.light"
+                        : "primary.dark",
                       textDecoration: "none",
                       transition: "all .3s ease",
-                      "&:hover": {
-                        color: "primary.light",
-                      },
+                      "&:hover": { color: "primary.light" },
                     }}
                   >
                     {item.text}
                   </Typography>
-                </NavLink>
+                </Link>
               </Box>
             ))}
           </Box>
 
+          {/* Secondary links */}
           <Box
             sx={{
               display: { xs: "none", sm: "none", md: "block" },
-              marginLeft: "auto",
+              ml: "auto",
             }}
           >
             {secondaryItems.map((item) => (
-              <NavLink
+              <Link
                 key={item.href}
+                href={item.href}
                 className="menu_link"
                 style={{
                   fontFamily: "Birds",
                   textTransform: "none",
-                  fontSize: "12px",
+                  fontSize: 12,
                   textDecoration: "underline",
-                  transition: "all .3s ease",
-                  "&:hover": {
-                    cursor: "pointer",
-                  },
                 }}
-                to={item.href}
               >
                 {item.text}
-              </NavLink>
+              </Link>
             ))}
           </Box>
         </Toolbar>
       </AppBar>
+
+      {/* Mobile drawer */}
       <Box component="nav" sx={{ backgroundColor: "#E4DCC0" }}>
         <Drawer
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
+          ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block", sm: "block", md: "block" },
             "& .MuiDrawer-paper": {
@@ -299,8 +291,6 @@ export default function NavBar(props) {
           {drawer}
         </Drawer>
       </Box>
-
-      <Outlet />
     </Box>
   );
 }

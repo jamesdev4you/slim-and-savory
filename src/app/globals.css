@@ -14,12 +14,16 @@ code {
 
 @font-face {
   font-family: "Birds";
-  src: local("Birds"), url(../src/Fonts/birds.ttf) format("truetype");
+  src: url("/fonts/birds.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "Mono";
-  src: local("Mono"), url(../src/Fonts/mono.otf) format("opentype");
+  src: url("/fonts/mono.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .stylesFlexBox {

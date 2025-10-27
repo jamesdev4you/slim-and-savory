@@ -1,7 +1,5 @@
 "use client";
 import { useState } from "react";
-import NavBar from "../NavBar/navbar.js";
-import Footer from "../Footer/footer.js";
 import PressHeader from "./pressheader.js";
 import PressItems from "./pressitems.js";
 
@@ -18,14 +16,12 @@ const Press = () => {
 
   return (
     <div>
-      <NavBar />
       <PressHeader
         activeSection={activeSection}
         setActiveSection={setActiveSection}
         pressSections={pressSections}
       />
       <PressItems activeSection={activeSection} />
-      <Footer />
     </div>
   );
 };

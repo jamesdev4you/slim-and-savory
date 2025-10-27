@@ -1,19 +1,16 @@
 "use client";
 import React from "react";
-import NavBar from "../NavBar/navbar.js";
 import HomeHeader from "./homeHeader.js";
 import HomeCookbook from "./homeCookbook.js";
 import HomeLearnMore from "./homeLearnMore.js";
 import HomeBlog from "./homeBlog.js";
 import HomeShop from "./homeShop.js";
 import HomeContact from "./homeContact/homeContact.js";
-import Footer from "../Footer/footer.js";
 import { Box } from "@mui/material";
 
 const Home = () => {
   return (
     <div>
-      <NavBar />
       <HomeHeader />
       <Box
         sx={{
@@ -62,7 +59,6 @@ const Home = () => {
           backgroundColor: "secondary.main",
         }}
       />
-      <Footer />
     </div>
   );
 };

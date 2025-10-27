@@ -1,29 +1,14 @@
+"use client";
 import React from "react";
 import { Box } from "@mui/material";
 import { StyledAnimatedButton } from "../Styled/styledButtons.js";
-//"url('/images/shared/food2.jpg')",
+
 const HomeHeader = () => {
   const headerMaterial = [
-    {
-      title: "Learn More",
-      picture: "/images/shared/food1.jpg",
-      button: <StyledAnimatedButton>Learn more</StyledAnimatedButton>,
-    },
-    {
-      title: "Learn More",
-      picture: "/images/shared/food2.jpg",
-      button: <StyledAnimatedButton>Learn more</StyledAnimatedButton>,
-    },
-    {
-      title: "Learn More",
-      picture: "/images/shared/food3.jpg",
-      button: <StyledAnimatedButton>Learn more</StyledAnimatedButton>,
-    },
-    {
-      title: "Learn More",
-      picture: "/images/shared/food4.jpg",
-      button: <StyledAnimatedButton>Learn more</StyledAnimatedButton>,
-    },
+    { Title: "Learn More", Picture: "/images/shared/food1.jpg" },
+    { Title: "Learn More", Picture: "/images/shared/food2.jpg" },
+    { Title: "Learn More", Picture: "/images/shared/food3.jpg" },
+    { Title: "Learn More", Picture: "/images/shared/food4.jpg" },
   ];
 
   return (
@@ -33,34 +18,36 @@ const HomeHeader = () => {
         minHeight: "90vh",
         display: "flex",
         justifyContent: "center",
-        paddingTop: "64px", // push down below NavBar (if NavBar is fixed)
+        pt: "64px", // space below NavBar if fixed
       }}
     >
       <Box
         sx={{
-          width: { xl: "80%", md: "90%" },
+          width: { xl: "80%", md: "90%", sm: "95%", xs: "95%" },
           display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(4, 1fr)",
+          },
           gap: 4,
         }}
       >
-        {headerMaterial.map((item, index) => (
+        {headerMaterial.map((item) => (
           <Box
-            key={index}
+            height={250}
+            width={300}
             sx={{
-              position: "relative",
-              height: "80%",
-              backgroundImage: `url(${item.picture})`,
+              borderRadius: "8px",
+              backgroundImage: `url(${item.Picture})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              borderRadius: "8px",
-              overflow: "visible",
             }}
           >
             <Box
               sx={{
                 position: "absolute",
-                bottom: "-30px",
+                bottom: -30,
                 left: "50%",
                 transform: "translateX(-50%)",
                 width: "100%",
@@ -69,7 +56,7 @@ const HomeHeader = () => {
                 justifyContent: "center",
               }}
             >
-              {item.button}
+              <StyledAnimatedButton>Learn more</StyledAnimatedButton>
             </Box>
           </Box>
         ))}

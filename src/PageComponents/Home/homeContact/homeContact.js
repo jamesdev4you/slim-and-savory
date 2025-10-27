@@ -2,7 +2,6 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
 import ContactForm from "./contactForm";
-import food1 from "../../assets/food1.jpg";
 
 const HomeContact = () => {
   return (
@@ -36,7 +35,7 @@ const HomeContact = () => {
           sx={{
             width: "90%",
             height: "40%",
-            backgroundImage: `url(${food1})`,
+            backgroundImage: `url('/images/shared/food1.jpg')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

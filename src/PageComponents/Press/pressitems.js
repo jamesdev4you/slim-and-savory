@@ -1,10 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import food1 from "../assets/food1.jpg";
-import food2 from "../assets/food2.jpg";
-import food3 from "../assets/food3.jpg";
-import food4 from "../assets/food4.jpg";
 
 const PressItems = ({ activeSection }) => {
   const pressData = {
@@ -31,12 +27,28 @@ const PressItems = ({ activeSection }) => {
       },
     ],
     "Food Related": [
-      { picture: food1, href: "#", text: "Press Article - We did it big" },
-      { picture: food2, href: "#", text: "Press Article - We did it big" },
+      {
+        picture: "/images/shared/food1.jpg",
+        href: "#",
+        text: "Press Article - We did it big",
+      },
+      {
+        picture: "/images/shared/food2.jpg",
+        href: "#",
+        text: "Press Article - We did it big",
+      },
     ],
     Beauty: [
-      { picture: food3, href: "#", text: "Press Article - We did it big" },
-      { picture: food4, href: "#", text: "Press Article - We did it big" },
+      {
+        picture: "/images/shared/food3.jpg",
+        href: "#",
+        text: "Press Article - We did it big",
+      },
+      {
+        picture: "/images/shared/food4.jpg",
+        href: "#",
+        text: "Press Article - We did it big",
+      },
     ],
     Decorative: [],
     Wellness: [],
@@ -92,9 +104,9 @@ const PressItems = ({ activeSection }) => {
                 width: "23%",
                 minWidth: "230px",
                 borderRadius: "8px",
-                backgroundImage: `url(${item.picture})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                backgroundImage: `url(${item.picture})`,
                 height: { xl: "40vh", md: "30vh", sm: "30vh", xs: "180px" },
                 boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
                 "&:hover": { transform: "scale(1.02)" },

@@ -1,7 +1,5 @@
 "use client";
 import { useState } from "react";
-import NavBar from "../NavBar/navbar.js";
-import Footer from "../Footer/footer.js";
 import ShopHeader from "./shopHeader.js";
 import ShopItems from "./shopItems.js";
 const Shop = () => {
@@ -17,14 +15,12 @@ const Shop = () => {
 
   return (
     <div>
-      <NavBar />
       <ShopHeader
         activeSection={activeSection}
         setActiveSection={setActiveSection}
         shopSections={shopSections}
       />
       <ShopItems activeSection={activeSection} />
-      <Footer />
     </div>
   );
 };

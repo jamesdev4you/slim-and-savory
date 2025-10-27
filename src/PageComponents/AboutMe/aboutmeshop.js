@@ -34,7 +34,6 @@ const AboutMeShop = () => {
         }}
       >
         <Typography variant="h2" sx={{ color: "secondary.main" }}>
-          {" "}
           Some Of My Favorites
         </Typography>
         <Box
@@ -63,8 +62,8 @@ const AboutMeShop = () => {
               }}
             >
               <Image
-                src={img.src}
-                alt={img.alt}
+                src={image.src}
+                alt={image.alt}
                 fill
                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 style={{ objectFit: "cover" }}

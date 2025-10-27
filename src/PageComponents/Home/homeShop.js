@@ -63,8 +63,8 @@ const HomeShop = () => {
               }}
             >
               <Image
-                src={img.src}
-                alt={img.alt}
+                src={image.src}
+                alt={image.alt}
                 fill
                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 style={{ objectFit: "cover" }}
