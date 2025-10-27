@@ -31,7 +31,8 @@
     ".next\\dev/types/**/*.ts",
     ".next\\dev/types/**/*.ts",
     "src/app/providers.js",
-    "src/PageComponents/Home/homeHeader.js"
+    "src/PageComponents/Home/homeHeader.js",
+    "src/app/shop/shop.js"
   ],
   "exclude": ["node_modules"]
 }
