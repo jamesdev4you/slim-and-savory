@@ -36,31 +36,115 @@ const Footer = () => {
             Pages
           </Typography>
 
-          <Typography>
-            <Link href="/" className="nav_link">
+          <Link
+            href="/"
+            className="nav_link"
+            style={{ textDecoration: "none" }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Birds",
+                textTransform: "none",
+                color: "white",
+                transition: "all .1s ease",
+                textDecoration: "none",
+                "&:hover": {
+                  color: "primary.light",
+                  textDecoration: "underline",
+                },
+              }}
+            >
               Blogs
-            </Link>
-          </Typography>
-          <Typography>
-            <Link href="/shop" className="nav_link">
+            </Typography>
+          </Link>
+
+          <Link
+            href="/shop"
+            className="nav_link"
+            style={{ textDecoration: "none" }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Birds",
+                textTransform: "none",
+                color: "white",
+                transition: "all .1s ease",
+                textDecoration: "none",
+                "&:hover": {
+                  color: "primary.light",
+                  textDecoration: "underline",
+                },
+              }}
+            >
               Shop
-            </Link>
-          </Typography>
-          <Typography>
-            <Link href="/about" className="nav_link">
+            </Typography>
+          </Link>
+
+          <Link
+            href="/about"
+            className="nav_link"
+            style={{ textDecoration: "none" }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Birds",
+                textTransform: "none",
+                color: "white",
+                transition: "all .1s ease",
+                textDecoration: "none",
+                "&:hover": {
+                  color: "primary.light",
+                  textDecoration: "underline",
+                },
+              }}
+            >
               About Me
-            </Link>
-          </Typography>
-          <Typography>
-            <Link href="/contact" className="nav_link">
+            </Typography>
+          </Link>
+
+          <Link
+            href="/contact"
+            className="nav_link"
+            style={{ textDecoration: "none" }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Birds",
+                textTransform: "none",
+                color: "white",
+                transition: "all .1s ease",
+                textDecoration: "none",
+                "&:hover": {
+                  color: "primary.light",
+                  textDecoration: "underline",
+                },
+              }}
+            >
               Contact Me
-            </Link>
-          </Typography>
-          <Typography>
-            <Link href="/press" className="nav_link">
+            </Typography>
+          </Link>
+
+          <Link
+            href="/press"
+            className="nav_link"
+            style={{ textDecoration: "none" }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Birds",
+                textTransform: "none",
+                color: "white",
+                transition: "all .1s ease",
+                textDecoration: "none",
+                "&:hover": {
+                  color: "primary.light",
+                  textDecoration: "underline",
+                },
+              }}
+            >
               Press
-            </Link>
-          </Typography>
+            </Typography>
+          </Link>
         </Box>
 
         {/* Blogs */}
@@ -79,21 +163,71 @@ const Footer = () => {
           >
             Blogs
           </Typography>
-          <Typography>
-            <Link href="/appointment" className="nav_link">
-              Thai
-            </Link>
-          </Typography>
-          <Typography>
-            <Link href="/appointment" className="nav_link">
-              Chinese
-            </Link>
-          </Typography>
-          <Typography>
-            <Link href="/appointment" className="nav_link">
-              Caribbean
-            </Link>
-          </Typography>
+          <Link
+            href="/about"
+            className="nav_link"
+            style={{ textDecoration: "none" }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Birds",
+                textTransform: "none",
+                color: "white",
+                transition: "all .1s ease",
+                textDecoration: "none",
+                "&:hover": {
+                  color: "primary.light",
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              Dinosaur nuggets
+            </Typography>
+          </Link>
+
+          <Link
+            href="/contact"
+            className="nav_link"
+            style={{ textDecoration: "none" }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Birds",
+                textTransform: "none",
+                color: "white",
+                transition: "all .1s ease",
+                textDecoration: "none",
+                "&:hover": {
+                  color: "primary.light",
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              Mexican food
+            </Typography>
+          </Link>
+
+          <Link
+            href="/press"
+            className="nav_link"
+            style={{ textDecoration: "none" }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Birds",
+                textTransform: "none",
+                color: "white",
+                transition: "all .1s ease",
+                textDecoration: "none",
+                "&:hover": {
+                  color: "primary.light",
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              Chinese food
+            </Typography>
+          </Link>
         </Box>
 
         {/* Contact */}

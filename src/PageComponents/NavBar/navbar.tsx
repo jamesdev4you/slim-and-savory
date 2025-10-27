@@ -52,7 +52,6 @@ export default function NavBar() {
       onClick={handleDrawerToggle}
       sx={{ textAlign: "center", backgroundColor: "#E4DCC0" }}
     >
-      {/* Do NOT prefix with /public. Files in public/ are served from root */}
       <Image
         src="/images/shared/logo.png"
         alt="Logo"
@@ -208,17 +207,17 @@ export default function NavBar() {
                 key={item.href}
                 sx={{
                   display: "flex",
-                  alignItems: "center",
+                  alignItems: "space-around",
                   mx: 4,
                 }}
               >
                 {index !== 0 && (
                   <Box
                     sx={{
-                      width: 1,
-                      height: 24,
+                      width: "1px",
+                      height: "20px",
+                      marginRight: "50px",
                       backgroundColor: "primary.dark",
-                      mr: 2,
                     }}
                   />
                 )}
@@ -249,23 +248,31 @@ export default function NavBar() {
           {/* Secondary links */}
           <Box
             sx={{
-              display: { xs: "none", sm: "none", md: "block" },
+              display: { xs: "none", sm: "none", md: "flex" },
               ml: "auto",
+              gap: "2em",
             }}
           >
             {secondaryItems.map((item) => (
               <Link
-                key={item.href}
                 href={item.href}
                 className="menu_link"
-                style={{
-                  fontFamily: "Birds",
-                  textTransform: "none",
-                  fontSize: 12,
-                  textDecoration: "underline",
-                }}
+                style={{ textDecoration: "none" }}
               >
-                {item.text}
+                <Typography
+                  sx={{
+                    fontFamily: "Birds",
+                    textTransform: "none",
+                    color: "primary.dark",
+                    transition: "all .3s ease",
+                    textDecoration: "underline",
+                    "&:hover": {
+                      color: "primary.light",
+                    },
+                  }}
+                >
+                  {item.text}
+                </Typography>
               </Link>
             ))}
           </Box>
