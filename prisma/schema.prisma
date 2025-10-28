@@ -5,74 +5,11 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id              String         @id @default(cuid())
-  email           String         @unique
-  passwordHash    String
-  name            String?
-  createdAt       DateTime       @default(now())
-  newsletterOptIn Boolean        @default(false)
-  shoppingLists   ShoppingList[]
-}
-
-model Post {
-  id          String    @id @default(cuid())
-  title       String
-  slug        String    @unique
-  excerpt     String?
-  contentMd   String?
-  coverUrl    String?
-  published   Boolean   @default(false)
-  publishedAt DateTime?
-}
-
-model Recipe {
-  id          String             @id @default(cuid())
-  title       String
-  slug        String             @unique
-  summary     String?
-  imageUrl    String?
-  steps       Json
-  ingredients RecipeIngredient[]
-}
-
-model Ingredient {
-  id                String             @id @default(cuid())
-  name              String             @unique
-  unit              String?
-  // back-relations:
-  recipeIngredients RecipeIngredient[] @relation("IngredientRecipeIngredients")
-  shoppingListItems ShoppingListItem[] @relation("IngredientShoppingListItems")
-}
-
-model RecipeIngredient {
-  id           String     @id @default(cuid())
-  recipe       Recipe     @relation(fields: [recipeId], references: [id])
-  recipeId     String
-  ingredient   Ingredient @relation("IngredientRecipeIngredients", fields: [ingredientId], references: [id])
-  ingredientId String
-  quantity     Float?
-}
-
-model ShoppingList {
-  id        String             @id @default(cuid())
-  user      User               @relation(fields: [userId], references: [id])
-  userId    String
-  title     String             @default("My List")
-  items     ShoppingListItem[]
-  updatedAt DateTime           @updatedAt
-}
-
-model ShoppingListItem {
-  id           String       @id @default(cuid())
-  list         ShoppingList @relation(fields: [listId], references: [id])
-  listId       String
-  ingredient   Ingredient?  @relation("IngredientShoppingListItems", fields: [ingredientId], references: [id])
-  ingredientId String?
-  name         String
-  quantity     Float?
-  unit         String?
-  checked      Boolean      @default(false)
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
 }
