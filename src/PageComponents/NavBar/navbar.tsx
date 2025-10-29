@@ -29,6 +29,7 @@ const navItems = [
   { text: "About Me", href: "/about" },
   { text: "Contact Me", href: "/contact" },
   { text: "Press", href: "/press" },
+  { text: "Blog", href: "/blog" },
 ];
 
 const secondaryItems = [
@@ -253,8 +254,9 @@ export default function NavBar() {
               gap: "2em",
             }}
           >
-            {secondaryItems.map((item) => (
+            {secondaryItems.map((item, i) => (
               <Link
+                key={i}
                 href={item.href}
                 className="menu_link"
                 style={{ textDecoration: "none" }}
