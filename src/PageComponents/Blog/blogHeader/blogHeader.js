@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import BlogFilter from "./blogFilter/blogFilter";
-
+import BlogPosts from "./blogPosts";
 const BlogHeader = () => {
   return (
     <Box
@@ -20,10 +20,10 @@ const BlogHeader = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          backgroundColor: "red",
         }}
       >
         <BlogFilter />
+        <BlogPosts />
       </Box>
     </Box>
   );

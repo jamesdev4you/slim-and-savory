@@ -1,55 +1,44 @@
 "use client";
 import * as React from "react";
 import {
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  IconButton,
-  Typography,
   Box,
+  Typography,
+  IconButton,
   Collapse,
+  FormControl,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 export type FilterSectionProps = {
   heading: string;
-  options: { title: string; value: string }[];
-  /** Optional controlled value */
+  options?: { title: string; value: string }[]; // defaulted below
   value?: string[];
-  /** Optional controlled onChange */
   onChange?: (values: string[]) => void;
-  /** Start open or closed */
   defaultOpen?: boolean;
 };
 
 export default function BlogFilterItem({
   heading,
-  options,
+  options = [],
   value,
   onChange,
   defaultOpen = true,
 }: FilterSectionProps) {
   const [open, setOpen] = React.useState(defaultOpen);
   const [internal, setInternal] = React.useState<string[]>([]);
-
   const selected = value ?? internal;
   const setSelected = onChange ?? setInternal;
 
   const toggle = (v: string) => {
-    const newArray = selected.includes(v)
+    const next = selected.includes(v)
       ? selected.filter((x) => x !== v)
       : [...selected, v];
-
-    setSelected(newArray);
+    setSelected(next);
   };
-
-  const checkboxSx = {
-    "& .MuiSvgIcon-root": { fontSize: 12 },
-    color: "secondary.main",
-    "&.Mui-checked": { color: "secondary.main" },
-  } as const;
 
   return (
     <Box
@@ -84,7 +73,7 @@ export default function BlogFilterItem({
         </IconButton>
       </Box>
 
-      <Collapse in={!open} unmountOnExit>
+      <Collapse in={open} unmountOnExit>
         <FormControl sx={{ width: "100%", mt: 1 }}>
           <FormGroup>
             {options.map((opt) => (
@@ -94,7 +83,11 @@ export default function BlogFilterItem({
                   <Checkbox
                     checked={selected.includes(opt.value)}
                     onChange={() => toggle(opt.value)}
-                    sx={checkboxSx}
+                    sx={{
+                      "& .MuiSvgIcon-root": { fontSize: 12 },
+                      color: "secondary.main",
+                      "&.Mui-checked": { color: "secondary.main" },
+                    }}
                   />
                 }
                 label={opt.title}
