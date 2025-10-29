@@ -9,10 +9,9 @@ export default async function BlogFilter() {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
         height: "100%",
-        paddingTop: "8em",
-        width: "30%",
+        paddingTop: "10em",
+        width: "100%",
         backgroundColor: "primary.main",
         display: "flex",
         alignItems: "flex-start",
@@ -21,7 +20,7 @@ export default async function BlogFilter() {
     >
       <Box
         sx={{
-          width: "75%",
+          width: "85%",
           display: "flex",
           flexDirection: "column",
           gap: 1.5,
@@ -34,7 +33,8 @@ export default async function BlogFilter() {
           Recipe Index
         </Typography>
         <Typography variant="body2" sx={{ color: "secondary.main" }}>
-          Choose as many filters as you’d like to find your dish!
+          Choose as many filters as you’d like to find your dish! You can select
+          multiple so do not be shy!
         </Typography>
         <Box
           sx={{
