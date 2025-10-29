@@ -46,7 +46,8 @@ export default function BlogFilterItem({
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        alignItems: "start",
+        justifyContent: "center",
       }}
     >
       <Box
@@ -96,8 +97,8 @@ export default function BlogFilterItem({
                   "& .MuiCheckbox-root.Mui-checked + .MuiFormControlLabel-label":
                     {
                       color: "secondary.main",
-                      fontWeight: 600,
                     },
+                  marginRight: "auto",
                 }}
               />
             ))}
