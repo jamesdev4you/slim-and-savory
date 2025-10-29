@@ -53,7 +53,7 @@ const AboutMeShop = () => {
                 borderRadius: "8px",
                 overflow: "hidden",
                 boxShadow: 3,
-                "&:hover": { cursor: "pointer" },
+                "&:hover": { cursor: "pointer", border: "1px solid #D2691E" },
                 "& img": {
                   width: "100%",
                   height: "100%",
@@ -88,7 +88,7 @@ const AboutMeShop = () => {
               color: "primary.dark",
               borderWidth: "2px",
               borderStyle: "solid",
-              borderColor: "primary.dark", // Optional: subtle hover effect
+              borderColor: "#D2691E", // Optional: subtle hover effect
             },
           }}
         >

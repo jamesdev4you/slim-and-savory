@@ -16,8 +16,8 @@ export const StyledAnimatedButton = styled(Button)(({ theme }) => ({
   lineHeight: 1.5,
   textTransform: "uppercase",
   padding: "20px 45px",
-  border: "1px solid #f7ffe5",
-  transition: "border-width 0.2s ease",
+  border: "1px solid #D2691E",
+  transition: "border-width 0.1s ease",
 
   "&:disabled": {
     cursor: "default",
@@ -30,12 +30,12 @@ export const StyledAnimatedButton = styled(Button)(({ theme }) => ({
 
   "&[hidden]": {
     display: "none",
-    color: "#f7ffe5",
+    color: "#f1f1f1",
   },
 
   "&:hover": {
-    borderWidth: "6px",
-    color: "#f7ffe5",
+    borderWidth: "3px",
+    color: "#f1f1f1",
   },
 }));
 
@@ -46,27 +46,24 @@ export const DarkButtonBlog = styled(Button)(({ theme }) => ({
   backgroundColor: "#373e02",
   width: "50%",
   "&:hover": {
-    color: "#a0c49d",
     borderWidth: "2px",
     borderStyle: "solid",
-    borderColor: "#a0c49d",
+    borderColor: "#D2691E",
   },
 }));
 
 export const ShopButton = styled(Button, {
   shouldForwardProp: (prop) => prop !== "active",
 })(({ theme, active }) => ({
-  color: active ? "#373e02" : "#d9d9d9",
-  border: active ? "2px solid #373e02" : "2px solid #d9d9d9",
+  color: "#d9d9d9",
+  border: active ? "2px solid #D2691E" : "2px solid #d9d9d9",
   fontWeight: "bold",
-  backgroundColor: active ? "#a0c49d" : "#373e02",
+  backgroundColor: "#373e02",
   width: "18%",
   borderRadius: "15px",
   "&:hover": {
-    color: "#373e02",
     borderWidth: "2px",
     borderStyle: "solid",
-    borderColor: "#373e02",
-    backgroundColor: "#a0c49d",
+    borderColor: "#D2691E",
   },
 }));

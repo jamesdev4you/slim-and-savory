@@ -93,7 +93,6 @@ export default function ContactForm() {
           type="submit"
           value="Send"
           variant="contained"
-          backgroundColor="#373e02"
           fullWidth
           sx={{
             border: "1px solid white",

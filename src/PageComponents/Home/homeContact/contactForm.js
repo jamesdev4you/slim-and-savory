@@ -136,7 +136,7 @@ const textFieldStyles = {
       borderColor: "#f7ffe5",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "yellow",
+      borderColor: "#D2691E",
     },
   },
   "& .MuiInputBase-root": {

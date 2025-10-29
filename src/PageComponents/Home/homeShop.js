@@ -85,10 +85,9 @@ const HomeShop = () => {
             border: "2px solid #d9d9d9", // Dark Green border
             fontWeight: "bold",
             "&:hover": {
-              color: "primary.light",
               borderWidth: "2px",
               borderStyle: "solid",
-              borderColor: "primary.light", // Optional: subtle hover effect
+              borderColor: "#D2691E", // Optional: subtle hover effect
             },
           }}
         >

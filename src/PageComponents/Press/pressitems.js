@@ -78,6 +78,7 @@ const PressItems = ({ activeSection }) => {
       ) : (
         items.map((item, index) => (
           <Box
+            key={index}
             sx={{
               height: { xl: "80vh", md: "40vh", sm: "30vh", xs: "180px" },
               minWidth: "230px",

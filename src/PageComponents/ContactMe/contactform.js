@@ -81,10 +81,9 @@ const ContactForm = () => {
                   padding: "10px",
                   "&:hover": {
                     cursor: "pointer",
-                    color: "primary.light",
                     borderWidht: "1px",
                     borderStyle: "solid",
-                    borderColor: "primary.light",
+                    borderColor: "#D2691E",
                   },
                 }}
               />
@@ -97,7 +96,7 @@ const ContactForm = () => {
               width: { xl: "30%", md: "30%" },
               height: "40px",
               fontSize: { xl: "1em", md: "1em" },
-              backgroundcolor: "#373e02",
+              backgroundColor: "#373e02",
               borderRadius: "15px",
               color: "#d9d9d9",
               border: "2px solid #d9d9d9",
