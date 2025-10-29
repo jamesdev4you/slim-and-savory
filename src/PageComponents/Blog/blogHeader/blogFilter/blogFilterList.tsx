@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import * as React from "react";
 import {
   Checkbox,
   FormControl,
@@ -13,23 +13,43 @@ import {
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-export default function BlogFilterList() {
-  const [open, setOpen] = React.useState(true);
-  const [selected, setSelected] = React.useState<string[]>([]);
+export type FilterSectionProps = {
+  heading: string;
+  options: { title: string; value: string }[];
+  /** Optional controlled value */
+  value?: string[];
+  /** Optional controlled onChange */
+  onChange?: (values: string[]) => void;
+  /** Start open or closed */
+  defaultOpen?: boolean;
+};
 
-  const options = ["female", "male", "other"];
+export default function BlogFilterItem({
+  heading,
+  options,
+  value,
+  onChange,
+  defaultOpen = true,
+}: FilterSectionProps) {
+  const [open, setOpen] = React.useState(defaultOpen);
+  const [internal, setInternal] = React.useState<string[]>([]);
 
-  const handleToggle = (value: string) => {
-    setSelected((prev) =>
-      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
-    );
+  const selected = value ?? internal;
+  const setSelected = onChange ?? setInternal;
+
+  const toggle = (v: string) => {
+    const newArray = selected.includes(v)
+      ? selected.filter((x) => x !== v)
+      : [...selected, v];
+
+    setSelected(newArray);
   };
 
   const checkboxSx = {
     "& .MuiSvgIcon-root": { fontSize: 12 },
     color: "secondary.main",
     "&.Mui-checked": { color: "secondary.main" },
-  };
+  } as const;
 
   return (
     <Box
@@ -52,37 +72,38 @@ export default function BlogFilterList() {
           variant="h5"
           sx={{ width: "100%", color: "secondary.main" }}
         >
-          By Category
+          {heading}
         </Typography>
         <IconButton
           onClick={() => setOpen((p) => !p)}
           aria-expanded={open}
-          aria-label="Toggle category filters"
+          aria-label={`Toggle ${heading}`}
           sx={{ color: "secondary.main" }}
         >
           {open ? <KeyboardArrowDownIcon /> : <KeyboardArrowLeftIcon />}
         </IconButton>
       </Box>
 
-      <Collapse in={open} unmountOnExit sx={{ width: "100%" }}>
+      <Collapse in={open} unmountOnExit>
         <FormControl sx={{ width: "100%", mt: 1 }}>
           <FormGroup>
             {options.map((opt) => (
               <FormControlLabel
-                key={opt}
+                key={opt.value}
                 control={
                   <Checkbox
-                    checked={selected.includes(opt)}
-                    onChange={() => handleToggle(opt)}
+                    checked={selected.includes(opt.value)}
+                    onChange={() => toggle(opt.value)}
                     sx={checkboxSx}
                   />
                 }
-                label={opt.charAt(0).toUpperCase() + opt.slice(1)}
+                label={opt.title}
                 sx={{
                   "& .MuiFormControlLabel-label": { color: "secondary.main" },
                   "& .MuiCheckbox-root.Mui-checked + .MuiFormControlLabel-label":
                     {
                       color: "secondary.main",
+                      fontWeight: 600,
                     },
                 }}
               />
