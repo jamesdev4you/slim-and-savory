@@ -7,8 +7,7 @@ const BlogHeader = () => {
     <Box
       sx={{
         width: "100%",
-        height: "100vh",
-        marginTop: "7em",
+        height: "auto",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -17,7 +16,7 @@ const BlogHeader = () => {
       <Box
         sx={{
           width: "85%",
-          height: "100%",
+          height: "auto",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",

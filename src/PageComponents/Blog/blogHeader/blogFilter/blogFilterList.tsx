@@ -84,7 +84,7 @@ export default function BlogFilterItem({
         </IconButton>
       </Box>
 
-      <Collapse in={open} unmountOnExit>
+      <Collapse in={!open} unmountOnExit>
         <FormControl sx={{ width: "100%", mt: 1 }}>
           <FormGroup>
             {options.map((opt) => (

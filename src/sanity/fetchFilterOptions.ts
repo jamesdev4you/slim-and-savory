@@ -25,10 +25,10 @@ export async function fetchFilterGroup(
 export async function fetchAllFilterGroups(): Promise<FilterGroup[]> {
   // Map schema type -> UI heading text
   const groups: Array<{ type: FilterGroup["type"]; heading: string }> = [
-    { type: "category", heading: "By Category" },
-    { type: "cookingTime", heading: "By Cooking Time" },
-    { type: "dietary", heading: "By Dietary" },
-    { type: "ingredientMajor", heading: "By Main Ingredients" },
+    { type: "category", heading: "Category" },
+    { type: "cookingTime", heading: "Cooking Time" },
+    { type: "dietary", heading: "Dietary" },
+    { type: "ingredientMajor", heading: "Ingredient(s)" },
   ];
   return Promise.all(
     groups.map((g) => fetchFilterGroup(g.type as any, g.heading))

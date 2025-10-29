@@ -33,6 +33,7 @@ const BlogFilter: React.FC = () => {
   return (
     <Box
       sx={{
+        minHeight: "100vh",
         height: "100%",
         paddingTop: "8em",
         width: "25%",
