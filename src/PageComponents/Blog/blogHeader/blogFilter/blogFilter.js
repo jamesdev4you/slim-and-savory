@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-
+import BlogFilterList from "./blogFilterList";
 const BlogFilter = () => {
   return (
     <Box
@@ -23,11 +23,21 @@ const BlogFilter = () => {
           justifyContent: "start",
         }}
       >
-        <Typography variant="h4" sx={{ textAlign: "start" }}>
+        <Typography
+          variant="h4"
+          sx={{
+            textAlign: "start",
+            color: "secondary.main",
+            fontWeight: "bold",
+          }}
+        >
           Recipe Index
         </Typography>
 
-        <Typography variant="h6" sx={{ marginTop: "1em", textAlign: "start" }}>
+        <Typography
+          variant="p"
+          sx={{ textAlign: "start", color: "secondary.main" }}
+        >
           Choose as many filters as you'd like to find your dish!
         </Typography>
 
@@ -40,7 +50,9 @@ const BlogFilter = () => {
             justifyContent: "center",
             marginTop: "1em",
           }}
-        ></Box>
+        >
+          <BlogFilterList />
+        </Box>
       </Box>
     </Box>
   );
