@@ -1,26 +1,33 @@
 "use client";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 type Props = {
   post: any;
 };
 
 export default function SinglePostLayout({ post }: Props) {
+  console.log("FULL POST OBJECT:", post); // ✅ entire object
+  console.log("MAIN PICTURE FIELD:", post?.mainPicture);
+
   return (
     <Box>
       <Box
         sx={{
-          height: "100vh",
-          width: "100vw",
+          height: "auto",
+          paddingTop: "4em",
+          width: "100%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "space-between",
         }}
       >
+        {/* Header */}
         <Box
           sx={{
-            height: { xl: "50vh", md: "30vh", sm: "30vh", xs: "180px" },
+            height: "100vh",
+            width: "60vw",
             backgroundImage: `url(${post.mainPicture.url})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -28,6 +35,201 @@ export default function SinglePostLayout({ post }: Props) {
           }}
           role="img"
         />
+        <Box
+          sx={{
+            width: "35vw",
+            height: "100%",
+            display: "flex",
+            alignItems: "start",
+            justifyContent: "center",
+            flexDirection: "column",
+            gap: ".5em",
+          }}
+        >
+          <Typography variant="h5">{post.category.title}</Typography>
+          <Typography variant="h4">{post.title}</Typography>
+          <Button
+            variant="contained"
+            sx={{
+              width: { xl: "40%", md: "40%" },
+              height: "40px",
+              fontSize: "14px",
+              backgroundColor: "#373e02",
+              borderRadius: "15px",
+              color: "#d9d9d9", // Dark Green text
+              border: "2px solid #d9d9d9", // Dark Green border
+              fontWeight: "bold",
+              "&:hover": {
+                borderWidth: "2px",
+                borderStyle: "solid",
+                borderColor: "#D2691E", // Optional: subtle hover effect
+              },
+              marginTop: { xl: "1em", md: "1em" },
+            }}
+          >
+            Jump to Reciepe
+          </Button>
+        </Box>
+      </Box>
+      {/* Recipe Description */}
+      <Box
+        sx={{
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          gap: ".5em",
+        }}
+      >
+        <Box
+          sx={{
+            width: "80%",
+            height: "100%",
+            display: "flex",
+            alignItems: "start",
+            justifyContent: "center",
+            flexDirection: "column",
+            gap: "1em",
+          }}
+        >
+          {" "}
+          <Typography variant="h6">
+            Recipes {">"} {post.category.title} {">"} {post.title}
+          </Typography>
+          <Typography variant="h2">{post.title}</Typography>
+          <Typography variant="h4">{post.description}</Typography>
+          <Box
+            sx={{
+              height: "30vh",
+              width: "30vw",
+              backgroundImage: `url(${post.mainPicture.url})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundColor: "#f2f2f2",
+              marginTop: "2em",
+            }}
+            role="img"
+          />
+        </Box>
+      </Box>
+      {/* Recipe Description */}
+      <Box
+        sx={{
+          width: "100%",
+          height: "150vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Box
+          sx={{
+            width: "80%",
+            height: "100%",
+            display: "flex",
+            alignItems: "start",
+            justifyContent: "start",
+            flexDirection: "column",
+            backgroundColor: "#F7FFE5",
+            gap: "1em",
+          }}
+        >
+          {/* Recipe Description Header*/}
+          <Box
+            sx={{
+              width: "100%",
+              height: "50vh",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "space-between",
+              justifyContent: "start",
+              gap: "1em",
+            }}
+          >
+            <Box
+              sx={{
+                height: "100%",
+                width: "30vw",
+                backgroundImage: `url(${post.mainPicture.url})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundColor: "#f2f2f2",
+              }}
+              role="img"
+            />
+
+            <Box
+              sx={{
+                width: "auto",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "start",
+                justifyContent: "center",
+                gap: ".6em",
+              }}
+            >
+              <Typography variant="h5">Author: {post.author.name}</Typography>
+              <Typography variant="h3">{post.title}</Typography>
+              <Typography variant="h5">Serves: {post.serves}</Typography>
+              <Typography variant="h5">Time: 30 minutes.</Typography>
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "auto",
+                  display: "flex",
+                  gap: "1em",
+                }}
+              >
+                <Button
+                  variant="contained"
+                  sx={{
+                    width: { xl: "40%", md: "40%" },
+                    height: "40px",
+                    fontSize: "14px",
+                    backgroundColor: "#373e02",
+                    borderRadius: "15px",
+                    color: "#d9d9d9", // Dark Green text
+                    border: "2px solid #d9d9d9", // Dark Green border
+                    fontWeight: "bold",
+                    "&:hover": {
+                      borderWidth: "2px",
+                      borderStyle: "solid",
+                      borderColor: "#D2691E", // Optional: subtle hover effect
+                    },
+                    marginTop: { xl: "1em", md: "1em" },
+                  }}
+                >
+                  Print Reciepe
+                </Button>
+                <Button
+                  variant="contained"
+                  sx={{
+                    width: { xl: "40%", md: "40%" },
+                    height: "40px",
+                    fontSize: "14px",
+                    backgroundColor: "#373e02",
+                    borderRadius: "15px",
+                    color: "#d9d9d9", // Dark Green text
+                    border: "2px solid #d9d9d9", // Dark Green border
+                    fontWeight: "bold",
+                    "&:hover": {
+                      borderWidth: "2px",
+                      borderStyle: "solid",
+                      borderColor: "#D2691E", // Optional: subtle hover effect
+                    },
+                    marginTop: { xl: "1em", md: "1em" },
+                  }}
+                >
+                  Email Reciepe
+                </Button>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
