@@ -34,7 +34,7 @@
     "src/PageComponents/Home/homeHeader.js",
     "src/app/shop/shop.js",
     "src/PageComponents/Blog/blogHeader/blogPosts.js",
-    "src/PageComponents/Blog/blogHeader/PostGridsClient.jsx"
+    "src/PageComponents/Blog/blogHeader/BlogPageClient.tsx/blogPosts/PostGridsClient.jsx"
   ],
   "exclude": ["node_modules"]
 }

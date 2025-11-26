@@ -50,7 +50,8 @@ export default async function BlogFilter() {
               key={g.type}
               heading={g.heading}
               options={g.options}
-              defaultOpen
+              value={selected}
+              onChange={onChange}
             />
           ))}
         </Box>

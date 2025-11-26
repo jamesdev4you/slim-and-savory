@@ -3,7 +3,7 @@ import * as React from "react";
 import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 // If you have this button, keep it. Otherwise replace with a <Link> or MUI Button.
-import { DarkButtonBlog } from "../../Styled/styledButtons.js"; // adjust path if needed
+import { DarkButtonBlog } from "../../../../Styled/styledButtons.js"; // adjust path if needed
 
 export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
   const [page, setPage] = React.useState(1);
@@ -91,7 +91,9 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
                   gap: ".5em",
                 }}
               >
-                <Typography variant="h6">{post?.title ?? ""}</Typography>
+                <Typography variant="h6" sx={{ height: "10vh" }}>
+                  {post?.title ?? ""}
+                </Typography>
                 <Typography variant="body2" color="text.secondary">
                   {post?.category?.title ?? "—"} {" | "}
                   {post?.publishedAt
@@ -114,7 +116,7 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
           justifyContent: "center",
           alignItems: "center",
           gap: 2,
-          mt: "100%",
+          mt: "1em",
         }}
       >
         {/* Prev */}

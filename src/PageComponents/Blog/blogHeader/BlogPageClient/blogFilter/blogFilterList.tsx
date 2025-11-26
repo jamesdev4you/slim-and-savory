@@ -73,8 +73,8 @@ export default function BlogFilterItem({
         </IconButton>
       </Box>
 
-      <Collapse in={open} unmountOnExit>
-        <FormControl sx={{ width: "100%", mt: 1 }}>
+      <Collapse in={open} unmountOnExit sx={{ width: "100%" }}>
+        <FormControl sx={{ width: "100%", mt: 1, marginLeft: "0" }}>
           <FormGroup>
             {options.map((opt) => (
               <FormControlLabel
@@ -84,7 +84,9 @@ export default function BlogFilterItem({
                     checked={selected.includes(opt.value)}
                     onChange={() => toggle(opt.value)}
                     sx={{
-                      "& .MuiSvgIcon-root": { fontSize: 12 },
+                      "& .MuiSvgIcon-root": {
+                        fontSize: 12,
+                      },
                       color: "secondary.main",
                       "&.Mui-checked": { color: "secondary.main" },
                     }}
@@ -92,6 +94,7 @@ export default function BlogFilterItem({
                 }
                 label={opt.title}
                 sx={{
+                  display: "flex",
                   "& .MuiFormControlLabel-label": { color: "secondary.main" },
                   "& .MuiCheckbox-root.Mui-checked + .MuiFormControlLabel-label":
                     {
