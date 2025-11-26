@@ -152,18 +152,38 @@ export async function fetchSinglePost(slug: string) {
   }
 
   const query = `
-    *[_type == "post" && slug.current == $slug][0] {
-      _id,
-      title,
-      description,
-      slug,
+    *[_type == "post" && slug.current == $slug][0]{
+      ...,
+      "slug": slug.current,
+
+      mainPicture {
+        alt,
+        "url": asset->url
+      },
+
       category->{
-        title
+        _id,
+        title,
+        "slug": slug.current
+      },
+
+      author->{
+        name,
+        image {
+          alt,
+          "url": asset->url
+        }
+      },
+
+      tags[]->{
+        _id,
+        title,
+        "slug": slug.current
       }
     }
   `;
 
-  return client.fetch(query, { slug: slug });
+  return client.fetch(query, { slug });
 }
 
 /** ---- Fetchers (same “way” as your filter fetchers) ---- */
