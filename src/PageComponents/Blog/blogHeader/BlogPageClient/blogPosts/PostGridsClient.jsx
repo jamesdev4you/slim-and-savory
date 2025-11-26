@@ -22,6 +22,9 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
   const next = () => goToPage(page + 1);
   const prev = () => goToPage(page - 1);
 
+  {
+  }
+
   return (
     <Box
       sx={{
@@ -44,67 +47,79 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
           gap: 2,
         }}
       >
-        {pagePosts.map((post) => (
-          <Link
-            key={post._id}
-            href={`/blog/${post.slug}`}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <Box
-              sx={{
-                width: "100%",
-                backgroundColor: "#FFFFFF",
-                borderRadius: "8px",
-                overflow: "hidden",
-                display: "flex",
-                flexDirection: "column",
-                boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-                "&:hover": { cursor: "pointer" },
-              }}
-            >
-              {/* Image */}
-              <Box
-                sx={{
-                  height: { xl: "50vh", md: "30vh", sm: "30vh", xs: "180px" },
-                  backgroundImage: `url(${post?.mainPicture?.url ?? ""})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundColor: "#f2f2f2",
-                }}
-                aria-label={
-                  post?.mainPicture?.alt || post?.title || "Blog image"
-                }
-                role="img"
-              />
+        {pagePosts.map((post) => {
+          console.log("FULL POST OBJECT:", post);
 
-              {/* Content */}
+          const slug =
+            typeof post.slug === "string" ? post.slug : post.slug?.current;
+
+          if (!slug) {
+            console.warn("Post missing slug:", post.title);
+            return null;
+          }
+
+          return (
+            <Link
+              key={post._id}
+              href={`/blog/${slug}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <Box
                 sx={{
-                  pl: 2,
-                  pr: 2,
-                  pt: 1,
-                  pb: 2,
-                  textAlign: "left",
+                  width: "100%",
+                  backgroundColor: "#FFFFFF",
+                  borderRadius: "8px",
+                  overflow: "hidden",
                   display: "flex",
-                  alignItems: "start",
                   flexDirection: "column",
-                  gap: ".5em",
+                  boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+                  "&:hover": { cursor: "pointer" },
                 }}
               >
-                <Typography variant="h6" sx={{ height: "10vh" }}>
-                  {post?.title ?? ""}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {post?.category?.title ?? "—"} {" | "}
-                  {post?.publishedAt
-                    ? new Date(post.publishedAt).toLocaleDateString()
-                    : ""}
-                </Typography>
-                <DarkButtonBlog>Read</DarkButtonBlog>
+                {/* Image */}
+                <Box
+                  sx={{
+                    height: { xl: "50vh", md: "30vh", sm: "30vh", xs: "180px" },
+                    backgroundImage: `url(${post?.mainPicture?.url ?? ""})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundColor: "#f2f2f2",
+                  }}
+                  aria-label={
+                    post?.mainPicture?.alt || post?.title || "Blog image"
+                  }
+                  role="img"
+                />
+
+                {/* Content */}
+                <Box
+                  sx={{
+                    pl: 2,
+                    pr: 2,
+                    pt: 1,
+                    pb: 2,
+                    textAlign: "left",
+                    display: "flex",
+                    alignItems: "start",
+                    flexDirection: "column",
+                    gap: ".5em",
+                  }}
+                >
+                  <Typography variant="h6" sx={{ height: "10vh" }}>
+                    {post?.title ?? ""}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {post?.category?.title ?? "—"} {" | "}
+                    {post?.publishedAt
+                      ? new Date(post.publishedAt).toLocaleDateString()
+                      : ""}
+                  </Typography>
+                  <DarkButtonBlog>Read</DarkButtonBlog>
+                </Box>
               </Box>
-            </Box>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
         {/* If fewer than 9 posts, empty cells simply don't render—space remains empty. */}
       </Box>
 

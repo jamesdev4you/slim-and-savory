@@ -145,6 +145,27 @@ const POST_SLUGS_QUERY = /* groq */ `
 }
 `;
 
+export async function fetchSinglePost(slug: string) {
+  if (!slug) {
+    console.error("Slug missing in fetchSinglePost");
+    return null;
+  }
+
+  const query = `
+    *[_type == "post" && slug.current == $slug][0] {
+      _id,
+      title,
+      description,
+      slug,
+      category->{
+        title
+      }
+    }
+  `;
+
+  return client.fetch(query, { slug: slug });
+}
+
 /** ---- Fetchers (same “way” as your filter fetchers) ---- */
 export async function fetchPosts(): Promise<PostCard[]> {
   return client.fetch<PostCard[]>(POSTS_QUERY);

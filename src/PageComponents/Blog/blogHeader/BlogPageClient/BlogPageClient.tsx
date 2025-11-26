@@ -4,6 +4,7 @@ import BlogFilterItem from "./blogFilter/blogFilterList";
 import PostsGridClient from "./blogPosts/PostGridsClient";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
 
 type Props = {
   posts: any[];
@@ -12,14 +13,21 @@ type Props = {
 
 export default function BlogPageClient({ posts, groups }: Props) {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const filteredPosts = useMemo(() => {
-    if (selectedFilters.length === 0) return posts;
+    return posts.filter((post) => {
+      const matchesFilter =
+        selectedFilters.length === 0 ||
+        selectedFilters.includes(post?.category?.title);
 
-    return posts.filter((post) =>
-      post?.tags?.some((tag) => selectedFilters.includes(tag.slug))
-    );
-  }, [posts, selectedFilters]);
+      const matchesSearch = post?.title
+        ?.toLowerCase()
+        .includes(searchQuery.toLowerCase());
+
+      return matchesFilter && matchesSearch;
+    });
+  }, [posts, selectedFilters, searchQuery]);
 
   return (
     <Box
@@ -37,11 +45,11 @@ export default function BlogPageClient({ posts, groups }: Props) {
           height: "100%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
           flexDirection: { xs: "column", lg: "row" },
         }}
       >
-        {/* LEFT SIDEBAR — ORIGINAL BLOGFILTER STYLING */}
+        {/* LEFT SIDEBAR */}
         <Box
           sx={{
             height: "100%",
@@ -77,6 +85,19 @@ export default function BlogPageClient({ posts, groups }: Props) {
               select multiple so do not be shy!
             </Typography>
 
+            {/* ✅ SEARCH BAR */}
+            <TextField
+              placeholder="Search recipes..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              size="small"
+              sx={{
+                mt: 1,
+                backgroundColor: "#fff",
+                borderRadius: "6px",
+              }}
+            />
+
             <Box
               sx={{
                 width: "100%",
@@ -100,13 +121,10 @@ export default function BlogPageClient({ posts, groups }: Props) {
           </Box>
         </Box>
 
-        {/* RIGHT CONTENT — POSTS GRID */}
+        {/* RIGHT CONTENT — POSTS */}
         <Box
           sx={{
-            width: {
-              xs: "100%",
-              lg: "60%",
-            },
+            width: { xs: "100%", lg: "60%" },
             paddingTop: "10em",
             display: "flex",
             flexDirection: "column",
