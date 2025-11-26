@@ -29,7 +29,7 @@ const navItems = [
   { text: "About Me", href: "/about" },
   { text: "Contact Me", href: "/contact" },
   { text: "Press", href: "/press" },
-  { text: "Blog", href: "/blog" },
+  { text: "Recipe", href: "/blog" },
 ];
 
 const secondaryItems = [

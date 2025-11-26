@@ -86,7 +86,7 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
                     backgroundColor: "#f2f2f2",
                   }}
                   aria-label={
-                    post?.mainPicture?.alt || post?.title || "Blog image"
+                    post?.mainPicture?.alt || post?.title || "recipe image"
                   }
                   role="img"
                 />
