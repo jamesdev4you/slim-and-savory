@@ -118,11 +118,13 @@ export default function SinglePostLayout({ post }: Props) {
       <Box
         sx={{
           width: "100%",
-          height: "150vh",
+          height: "auto",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
+          paddingBottom: "1em",
+          marginBottom: "3em",
         }}
       >
         <Box
@@ -227,6 +229,51 @@ export default function SinglePostLayout({ post }: Props) {
                   Email Reciepe
                 </Button>
               </Box>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              width: "80%",
+              height: "auto",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "start",
+              justifyContent: "center",
+              padding: "2em",
+            }}
+          >
+            {/* INGREDIENTS SECTION */}
+            <Typography variant="h5" sx={{ mb: 2 }}>
+              Ingredients
+            </Typography>
+
+            <Box sx={{ pl: 2 }}>
+              {post.ingredientsText
+                ?.split("\n")
+                .filter((line: string) => line.trim() !== "")
+                .map((ingredient: string, i: number) => (
+                  <Typography key={i}>• {ingredient}</Typography>
+                ))}
+            </Box>
+
+            {/* INSTRUCTIONS SECTION */}
+            <Typography variant="h5" sx={{ mt: 5, mb: 2 }}>
+              Instructions
+            </Typography>
+
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              {post.instructions?.map((block: any, index: number) => {
+                const text = block.children
+                  ?.map((child: any) => child.text)
+                  .join("");
+
+                return (
+                  <Box key={block._key} sx={{ display: "flex", gap: 2 }}>
+                    <Typography fontWeight="bold">{index + 1}.</Typography>
+                    <Typography>{text}</Typography>
+                  </Box>
+                );
+              })}
             </Box>
           </Box>
         </Box>
