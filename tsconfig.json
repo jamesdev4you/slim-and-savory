@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "allowJs": true,
     "checkJs": false,
     "strict": true,
@@ -14,7 +18,9 @@
     "isolatedModules": true,
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": [
+        "*"
+      ]
     },
     "incremental": true,
     "esModuleInterop": true,
@@ -25,16 +31,19 @@
     ]
   },
   "include": [
+    ".next\\dev/types/**/*.ts",
+    ".next\\dev/types/**/*.ts",
     "next-env.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
-    ".next\\dev/types/**/*.ts",
-    ".next\\dev/types/**/*.ts",
-    "src/app/providers.js",
-    "src/PageComponents/Home/homeHeader.js",
-    "src/app/shop/shop.js",
+    "src/PageComponents/Blog/blogHeader/BlogPageClient/blogPosts/PostGridsClient.jsx",
     "src/PageComponents/Blog/blogHeader/blogPosts.js",
-    "src/PageComponents/Blog/blogHeader/BlogPageClient/blogPosts/PostGridsClient.jsx"
+    "src/PageComponents/Home/homeHeader.js",
+    "src/app/providers.js",
+    "src/app/shop/shop.js",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

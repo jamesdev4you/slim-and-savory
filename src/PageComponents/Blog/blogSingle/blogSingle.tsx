@@ -8,9 +8,6 @@ type Props = {
 };
 
 export default function SinglePostLayout({ post }: Props) {
-  console.log("FULL POST OBJECT:", post); // ✅ entire object
-  console.log("MAIN PICTURE FIELD:", post?.mainPicture);
-
   return (
     <Box>
       <Box
@@ -23,7 +20,6 @@ export default function SinglePostLayout({ post }: Props) {
           justifyContent: "space-between",
         }}
       >
-        {/* Header */}
         <Box
           sx={{
             height: "100vh",
@@ -40,7 +36,7 @@ export default function SinglePostLayout({ post }: Props) {
             width: "35vw",
             height: "100%",
             display: "flex",
-            alignItems: "start",
+            alignItems: "flex-start",
             justifyContent: "center",
             flexDirection: "column",
             gap: ".5em",
@@ -51,7 +47,7 @@ export default function SinglePostLayout({ post }: Props) {
           <Button
             variant="contained"
             sx={{
-              width: { xl: "40%", md: "40%" },
+              width: { xl: "60%", md: "40%" },
               height: "40px",
               fontSize: "14px",
               backgroundColor: "#373e02",
@@ -71,7 +67,7 @@ export default function SinglePostLayout({ post }: Props) {
           </Button>
         </Box>
       </Box>
-      {/* Recipe Description */}
+
       <Box
         sx={{
           width: "100%",
@@ -88,7 +84,7 @@ export default function SinglePostLayout({ post }: Props) {
             width: "80%",
             height: "100%",
             display: "flex",
-            alignItems: "start",
+            alignItems: "flex-start",
             justifyContent: "center",
             flexDirection: "column",
             gap: "1em",
@@ -114,7 +110,7 @@ export default function SinglePostLayout({ post }: Props) {
           />
         </Box>
       </Box>
-      {/* Recipe Description */}
+
       <Box
         sx={{
           width: "100%",
@@ -132,22 +128,21 @@ export default function SinglePostLayout({ post }: Props) {
             width: "80%",
             height: "100%",
             display: "flex",
-            alignItems: "start",
-            justifyContent: "start",
+            alignItems: "flex-start",
+            justifyContent: "flex-start",
             flexDirection: "column",
             backgroundColor: "#F7FFE5",
             gap: "1em",
           }}
         >
-          {/* Recipe Description Header*/}
           <Box
             sx={{
               width: "100%",
               height: "50vh",
               display: "flex",
               flexDirection: "row",
-              alignItems: "space-between",
-              justifyContent: "start",
+              alignItems: "center",
+              justifyContent: "flex-start",
               gap: "1em",
             }}
           >
@@ -165,11 +160,11 @@ export default function SinglePostLayout({ post }: Props) {
 
             <Box
               sx={{
-                width: "auto",
+                width: "40vw",
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "start",
+                alignItems: "flex-start",
                 justifyContent: "center",
                 gap: ".6em",
               }}
@@ -189,7 +184,7 @@ export default function SinglePostLayout({ post }: Props) {
                 <Button
                   variant="contained"
                   sx={{
-                    width: { xl: "40%", md: "40%" },
+                    width: { xl: "40%", md: "30%" },
                     height: "40px",
                     fontSize: "14px",
                     backgroundColor: "#373e02",
@@ -210,7 +205,7 @@ export default function SinglePostLayout({ post }: Props) {
                 <Button
                   variant="contained"
                   sx={{
-                    width: { xl: "40%", md: "40%" },
+                    width: { xl: "40%", md: "30%" },
                     height: "40px",
                     fontSize: "14px",
                     backgroundColor: "#373e02",
@@ -237,12 +232,11 @@ export default function SinglePostLayout({ post }: Props) {
               height: "auto",
               display: "flex",
               flexDirection: "column",
-              alignItems: "start",
+              alignItems: "flex-start",
               justifyContent: "center",
               padding: "2em",
             }}
           >
-            {/* INGREDIENTS SECTION */}
             <Typography variant="h5" sx={{ mb: 2 }}>
               Ingredients
             </Typography>
@@ -256,7 +250,6 @@ export default function SinglePostLayout({ post }: Props) {
                 ))}
             </Box>
 
-            {/* INSTRUCTIONS SECTION */}
             <Typography variant="h5" sx={{ mt: 5, mb: 2 }}>
               Instructions
             </Typography>
