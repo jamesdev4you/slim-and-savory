@@ -18,6 +18,8 @@ export type PostCard = {
   description: string;
   mainPicture: ImageField;
   subPic?: ImageField | null;
+  youtubeThumbnail?: ImageField | null;
+  youtubeUrl?: string | null;
   category: PostRef;
   ingredientMajor: PostRef;
   dietary: PostRef;
@@ -64,6 +66,13 @@ const POSTS_QUERY = /* groq */ `
       "alt": subPic.alt
     }
   ),
+  "youtubeThumbnail": select(
+  defined(youtubeThumbnail) => {
+    "url": youtubeThumbnail.asset->url,
+    "alt": youtubeThumbnail.alt
+  }
+),
+youtubeUrl,
   "category": category->{ 
     title, 
     "value": coalesce(slug.current, title) 
@@ -105,6 +114,13 @@ const POST_BY_SLUG_QUERY = /* groq */ `
       "alt": subPic.alt
     }
   ),
+    "youtubeThumbnail": select(
+    defined(youtubeThumbnail) => {
+      "url": youtubeThumbnail.asset->url,
+      "alt": youtubeThumbnail.alt
+    }
+  ),
+  youtubeUrl,
   "category": category->{ 
     title, 
     "value": coalesce(slug.current, title) 

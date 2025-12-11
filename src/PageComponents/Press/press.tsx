@@ -1,14 +1,15 @@
 "use client";
-import { useState } from "react";
+
 import PressHeader from "./pressheader";
 import PressVideos from "./pressvideos/pressvideos";
 
-const Press = () => {
+const Press = ({ videos }: { videos: any[] }) => {
   return (
     <div>
       <PressHeader />
-      <PressVideos />
+      <PressVideos videos={videos} /> {/* pass videos down */}
     </div>
   );
 };
+
 export default Press;

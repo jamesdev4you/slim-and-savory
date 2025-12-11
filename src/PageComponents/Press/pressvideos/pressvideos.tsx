@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
 import { Typography, Box, Button } from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
+import { urlFor } from "@/sanity/image"; // ensure this helper exists
 
-const videos = ["Chicken", "Beef", "Onions"];
-
-const PressVideos = () => {
+const PressVideos = ({ videos }: { videos: any[] }) => {
   return (
     <Box sx={{ width: "auto", minHeight: "100vh" }}>
-      {videos.map((item, index) => (
+      {videos.map((video, index) => (
         <Box
-          key={index}
+          key={video._id || index}
           sx={{
             height: "80vh",
             width: "100%",
@@ -22,21 +23,30 @@ const PressVideos = () => {
             justifyContent: "center",
             gap: "3em",
             flexDirection: "row",
+            padding: "2em 0",
           }}
         >
+          {/* Thumbnail */}
           <Box
             sx={{
               width: "40vw",
               height: "60%",
-              backgroundImage: "url('/images/shared/food1.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              position: "relative",
               borderRadius: "5px",
-              borderWidth: "1px",
-              borderStyle: "solid",
+              overflow: "hidden",
+              border: "1px solid",
               borderColor: "secondary.light",
             }}
-          />
+          >
+            <Image
+              src={urlFor(video.thumbnail).url()}
+              alt={video.title}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </Box>
+
+          {/* Content */}
           <Box
             sx={{
               width: "35vw",
@@ -48,13 +58,18 @@ const PressVideos = () => {
             }}
           >
             <Typography variant="h2" sx={{ color: "secondary.light" }}>
-              Title of Video
+              {video.title}
             </Typography>
+
             <Typography variant="h3" sx={{ color: "secondary.light" }}>
-              description
+              {video.description}
             </Typography>
 
             <Button
+              component={Link}
+              href={video.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               variant="contained"
               sx={{
                 width: { xl: "30%", md: "30%" },
@@ -62,18 +77,16 @@ const PressVideos = () => {
                 fontSize: { xl: "1em", md: "1em" },
                 backgroundColor: "#373e02",
                 borderRadius: "15px",
-                color: "#d9d9d9", // Dark Green text
-                border: "2px solid #d9d9d9", // Dark Green border
+                color: "#d9d9d9",
+                border: "2px solid #d9d9d9",
                 fontWeight: "bold",
-                "&:hover": {
-                  borderWidth: "2px",
-                  borderStyle: "solid",
-                  borderColor: "#D2691E", // Optional: subtle hover effect
-                },
                 marginTop: { xl: "1em", md: "1em" },
+                "&:hover": {
+                  borderColor: "#D2691E",
+                },
               }}
             >
-              Link to Youtube Video
+              Watch Video
             </Button>
           </Box>
         </Box>

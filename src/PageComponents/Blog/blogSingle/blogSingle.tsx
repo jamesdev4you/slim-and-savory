@@ -97,14 +97,23 @@ export default function SinglePostLayout({ post }: Props) {
           <Typography variant="h2">{post.title}</Typography>
           <Typography variant="h4">{post.description}</Typography>
           <Box
+            component="a"
+            href={post.youtubeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
               height: "30vh",
               width: "30vw",
-              backgroundImage: `url(${post.mainPicture.url})`,
+              backgroundImage: `url(${
+                post.youtubeThumbnail?.url ?? post.mainPicture.url
+              })`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundColor: "#f2f2f2",
               marginTop: "2em",
+              borderRadius: "8px",
+              cursor: "pointer",
+              display: "block",
             }}
             role="img"
           />
