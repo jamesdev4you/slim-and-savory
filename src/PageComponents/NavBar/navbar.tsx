@@ -20,6 +20,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import TikTokIcon from "./tiktokIcon";
 
 const drawerWidth = 240;
 
@@ -28,8 +29,8 @@ const navItems = [
   { text: "Shop", href: "/shop" },
   { text: "About Me", href: "/about" },
   { text: "Contact Me", href: "/contact" },
-  { text: "Press", href: "/press" },
-  { text: "Recipe", href: "/blog" },
+  { text: "Videos", href: "/videos" },
+  { text: "Recipes", href: "/recipes" },
 ];
 
 const secondaryItems = [
@@ -37,7 +38,28 @@ const secondaryItems = [
   { text: "Newsletter", href: "/appointment" },
 ];
 
-const icons = [FacebookIcon, LinkedInIcon, YouTubeIcon, InstagramIcon];
+const socialIcons = [
+  {
+    Icon: TikTokIcon,
+    href: "https://www.tiktok.com/@slimandsavory",
+    platform: "TikTok",
+  },
+  {
+    Icon: InstagramIcon,
+    href: "https://www.instagram.com/slimandsavory/",
+    platform: "Instagram",
+  },
+  {
+    Icon: FacebookIcon,
+    href: "https://www.facebook.com/SlimandSavory/",
+    platform: "Facebook",
+  },
+  {
+    Icon: YouTubeIcon,
+    href: "https://www.youtube.com/@SlimSavory",
+    platform: "YouTube",
+  },
+];
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -117,17 +139,24 @@ export default function NavBar() {
             >
               Come check out my content I post weekly on my Social Medias!
             </Typography>
-            <Typography
-              sx={{
-                fontSize: 14,
-                mr: 1,
-                color: "#1B1E1E",
-                fontFamily: "Birds",
-                "&:hover": { cursor: "pointer", textDecoration: "underline" },
-              }}
+            <Link
+              href="https://www.youtube.com/@SlimSavory"
+              style={{ textDecoration: "none" }} // prevents default underline
+              target="_blank" // optional
+              rel="noopener noreferrer" // recommended for external links
             >
-              Join my Newsletter to stay up to date!
-            </Typography>
+              <Typography
+                sx={{
+                  fontSize: 16,
+                  mr: 1,
+                  color: "#1B1E1E",
+                  fontFamily: "Birds",
+                  "&:hover": { cursor: "pointer", textDecoration: "underline" },
+                }}
+              >
+                Check out my latest cooking tutorial!
+              </Typography>
+            </Link>
           </Box>
 
           <Box sx={{ width: 60, height: 60, flexShrink: 0 }}>
@@ -157,17 +186,34 @@ export default function NavBar() {
                 alignItems: "center",
               }}
             >
-              {icons.map((Icon, i) => (
-                <Icon
+              {socialIcons.map(({ Icon, href, platform }, i) => (
+                <Link
                   key={i}
-                  sx={{
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit my ${platform} page`}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
                     height: "100%",
-                    width: "10%",
-                    color: "white",
-                    transition: "all .2s ease",
-                    "&:hover": { cursor: "pointer", color: "#373e02" },
+                    width: "8%",
                   }}
-                />
+                >
+                  <Box
+                    component={Icon}
+                    sx={{
+                      height: "100%",
+                      width: "100%",
+                      color: "white",
+                      transition: "all .2s ease",
+                      "&:hover": {
+                        color: "#373e02",
+                        cursor: "pointer",
+                      },
+                    }}
+                  />
+                </Link>
               ))}
             </Box>
           </Box>
@@ -200,6 +246,7 @@ export default function NavBar() {
             sx={{
               display: { xs: "none", sm: "none", md: "flex" },
               ml: "auto",
+              mr: "auto",
               alignItems: "center",
             }}
           >
@@ -247,37 +294,6 @@ export default function NavBar() {
           </Box>
 
           {/* Secondary links */}
-          <Box
-            sx={{
-              display: { xs: "none", sm: "none", md: "flex" },
-              ml: "auto",
-              gap: "2em",
-            }}
-          >
-            {secondaryItems.map((item, i) => (
-              <Link
-                key={i}
-                href={item.href}
-                className="menu_link"
-                style={{ textDecoration: "none" }}
-              >
-                <Typography
-                  sx={{
-                    fontFamily: "Birds",
-                    textTransform: "none",
-                    color: "primary.dark",
-                    transition: "all .3s ease",
-                    textDecoration: "underline",
-                    "&:hover": {
-                      color: "primary.light",
-                    },
-                  }}
-                >
-                  {item.text}
-                </Typography>
-              </Link>
-            ))}
-          </Box>
         </Toolbar>
       </AppBar>
 

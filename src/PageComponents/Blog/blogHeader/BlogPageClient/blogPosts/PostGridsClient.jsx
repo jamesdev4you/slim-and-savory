@@ -61,7 +61,7 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
           return (
             <Link
               key={post._id}
-              href={`/blog/${slug}`}
+              href={`/recipes/${slug}`}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <Box
