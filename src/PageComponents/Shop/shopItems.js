@@ -1,28 +1,22 @@
+"use client";
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const ShopItems = ({ activeSection }) => {
-  const shopData = {
-    "All Products": [
-      { picture: "/images/shared/food1.jpg", href: "#" },
-      { picture: "/images/shared/food2.jpg", href: "#" },
-      { picture: "/images/shared/food3.jpg", href: "#" },
-      { picture: "/images/shared/food4.jpg", href: "#" },
-    ],
-    "Food Related": [
-      { picture: "/images/shared/food1.jpg", href: "#" },
-      { picture: "/images/shared/food2.jpg", href: "#" },
-    ],
-    Beauty: [
-      { picture: "/images/shared/food3.jpg", href: "#" },
-      { picture: "/images/shared/food3.jpg", href: "#" },
-    ],
-    Decorative: [],
-    Wellness: [],
-  };
+const ShopItems = ({ activeSection, items }) => {
+  // 🔥 Prevent undefined access
+  if (!items || !Array.isArray(items)) {
+    return (
+      <Typography variant="h3" sx={{ color: "primary.dark" }}>
+        Loading products...
+      </Typography>
+    );
+  }
 
-  const items = shopData[activeSection] || [];
+  const filteredItems =
+    activeSection === "All Products"
+      ? items
+      : items.filter((item) => item.category === activeSection);
 
   return (
     <Box
@@ -37,36 +31,59 @@ const ShopItems = ({ activeSection }) => {
         justifyContent: "center",
       }}
     >
-      {items.length === 0 ? (
-        <Box>
-          <Typography variant="h3" sx={{ color: "primary.dark" }}>
-            No items available for {activeSection} ... :(
-          </Typography>
-        </Box>
+      {filteredItems.length === 0 ? (
+        <Typography variant="h3" sx={{ color: "primary.dark" }}>
+          No items available for {activeSection} ... :(
+        </Typography>
       ) : (
-        items.map((item, index) => (
+        filteredItems.map((item) => (
           <Box
-            key={index}
-            component="a"
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            key={item._id}
             sx={{
               width: "23%",
               minWidth: "230px",
-              borderRadius: "8px",
-              backgroundImage: `url(${item.picture})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              height: { xl: "40vh", md: "30vh", sm: "30vh", xs: "180px" },
-              boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-              "&:hover": { transform: "scale(1.02)" },
-              transition: "transform 0.3s ease-in-out",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
-          />
+          >
+            {/* Image Box */}
+            <Box
+              component="a"
+              href={item.amazonUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                width: "100%",
+                borderRadius: "8px",
+                backgroundImage: `url(${item.image.url})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                height: { xl: "40vh", md: "30vh", sm: "30vh", xs: "180px" },
+                boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px",
+                "&:hover": { transform: "scale(1.02)" },
+                transition: "transform 0.3s ease-in-out",
+              }}
+            />
+
+            {/* Title under image */}
+            <Typography
+              sx={{
+                mt: 1.5,
+                fontSize: "24px",
+                color: "primary.main",
+                textAlign: "center",
+                fontWeight: "bold",
+              }}
+            >
+              {item.title}
+            </Typography>
+          </Box>
         ))
       )}
     </Box>
   );
 };
+
 export default ShopItems;

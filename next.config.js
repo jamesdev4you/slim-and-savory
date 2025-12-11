@@ -12,8 +12,14 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    // Allow loading images from external sources later if needed
-    // domains: ['yourcdn.com', 'example.com'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+        pathname: "/images/**",
+      },
+    ],
   },
 };
 module.exports = nextConfig;

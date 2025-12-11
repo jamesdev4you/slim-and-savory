@@ -1,17 +1,33 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ShopHeader from "./shopHeader.js";
 import ShopItems from "./shopItems.js";
+import { fetchShopItems } from "@/sanity/shop";
+
 const Shop = () => {
   const shopSections = [
     "All Products",
-    "Food Related",
-    "Beauty",
-    "Decorative",
-    "Wellness",
+    "Kitchen Tools",
+    "Cutting Gear",
+    "Appliances",
+    "Beverage Tools",
   ];
 
   const [activeSection, setActiveSection] = useState(shopSections[0]);
+  const [items, setItems] = useState(null);
+
+  // 🔥 Fetch items on mount
+  useEffect(() => {
+    async function loadItems() {
+      try {
+        const data = await fetchShopItems();
+        setItems(data);
+      } catch (err) {
+        console.error("Failed to fetch shop items:", err);
+      }
+    }
+    loadItems();
+  }, []);
 
   return (
     <div>
@@ -20,8 +36,11 @@ const Shop = () => {
         setActiveSection={setActiveSection}
         shopSections={shopSections}
       />
-      <ShopItems activeSection={activeSection} />
+
+      {/* 🔥 Pass the fetched items into ShopItems */}
+      <ShopItems activeSection={activeSection} items={items} />
     </div>
   );
 };
+
 export default Shop;

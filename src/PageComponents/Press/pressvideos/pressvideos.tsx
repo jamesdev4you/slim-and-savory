@@ -6,8 +6,10 @@ import Link from "next/link";
 import { urlFor } from "@/sanity/image"; // ensure this helper exists
 
 const PressVideos = ({ videos }: { videos: any[] }) => {
+  console.log("VIDEO THUMB:", videos);
+
   return (
-    <Box sx={{ width: "auto", minHeight: "100vh" }}>
+    <Box sx={{ width: "auto" }}>
       {videos.map((video, index) => (
         <Box
           key={video._id || index}
@@ -23,7 +25,6 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
             justifyContent: "center",
             gap: "3em",
             flexDirection: "row",
-            padding: "2em 0",
           }}
         >
           {/* Thumbnail */}
@@ -38,12 +39,32 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
               borderColor: "secondary.light",
             }}
           >
-            <Image
-              src={urlFor(video.thumbnail).url()}
-              alt={video.title}
-              fill
-              style={{ objectFit: "cover" }}
-            />
+            {video.thumbnail ? (
+              <Image
+                src={urlFor(video.thumbnail).url()}
+                alt={video.title}
+                fill
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
+            ) : (
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "gray",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "white",
+                }}
+              >
+                No Thumbnail
+              </Box>
+            )}
           </Box>
 
           {/* Content */}
@@ -55,13 +76,14 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
               flexDirection: "column",
               alignItems: "start",
               justifyContent: "start",
+              gap: ".5em",
             }}
           >
-            <Typography variant="h2" sx={{ color: "secondary.light" }}>
+            <Typography variant="h4" sx={{ color: "secondary.light" }}>
               {video.title}
             </Typography>
 
-            <Typography variant="h3" sx={{ color: "secondary.light" }}>
+            <Typography variant="h5" sx={{ color: "secondary.light" }}>
               {video.description}
             </Typography>
 
@@ -72,7 +94,7 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
               rel="noopener noreferrer"
               variant="contained"
               sx={{
-                width: { xl: "30%", md: "30%" },
+                width: { xl: "50%", md: "50%" },
                 height: "40px",
                 fontSize: { xl: "1em", md: "1em" },
                 backgroundColor: "#373e02",
