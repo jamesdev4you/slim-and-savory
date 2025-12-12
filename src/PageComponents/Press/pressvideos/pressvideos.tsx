@@ -79,11 +79,11 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
               gap: ".5em",
             }}
           >
-            <Typography variant="h4" sx={{ color: "secondary.light" }}>
+            <Typography variant="h3" sx={{ color: "secondary.light" }}>
               {video.title}
             </Typography>
 
-            <Typography variant="h5" sx={{ color: "secondary.light" }}>
+            <Typography variant="p" sx={{ color: "secondary.light" }}>
               {video.description}
             </Typography>
 

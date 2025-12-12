@@ -8,10 +8,11 @@ import HomeShop from "./homeShop.js";
 import HomeContact from "./homeContact/homeContact.js";
 import { Box } from "@mui/material";
 
-const Home = () => {
+const Home = ({ headerData }) => {
+  console.log("HEADERDATA IN HOME:", headerData);
   return (
     <div>
-      <HomeHeader />
+      <HomeHeader headerData={headerData} />
       <Box
         sx={{
           width: "100%",

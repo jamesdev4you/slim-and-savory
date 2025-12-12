@@ -9,14 +9,16 @@ export const StyledAnimatedButton = styled(Button)(({ theme }) => ({
   backgroundImage: "none",
   color: "#ffffff",
   cursor: "pointer",
+  width: "100%",
+  borderEndEndRadius: "5px",
   fontFamily:
     "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji",
-  fontSize: "100%",
+  fontSize: "16px",
   fontWeight: 900,
   lineHeight: 1.5,
   textTransform: "uppercase",
   padding: "20px 45px",
-  border: "1px solid #D2691E",
+  border: "1px solid #a0c49d",
   transition: "border-width 0.1s ease",
 
   "&:disabled": {
@@ -34,8 +36,8 @@ export const StyledAnimatedButton = styled(Button)(({ theme }) => ({
   },
 
   "&:hover": {
-    borderWidth: "3px",
-    color: "#f1f1f1",
+    borderWidth: "1px",
+    color: "#a0c49d",
   },
 }));
 
@@ -48,7 +50,7 @@ export const DarkButtonBlog = styled(Button)(({ theme }) => ({
   "&:hover": {
     borderWidth: "2px",
     borderStyle: "solid",
-    borderColor: "#D2691E",
+    borderColor: "#a0c49d",
   },
 }));
 
@@ -64,6 +66,6 @@ export const ShopButton = styled(Button, {
   "&:hover": {
     borderWidth: "2px",
     borderStyle: "solid",
-    borderColor: "#D2691E",
+    borderColor: "#a0c49d",
   },
 }));

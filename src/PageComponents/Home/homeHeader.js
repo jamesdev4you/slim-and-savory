@@ -1,21 +1,19 @@
-"use client";
 import React from "react";
 import { Box } from "@mui/material";
 import { StyledAnimatedButton } from "../Styled/styledButtons.js";
+import Image from "next/image";
+import Link from "next/link";
 
-const HomeHeader = () => {
-  const headerMaterial = [
-    { title: "Learn More", picture: "/images/shared/food1.jpg" },
-    { title: "Learn More", picture: "/images/shared/food2.jpg" },
-    { title: "Learn More", picture: "/images/shared/food3.jpg" },
-    { title: "Learn More", picture: "/images/shared/food4.jpg" },
-  ];
+const HomeHeader = ({ headerData }) => {
+  if (!headerData?.items) return null;
+
+  console.log("HEADER DATA:", headerData);
 
   return (
     <Box
       sx={{
         width: "100%",
-        minHeight: "90vh",
+        height: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -28,28 +26,34 @@ const HomeHeader = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          height: "90vh",
+          height: "100%",
           gap: 4,
         }}
       >
-        {headerMaterial.map((item, index) => (
+        {headerData.items.map((item, index) => (
           <Box
             key={index}
             sx={{
               width: "20%",
               height: "70%",
               borderRadius: "8px",
-              backgroundImage: `url(${item.picture})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
               position: "relative",
-              overflow: "visible",
+              overflow: "hidden",
             }}
           >
+            {/* Optimized Next Image */}
+            <Image
+              src={item.image}
+              alt={item.title}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+
+            {/* Button */}
             <Box
               sx={{
                 position: "absolute",
-                bottom: -30,
+                bottom: 0,
                 left: "50%",
                 transform: "translateX(-50%)",
                 width: "100%",
@@ -58,7 +62,19 @@ const HomeHeader = () => {
                 justifyContent: "center",
               }}
             >
-              <StyledAnimatedButton>Learn more</StyledAnimatedButton>
+              <Link
+                href={item.link}
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textDecoration: "none",
+                  height: "100%",
+                }}
+              >
+                <StyledAnimatedButton>{item.title}</StyledAnimatedButton>
+              </Link>
             </Box>
           </Box>
         ))}
