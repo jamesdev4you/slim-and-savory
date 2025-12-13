@@ -109,6 +109,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
                   "&:hover": {
                     borderColor: "primary.light",
                     color: "primary.light",
+                    backgroundColor: "primary.dark",
                   },
                 }}
               >
