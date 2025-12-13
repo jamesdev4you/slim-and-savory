@@ -1,7 +1,17 @@
 "use client";
-import { Typography, Box, Button } from "@mui/material";
 
-const HomeCookbook = () => {
+import { Typography, Box, Button } from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
+import { PortableText } from "@portabletext/react";
+import { urlFor } from "@/sanity/image";
+
+const HomeCookbook = ({ cookbookData }) => {
+  if (!cookbookData) return null;
+
+  const { title, ctaText, description, image, buttonText, bookLink } =
+    cookbookData;
+
   return (
     <Box
       sx={{
@@ -23,15 +33,23 @@ const HomeCookbook = () => {
           padding: "0em 3em",
         }}
       >
+        {/* IMAGE */}
         <Box
           sx={{
             width: "30%",
             height: "85%",
-            backgroundImage: "url('/images/shared/food2.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            position: "relative",
           }}
-        />
+        >
+          <Image
+            src={urlFor(image).width(600).height(800).url()}
+            alt={title}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </Box>
+
+        {/* CONTENT */}
         <Box
           sx={{
             width: "70%",
@@ -45,72 +63,59 @@ const HomeCookbook = () => {
           }}
         >
           <Typography variant="h5" sx={{ color: "primary.dark" }}>
-            Coming Soon!
+            {ctaText}
           </Typography>
+
           <Typography
             variant="h3"
             sx={{ color: "primary.dark", fontWeight: "bold" }}
           >
-            Slim & Savory Cookbook
+            {title}
           </Typography>
-          <Typography
-            variant="h6"
-            sx={{ marginTop: "20px", color: "primary.dark" }}
+
+          {/* DESCRIPTION */}
+          <Box
+            sx={{
+              marginTop: "20px",
+              color: "primary.dark",
+              fontSize: "20px",
+              width: "100%",
+              textAlign: "center",
+            }}
           >
-            Join Suzie Aragon's Newsletter and be the first to
-          </Typography>
-          <Typography variant="h6" sx={{ marginTop: "20px", color: "#373e02" }}>
-            know when her innovative cookbook arrives!
-          </Typography>
+            <PortableText value={description} />
+          </Box>
+
+          {/* BUTTON */}
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "space-evenly",
+              justifyContent: "center",
               marginTop: "2em",
               width: "100%",
             }}
           >
-            <Button
-              variant="contained"
-              sx={{
-                width: { xl: "30%", md: "30%" },
-                height: "40px",
-                fontSize: { xl: "1em", md: "1em" },
-                borderRadius: "0px",
-                backgroundColor: "#373e02",
-                color: "#d9d9d9", // Dark Green text
-                border: "2px solid #d9d9d9", // Dark Green border
-                fontWeight: "bold",
-                "&:hover": {
-                  borderWidth: "2px",
-                  borderStyle: "solid",
-                  borderColor: "#D2691E", // Optional: subtle hover effect
-                },
-              }}
-            >
-              Learn More
-            </Button>
-            <Button
-              variant="contained"
-              sx={{
-                width: { xl: "30%", md: "30%" },
-                height: "40px",
-                fontSize: { xl: "1em", md: "1em" },
-                borderRadius: "0px",
-                backgroundColor: "#373e02",
-                color: "#d9d9d9", // Dark Green text
-                border: "2px solid #d9d9d9", // Dark Green border
-                fontWeight: "bold",
-                "&:hover": {
-                  borderWidth: "2px",
-                  borderStyle: "solid",
-                  borderColor: "#D2691E", // Optional: subtle hover effect
-                },
-              }}
-            >
-              Learn More
-            </Button>
+            <Link href={bookLink || "#"} style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                sx={{
+                  width: { xl: "200px", md: "200px" },
+                  height: "40px",
+                  borderRadius: "0px",
+                  backgroundColor: "#373e02",
+                  color: "#d9d9d9",
+                  border: "2px solid #d9d9d9",
+                  fontWeight: "bold",
+                  "&:hover": {
+                    borderColor: "primary.light",
+                    color: "primary.light",
+                  },
+                }}
+              >
+                {buttonText || "Learn More"}
+              </Button>
+            </Link>
           </Box>
         </Box>
       </Box>

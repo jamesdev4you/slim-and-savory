@@ -8,7 +8,7 @@ import HomeShop from "./homeShop.js";
 import HomeContact from "./homeContact/homeContact.js";
 import { Box } from "@mui/material";
 
-const Home = ({ headerData }) => {
+const Home = ({ headerData, cookbookData }) => {
   console.log("HEADERDATA IN HOME:", headerData);
   return (
     <div>
@@ -20,7 +20,7 @@ const Home = ({ headerData }) => {
           backgroundColor: "background.line",
         }}
       />
-      <HomeCookbook />
+      <HomeCookbook cookbookData={cookbookData} />
       <Box
         sx={{
           width: "100%",
