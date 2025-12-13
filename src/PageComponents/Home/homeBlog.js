@@ -38,6 +38,7 @@ const HomeBlog = ({ posts }) => {
           color="text.secondary"
           sx={{
             textDecoration: "underline",
+            transition: "all .3s ease-in-out",
             "&:hover": {
               cursor: "pointer",
               color: "primary.light",

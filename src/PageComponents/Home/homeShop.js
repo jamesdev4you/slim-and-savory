@@ -1,10 +1,14 @@
 "use client";
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 import { Typography, Box, Button } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
+import Link from "next/link";
+import { fetchShopItems } from "@/sanity/shop";
 
+/* ---------- Carousel breakpoints ---------- */
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -19,6 +23,8 @@ const responsive = {
     items: 1,
   },
 };
+
+/* ---------- Custom arrows (unchanged visually) ---------- */
 const ArrowLeft = ({ onClick }) => (
   <button
     onClick={onClick}
@@ -66,12 +72,20 @@ const ArrowRight = ({ onClick }) => (
 );
 
 const HomeShop = () => {
-  const images = [
-    { src: "/images/shared/food1.jpg", alt: "Grilled chicken salad" },
-    { src: "/images/shared/food2.jpg", alt: "Avocado toast with eggs" },
-    { src: "/images/shared/food3.jpg", alt: "Berry yogurt bowl" },
-    { src: "/images/shared/food4.jpg", alt: "Veggie quinoa plate" },
-  ];
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    async function loadItems() {
+      const data = await fetchShopItems();
+      setItems(data || []);
+    }
+    loadItems();
+  }, []);
+
+  /* ✅ LIMIT TO 5 ITEMS */
+  const homeItems = items.slice(0, 5);
+
+  if (!homeItems.length) return null;
 
   return (
     <Box
@@ -97,12 +111,12 @@ const HomeShop = () => {
           Come Shop With Me
         </Typography>
 
-        {/* ✅ FIXED CAROUSEL */}
+        {/* ---------- Carousel ---------- */}
         <Box
           sx={{
             width: "100%",
-            position: "relative", // ✅ anchor for arrows
-            overflow: "visible", // ✅ allow arrows outside
+            position: "relative",
+            overflow: "visible",
           }}
         >
           <Carousel
@@ -112,21 +126,26 @@ const HomeShop = () => {
             customLeftArrow={<ArrowLeft />}
             customRightArrow={<ArrowRight />}
           >
-            {images.map((image, index) => (
+            {homeItems.map((item) => (
               <Box
-                key={index}
+                key={item._id}
                 sx={{
                   display: "flex",
-                  justifyContent: "center", // ✅ centers the card
+                  justifyContent: "center",
                 }}
               >
+                {/* Clickable card → Amazon affiliate link */}
                 <Box
+                  component="a"
+                  href={item.amazonUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   sx={{
-                    width: "70%", // ✅ controls card size
-                    maxWidth: "200px", // ✅ prevents giant cards
+                    width: "70%",
+                    maxWidth: "200px",
                     borderRadius: "12px",
                     overflow: "hidden",
-
+                    textDecoration: "none",
                     transition: "transform 0.3s ease",
                     "&:hover": {
                       transform: "scale(1.03)",
@@ -138,26 +157,28 @@ const HomeShop = () => {
                     sx={{
                       position: "relative",
                       width: "100%",
-                      height: "220px", // ✅ controls image height
+                      height: "220px",
+                      boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
                     }}
                   >
                     <Image
-                      src={image.src}
-                      alt={image.alt}
+                      src={item.image.url}
+                      alt={item.title}
                       fill
                       style={{ objectFit: "cover" }}
                     />
                   </Box>
+
                   <Typography
                     sx={{
                       mt: 1.5,
-                      fontSize: "24px",
-
+                      fontSize: "18px",
                       textAlign: "center",
                       fontWeight: "bold",
+                      color: "primary.main",
                     }}
                   >
-                    yo
+                    {item.title}
                   </Typography>
                 </Box>
               </Box>
@@ -165,7 +186,10 @@ const HomeShop = () => {
           </Carousel>
         </Box>
 
+        {/* ---------- CTA BUTTON → /shop ---------- */}
         <Button
+          component={Link}
+          href="/shop"
           variant="contained"
           sx={{
             width: "30%",
@@ -175,7 +199,7 @@ const HomeShop = () => {
             border: "2px solid #d9d9d9",
             fontWeight: "bold",
             "&:hover": {
-              borderColor: "#D2691E",
+              borderColor: "primary.light",
             },
           }}
         >
