@@ -48,8 +48,8 @@ const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
       <Box
         sx={{
           width: "100%",
-          height: "1px",
-          backgroundColor: "background.line",
+          height: "3px",
+          backgroundColor: "primary.main",
         }}
       />
       <HomeContact />

@@ -1,213 +1,93 @@
 "use client";
+import React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
-import React, { useEffect, useState } from "react";
-import { Typography, Box, Button } from "@mui/material";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Image from "next/image";
-import Link from "next/link";
-import { fetchShopItems } from "@/sanity/shop";
+const ShopItems = ({ activeSection, items }) => {
+  // 🔥 Prevent undefined access
+  if (!items || !Array.isArray(items)) {
+    return (
+      <Typography variant="h3" sx={{ color: "primary.dark" }}>
+        Loading products...
+      </Typography>
+    );
+  }
 
-/* ---------- Carousel breakpoints ---------- */
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 640 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 640, min: 0 },
-    items: 1,
-  },
-};
-
-/* ---------- Custom arrows (unchanged visually) ---------- */
-const ArrowLeft = ({ onClick }) => (
-  <button
-    onClick={onClick}
-    aria-label="Previous slide"
-    style={{
-      position: "absolute",
-      left: "-30px",
-      top: "50%",
-      transform: "translateY(-50%)",
-      background: "#373e02",
-      color: "#fff",
-      borderRadius: "50%",
-      border: "none",
-      width: "40px",
-      height: "40px",
-      cursor: "pointer",
-      zIndex: 10,
-    }}
-  >
-    ‹
-  </button>
-);
-
-const ArrowRight = ({ onClick }) => (
-  <button
-    onClick={onClick}
-    aria-label="Next slide"
-    style={{
-      position: "absolute",
-      right: "-30px",
-      top: "50%",
-      transform: "translateY(-50%)",
-      background: "#373e02",
-      color: "#fff",
-      borderRadius: "50%",
-      border: "none",
-      width: "40px",
-      height: "40px",
-      cursor: "pointer",
-      zIndex: 10,
-    }}
-  >
-    ›
-  </button>
-);
-
-const HomeShop = () => {
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    async function loadItems() {
-      const data = await fetchShopItems();
-      setItems(data || []);
-    }
-    loadItems();
-  }, []);
-
-  /* ✅ LIMIT TO 5 ITEMS */
-  const homeItems = items.slice(0, 5);
-
-  if (!homeItems.length) return null;
+  const filteredItems =
+    activeSection === "all"
+      ? items
+      : items.filter((item) => item.category?.value === activeSection);
 
   return (
     <Box
       sx={{
+        height: "auto",
         width: "100%",
-        minHeight: "90vh",
+        padding: "4em",
         backgroundColor: "secondary.main",
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        flexWrap: "wrap",
+        gap: "2%",
+        justifyContent: "start",
       }}
     >
-      <Box
-        sx={{
-          width: "90%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "2em",
-        }}
-      >
-        <Typography variant="h2" sx={{ color: "primary.dark" }}>
-          Come Shop With Me
+      {filteredItems.length === 0 ? (
+        <Typography variant="h3" sx={{ color: "primary.dark" }}>
+          No items available for {activeSection} ... :(
         </Typography>
-
-        {/* ---------- Carousel ---------- */}
-        <Box
-          sx={{
-            width: "100%",
-            position: "relative",
-            overflow: "visible",
-          }}
-        >
-          <Carousel
-            responsive={responsive}
-            infinite
-            draggable
-            customLeftArrow={<ArrowLeft />}
-            customRightArrow={<ArrowRight />}
+      ) : (
+        filteredItems.map((item) => (
+          <Box
+            key={item._id}
+            sx={{
+              width: "23%",
+              minWidth: "230px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginTop: "1em",
+            }}
           >
-            {homeItems.map((item) => (
-              <Box
-                key={item._id}
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                {/* Clickable card → Amazon affiliate link */}
-                <Box
-                  component="a"
-                  href={item.amazonUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
-                    width: "70%",
-                    maxWidth: "200px",
-                    borderRadius: "12px",
-                    overflow: "hidden",
-                    textDecoration: "none",
-                    transition: "transform 0.3s ease",
-                    "&:hover": {
-                      transform: "scale(1.03)",
-                      cursor: "pointer",
-                    },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      position: "relative",
-                      width: "100%",
-                      height: "220px",
-                      boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-                    }}
-                  >
-                    <Image
-                      src={item.image.url}
-                      alt={item.title}
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
-                  </Box>
+            {/* Image Box */}
+            <Box
+              component="a"
+              href={item.amazonUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                width: "100%",
+                borderRadius: "8px",
+                backgroundImage: item.image?.asset?.url
+                  ? `url(${item.image?.asset?.url})`
+                  : "none",
 
-                  <Typography
-                    sx={{
-                      mt: 1.5,
-                      fontSize: "18px",
-                      textAlign: "center",
-                      fontWeight: "bold",
-                      color: "primary.main",
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-                </Box>
-              </Box>
-            ))}
-          </Carousel>
-        </Box>
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                height: { xl: "40vh", md: "30vh", sm: "30vh", xs: "180px" },
+                boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px",
+                "&:hover": { transform: "scale(1.02)" },
+                transition: "transform 0.3s ease-in-out",
+              }}
+            />
 
-        {/* ---------- CTA BUTTON → /shop ---------- */}
-        <Button
-          component={Link}
-          href="/shop"
-          variant="contained"
-          sx={{
-            width: "30%",
-            height: "60px",
-            backgroundColor: "#373e02",
-            color: "#d9d9d9",
-            border: "2px solid #d9d9d9",
-            fontWeight: "bold",
-            "&:hover": {
-              borderColor: "#D2691E",
-            },
-          }}
-        >
-          Shop Now
-        </Button>
-      </Box>
+            {/* Title under image */}
+            <Typography
+              sx={{
+                mt: 1.5,
+                fontSize: "24px",
+                color: "primary.main",
+                textAlign: "center",
+                fontWeight: "bold",
+              }}
+            >
+              {item.title}
+            </Typography>
+          </Box>
+        ))
+      )}
     </Box>
   );
 };
 
-export default HomeShop;
+export default ShopItems;

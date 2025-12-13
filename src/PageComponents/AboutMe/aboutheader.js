@@ -1,8 +1,15 @@
 "use client";
 import React from "react";
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
+import { urlFor } from "@/sanity/image";
 
-const AboutHeader = () => {
+const AboutHeader = ({ data }) => {
+  if (!data) return null;
+
+  const { title, description, author } = data;
+
+  const authorImage = author?.headshot;
+
   return (
     <Box
       sx={{
@@ -23,15 +30,21 @@ const AboutHeader = () => {
           padding: "0em 3em",
         }}
       >
+        {/* LEFT IMAGE — author image */}
         <Box
           sx={{
             width: "30vw",
             height: "70%",
-            backgroundImage: "url('/images/shared/food1.jpg')",
+            backgroundImage: authorImage
+              ? `url(${urlFor(authorImage).width(1200).url()})`
+              : "none",
+
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         />
+
+        {/* RIGHT TEXT — unchanged layout */}
         <Box
           sx={{
             width: "50%",
@@ -48,8 +61,10 @@ const AboutHeader = () => {
             variant="h3"
             sx={{ color: "primary.dark", fontWeight: "bold" }}
           >
-            My Name Is Suzie and my Passion is to make everything
+            {title}
           </Typography>
+
+          {/* LOGO — unchanged */}
           <Box
             sx={{
               width: "75%",
@@ -59,13 +74,14 @@ const AboutHeader = () => {
               backgroundPosition: "center",
             }}
           />
+
           <Typography variant="h6" sx={{ color: "primary.dark" }}>
-            My passion is to make food that is healthy and tasty. All my dishes
-            are made for you to enjoy losing weight!
+            {description}
           </Typography>
         </Box>
       </Box>
     </Box>
   );
 };
+
 export default AboutHeader;

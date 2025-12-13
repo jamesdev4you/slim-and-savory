@@ -161,12 +161,14 @@ const HomeShop = () => {
                       boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
                     }}
                   >
-                    <Image
-                      src={item.image.url}
-                      alt={item.title}
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
+                    {item.image?.asset?.url && (
+                      <Image
+                        src={item.image?.asset?.url}
+                        alt={item.title}
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
+                    )}
                   </Box>
 
                   <Typography

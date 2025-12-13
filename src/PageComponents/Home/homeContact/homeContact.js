@@ -51,10 +51,10 @@ const HomeContact = () => {
           variant="h3"
           sx={{ marginTop: ".5em", color: "secondary.main" }}
         >
-          Don't Be A Stranger
+          Let's talk
         </Typography>
-        <Typography variant="h5" sx={{ color: "secondary.main" }}>
-          Will Respond To All Inquires (:
+        <Typography variant="h3" sx={{ color: "secondary.main" }}>
+          Slim and Savory.
         </Typography>
       </Box>
       <Box

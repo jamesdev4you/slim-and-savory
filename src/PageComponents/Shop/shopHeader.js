@@ -1,50 +1,49 @@
 "use client";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import { ShopButton } from "../Styled/styledButtons";
 
-const ShopHeader = ({ activeSection, setActiveSection, shopSections }) => {
+import { Box, Typography } from "@mui/material";
+import { ShopButton } from "@/PageComponents/Styled/styledButtons";
+const ShopHeader = ({
+  title,
+  subtitle,
+  activeSection,
+  setActiveSection,
+  shopSections,
+}) => {
   return (
     <Box
       sx={{
         mt: "3em",
         height: "70vh",
-        width: "100%",
+        textAlign: "center",
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        flexDirection: "column",
+        width: "100%",
       }}
     >
-      <Typography
-        variant="h2"
-        sx={{ mt: "1em", mb: ".2em", color: "primary.dark" }}
-      >
-        Don't Feel Left Out!
+      <Typography variant="h2" sx={{ color: "primary.dark" }}>
+        {title}
       </Typography>
       <Typography variant="h4" sx={{ color: "primary.dark", mb: "2em" }}>
-        Come Check Out Some of My Favorite Things!
+        {subtitle}
       </Typography>
+
       <Box
-        sx={{
-          height: "auto",
-          width: "90%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
+        sx={{ display: "flex", justifyContent: "space-between", width: "90%" }}
       >
         {shopSections.map((section) => (
           <ShopButton
-            key={section}
-            active={activeSection === section}
-            onClick={() => setActiveSection(section)}
+            key={section.value}
+            active={activeSection === section.value}
+            onClick={() => setActiveSection(section.value)}
           >
-            {section}
+            {section.label}
           </ShopButton>
         ))}
       </Box>
     </Box>
   );
 };
+
 export default ShopHeader;

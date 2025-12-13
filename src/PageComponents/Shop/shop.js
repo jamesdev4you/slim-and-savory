@@ -1,45 +1,51 @@
 "use client";
-import { useState, useEffect } from "react";
-import ShopHeader from "./shopHeader.js";
-import ShopItems from "./shopItems.js";
+
+import { useEffect, useState } from "react";
+
+import ShopHeader from "./shopHeader";
+import ShopItems from "./shopItems";
+
+import { fetchShopPage } from "@/sanity/fetchShopPage";
 import { fetchShopItems } from "@/sanity/shop";
 
 const Shop = () => {
-  const shopSections = [
-    "All Products",
-    "Kitchen Tools",
-    "Cutting Gear",
-    "Appliances",
-    "Beverage Tools",
-  ];
-
-  const [activeSection, setActiveSection] = useState(shopSections[0]);
+  const [shopPage, setShopPage] = useState(null);
   const [items, setItems] = useState(null);
+  const [activeSection, setActiveSection] = useState(null);
 
-  // 🔥 Fetch items on mount
   useEffect(() => {
-    async function loadItems() {
-      try {
-        const data = await fetchShopItems();
-        setItems(data);
-      } catch (err) {
-        console.error("Failed to fetch shop items:", err);
-      }
+    async function loadData() {
+      const page = await fetchShopPage();
+      const products = await fetchShopItems();
+
+      setShopPage(page);
+      setItems(products);
+      setActiveSection("all"); // default
     }
-    loadItems();
+    loadData();
   }, []);
 
+  if (!shopPage || !items) return null;
+
+  const shopSections = [
+    { label: "All Products", value: "all" },
+    ...shopPage.categories.map((category) => ({
+      label: category.title,
+      value: category.value,
+    })),
+  ];
+
   return (
-    <div>
+    <>
       <ShopHeader
+        title={shopPage.title}
+        subtitle={shopPage.subtitle}
         activeSection={activeSection}
         setActiveSection={setActiveSection}
         shopSections={shopSections}
       />
-
-      {/* 🔥 Pass the fetched items into ShopItems */}
       <ShopItems activeSection={activeSection} items={items} />
-    </div>
+    </>
   );
 };
 

@@ -12,6 +12,8 @@ const HomeCookbook = ({ cookbookData }) => {
   const { title, ctaText, description, image, buttonText, bookLink } =
     cookbookData;
 
+  const imageUrl = image ? urlFor(image).width(600).height(800).url() : null;
+
   return (
     <Box
       sx={{
@@ -41,12 +43,14 @@ const HomeCookbook = ({ cookbookData }) => {
             position: "relative",
           }}
         >
-          <Image
-            src={urlFor(image).width(600).height(800).url()}
-            alt={title}
-            fill
-            style={{ objectFit: "cover" }}
-          />
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              alt={title}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          )}
         </Box>
 
         {/* CONTENT */}

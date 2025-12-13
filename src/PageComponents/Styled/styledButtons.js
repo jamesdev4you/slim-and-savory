@@ -60,7 +60,7 @@ export const ShopButton = styled(Button, {
   border: active ? "2px solid #D2691E" : "2px solid #d9d9d9",
   fontWeight: "bold",
   backgroundColor: "#373e02",
-  width: "18%",
+  width: "19%",
   borderRadius: "15px",
   "&:hover": {
     borderWidth: "2px",

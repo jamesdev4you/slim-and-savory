@@ -1,8 +1,13 @@
 "use client";
 import React from "react";
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
+import { urlFor } from "@/sanity/image";
 
-const AboutDescription = () => {
+const AboutDescription = ({ data }) => {
+  if (!data) return null;
+
+  const { image, paragraphOne, paragraphTwo, paragraphThree } = data;
+
   return (
     <Box
       sx={{
@@ -10,7 +15,7 @@ const AboutDescription = () => {
         height: "90vh",
         display: "flex",
         justifyContent: "center",
-        backgroundColor: "secondary.main",
+        backgroundColor: "primary.main",
       }}
     >
       <Box
@@ -23,6 +28,7 @@ const AboutDescription = () => {
           padding: "0em 3em",
         }}
       >
+        {/* LEFT TEXT COLUMN — unchanged */}
         <Box
           sx={{
             width: "50%",
@@ -37,40 +43,34 @@ const AboutDescription = () => {
         >
           <Typography
             variant="p"
-            sx={{ color: "primary.dark", fontWeight: "bold" }}
+            sx={{ color: "secondary.main", fontWeight: "bold" }}
           >
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo.{" "}
+            {paragraphOne}
           </Typography>
+
           <Typography
             variant="p"
-            sx={{ color: "primary.dark", fontWeight: "bold" }}
+            sx={{ color: "secondary.main", fontWeight: "bold" }}
           >
-            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-            autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-            nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-            voluptas nulla pariatur?
+            {paragraphTwo}
           </Typography>
+
           <Typography
             variant="p"
-            sx={{ color: "primary.dark", fontWeight: "bold" }}
+            sx={{ color: "secondary.main", fontWeight: "bold" }}
           >
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-            fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-            ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
-            numquam eius modi tempora incidunt ut labore et dolore magnam
-            aliquam quaerat voluptatem.
+            {paragraphThree}
           </Typography>
         </Box>
+
+        {/* RIGHT IMAGE — still a background image */}
         <Box
           sx={{
             width: "30vw",
             height: "70%",
-            backgroundImage: "url('/images/shared/food2.jpg')",
+            backgroundImage: image
+              ? `url(${urlFor(image).width(1200).url()})`
+              : "none",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -79,4 +79,5 @@ const AboutDescription = () => {
     </Box>
   );
 };
+
 export default AboutDescription;
