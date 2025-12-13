@@ -1,12 +1,32 @@
 "use client";
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box, Button, IconButton } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TikTokIcon from "./tiktokIcon";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-const icons = [FacebookIcon, LinkedInIcon, YouTubeIcon, InstagramIcon];
-
+const socialIcons = [
+  {
+    Icon: TikTokIcon,
+    href: "https://www.tiktok.com/@slimandsavory",
+    platform: "TikTok",
+  },
+  {
+    Icon: InstagramIcon,
+    href: "https://www.instagram.com/slimandsavory/",
+    platform: "Instagram",
+  },
+  {
+    Icon: FacebookIcon,
+    href: "https://www.facebook.com/SlimandSavory/",
+    platform: "Facebook",
+  },
+  {
+    Icon: YouTubeIcon,
+    href: "https://www.youtube.com/@SlimSavory",
+    platform: "YouTube",
+  },
+];
 const HomeLearnMore = () => {
   return (
     <Box
@@ -68,24 +88,29 @@ const HomeLearnMore = () => {
               marginTop: "1em",
             }}
           >
-            {icons.map((Icon, index) => (
-              <Icon
-                key={index}
+            {socialIcons.map(({ Icon, href, platform }, index) => (
+              <IconButton
+                key={platform}
+                component="a"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${platform}`}
                 sx={{
-                  height: "80%",
-                  width: "auto",
-                  color: "white",
                   backgroundColor: "primary.dark",
-                  borderRadius: "50%",
+                  color: "white",
                   padding: "10px",
+                  borderRadius: "50%",
+                  border: "1px solid transparent", // keeps layout stable
                   "&:hover": {
                     cursor: "pointer",
-                    borderWidht: "1px",
-                    borderStyle: "solid",
-                    borderColor: "#D2691E",
+                    borderColor: "primary.light",
+                    backgroundColor: "primary.dark", // prevents default IconButton hover
                   },
                 }}
-              />
+              >
+                <Icon fontSize="large" />
+              </IconButton>
             ))}
           </Box>
 
@@ -103,12 +128,12 @@ const HomeLearnMore = () => {
               "&:hover": {
                 borderWidth: "2px",
                 borderStyle: "solid",
-                borderColor: "#D2691E", // Optional: subtle hover effect
+                borderColor: "primary.light", // Optional: subtle hover effect
               },
               marginTop: { xl: "1em", md: "1em" },
             }}
           >
-            Learn More
+            Reach Out!
           </Button>
         </Box>
         <Box

@@ -109,7 +109,6 @@ const HomeCookbook = ({ cookbookData }) => {
                   fontWeight: "bold",
                   "&:hover": {
                     borderColor: "primary.light",
-                    color: "primary.light",
                   },
                 }}
               >
