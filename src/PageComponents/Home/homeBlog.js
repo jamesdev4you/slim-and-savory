@@ -1,66 +1,10 @@
 "use client";
-import { Typography, Box, Button } from "@mui/material";
+import Link from "next/link";
+import { Typography, Box } from "@mui/material";
 import { DarkButtonBlog } from "../Styled/styledButtons.js";
 
-const HomeBlog = () => {
-  const dataList = [
-    {
-      Picture: "/images/shared/food1.jpg",
-      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
-      Category: "RECIPE",
-      Date: "2025-07-17",
-      Title: "Orange chicken with a tangy BBQ",
-    },
-    {
-      Picture: "/images/shared/food2.jpg",
-      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
-      Category: "RECIPE",
-      Date: "2025-07-17",
-      Title: "Orange chicken with a tangy BBQ",
-    },
-    {
-      Picture: "/images/shared/food3.jpg",
-      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
-      Category: "RECIPE",
-      Date: "2025-07-17",
-      Title: "Orange chicken with a tangy BBQ",
-    },
-    {
-      Picture: "/images/shared/food4.jpg",
-      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
-      Category: "RECIPE",
-      Date: "2025-07-17",
-      Title: "Orange chicken with a tangy BBQ",
-    },
-    {
-      Picture: "/images/shared/food1.jpg",
-      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
-      Category: "RECIPE",
-      Date: "2025-07-17",
-      Title: "Orange chicken with a tangy BBQ",
-    },
-    {
-      Picture: "/images/shared/food2.jpg",
-      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
-      Category: "RECIPE",
-      Date: "2025-07-17",
-      Title: "Orange chicken with a tangy BBQ",
-    },
-    {
-      Picture: "/images/shared/food3.jpg",
-      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
-      Category: "RECIPE",
-      Date: "2025-07-17",
-      Title: "Orange chicken with a tangy BBQ",
-    },
-    {
-      Picture: "/images/shared/food4.jpg",
-      Button: <DarkButtonBlog>Click Me</DarkButtonBlog>,
-      Category: "RECIPE",
-      Date: "2025-07-17",
-      Title: "Orange chicken with a tangy BBQ",
-    },
-  ];
+const HomeBlog = ({ posts }) => {
+  if (!posts?.length) return null;
 
   return (
     <Box
@@ -75,7 +19,7 @@ const HomeBlog = () => {
         mt: 2,
       }}
     >
-      {/* Top/Header */}
+      {/* Header — unchanged */}
       <Box
         sx={{
           width: "90%",
@@ -86,19 +30,25 @@ const HomeBlog = () => {
         }}
       >
         <Typography variant="h4">Our Latest Blogs</Typography>
+
         <Typography
+          component={Link}
+          href="/recipes"
           variant="h6"
           color="text.secondary"
           sx={{
             textDecoration: "underline",
-            "&:hover": { cursor: "pointer", color: "primary.light" },
+            "&:hover": {
+              cursor: "pointer",
+              color: "primary.light",
+            },
           }}
         >
           Updated Weekly
         </Typography>
       </Box>
 
-      {/* Blog Flex Layout */}
+      {/* Cards — same flex layout */}
       <Box
         sx={{
           width: "90%",
@@ -108,56 +58,86 @@ const HomeBlog = () => {
           gap: 2,
         }}
       >
-        {dataList.map((item, index) => (
-          <Box
-            key={index}
-            sx={{
-              width: "23%",
-              minWidth: "230px", // Optional: Prevent squishing on smaller screens
-              backgroundColor: "#FFFFFF",
-              borderRadius: "8px",
-              overflow: "hidden",
-              boxShadow: 2,
-              display: "flex",
-              flexDirection: "column",
-              marginBottom: "2em",
-              "&:hover": {
-                cursor: "pointer",
-              },
-              boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-            }}
-          >
-            {/* Image */}
-            <Box
-              sx={{
-                height: { xl: "50vh", md: "30vh", sm: "30vh", xs: "180px" },
-                backgroundImage: `url(${item.Picture})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            />
-            {/* Content */}
-            <Box
-              sx={{
-                pl: 2,
-                pr: 2,
-                pt: 1,
-                pb: 2,
-                textAlign: "left",
-                display: "flex",
-                alignItems: "start",
-                flexDirection: "column",
-                gap: ".5em",
+        {posts.map((post) => {
+          const slug =
+            typeof post.slug === "string" ? post.slug : post.slug?.current;
+
+          return (
+            <Link
+              key={post._id}
+              href={`/recipes/${slug}`}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                width: "23%",
+                minWidth: "230px",
               }}
             >
-              <Typography variant="h6">{item.Title}</Typography>
-              <Typography variant="body2" color="text.secondary">
-                {item.Category} | {item.Date}
-              </Typography>
-              {item.Button}
-            </Box>
-          </Box>
-        ))}
+              <Box
+                sx={{
+                  backgroundColor: "#FFFFFF",
+                  borderRadius: "8px",
+                  overflow: "hidden",
+                  boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+                  display: "flex",
+                  flexDirection: "column",
+                  marginBottom: "2em",
+                  "&:hover": {
+                    cursor: "pointer",
+                    boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+                  },
+                }}
+              >
+                {/* Image — same sizing */}
+                <Box
+                  sx={{
+                    height: {
+                      xl: "50vh",
+                      md: "30vh",
+                      sm: "30vh",
+                      xs: "180px",
+                    },
+                    backgroundImage: `url(${
+                      post?.mainPicture?.asset?.url ?? ""
+                    })`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundColor: "#f2f2f2",
+                  }}
+                />
+
+                {/* Content — same spacing */}
+                <Box
+                  sx={{
+                    pl: 2,
+                    pr: 2,
+                    pt: 1,
+                    pb: 2,
+                    textAlign: "left",
+                    display: "flex",
+                    alignItems: "start",
+                    flexDirection: "column",
+                    gap: ".5em",
+                    height: "22vh",
+                  }}
+                >
+                  <Typography variant="h6" sx={{ marginBottom: "auto" }}>
+                    {post.title}
+                  </Typography>
+
+                  <Typography variant="body2" color="text.secondary">
+                    {post?.category?.title ?? "RECIPE"} |{" "}
+                    {post?.publishedAt
+                      ? new Date(post.publishedAt).toLocaleDateString()
+                      : ""}
+                  </Typography>
+
+                  <DarkButtonBlog>Read</DarkButtonBlog>
+                </Box>
+              </Box>
+            </Link>
+          );
+        })}
       </Box>
     </Box>
   );

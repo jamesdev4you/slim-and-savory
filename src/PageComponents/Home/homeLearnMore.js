@@ -110,6 +110,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
                     borderColor: "primary.light",
                     color: "primary.light",
                     backgroundColor: "primary.dark",
+                    boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
                   },
                 }}
               >
@@ -128,6 +129,9 @@ const HomeLearnMore = ({ learnMoreData }) => {
               color: "#d9d9d9",
               border: "2px solid #d9d9d9",
               fontWeight: "bold",
+              "&:hover": {
+                borderColor: "primary.light",
+              },
             }}
           >
             Reach Out!
