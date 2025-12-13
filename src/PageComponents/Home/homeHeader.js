@@ -38,7 +38,6 @@ const HomeHeader = ({ headerData }) => {
               height: "70%",
               borderRadius: "8px",
               position: "relative",
-              overflow: "hidden",
             }}
           >
             {/* Optimized Next Image */}
@@ -53,7 +52,7 @@ const HomeHeader = ({ headerData }) => {
             <Box
               sx={{
                 position: "absolute",
-                bottom: 0,
+                bottom: -20,
                 left: "50%",
                 transform: "translateX(-50%)",
                 width: "100%",

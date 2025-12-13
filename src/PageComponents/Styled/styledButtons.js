@@ -9,17 +9,15 @@ export const StyledAnimatedButton = styled(Button)(({ theme }) => ({
   backgroundImage: "none",
   color: "#ffffff",
   cursor: "pointer",
-  width: "100%",
-  borderEndEndRadius: "5px",
-  fontFamily:
-    "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji",
+  width: "80%",
   fontSize: "16px",
-  fontWeight: 900,
+  fontWeight: 600,
   lineHeight: 1.5,
   textTransform: "uppercase",
   padding: "20px 45px",
+  borderRadius: "0px",
   border: "1px solid #a0c49d",
-  transition: "border-width 0.1s ease",
+  transition: "all .2s ease",
 
   "&:disabled": {
     cursor: "default",
@@ -37,7 +35,8 @@ export const StyledAnimatedButton = styled(Button)(({ theme }) => ({
 
   "&:hover": {
     borderWidth: "1px",
-    color: "#a0c49d",
+    borderColor: "#373e02",
+    color: "#373e02",
   },
 }));
 
