@@ -2,6 +2,7 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
 import ContactForm from "./contactForm";
+import Image from "next/image";
 
 const HomeContact = () => {
   return (
@@ -33,13 +34,19 @@ const HomeContact = () => {
       >
         <Box
           sx={{
-            width: "90%",
-            height: "40%",
-            backgroundImage: `url('/images/shared/food1.jpg')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            width: "100%",
+            height: "170px", // or a fixed height like "300px"
+            position: "relative",
           }}
-        />
+        >
+          <Image
+            src="/images/shared/LabelLogo.png"
+            alt="Label logo"
+            fill
+            style={{ objectFit: "contain" }}
+          />
+        </Box>
+
         <Typography
           variant="h3"
           sx={{ marginTop: ".5em", color: "secondary.main" }}
