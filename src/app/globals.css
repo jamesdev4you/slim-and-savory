@@ -59,6 +59,22 @@ code {
   height: 50vh;
 }
 
+.home-shop-carousel {
+  padding: 0 60px; /* creates space for arrows */
+}
+
+.home-shop-carousel .react-multiple-carousel__arrow {
+  z-index: 2;
+}
+
+.home-shop-carousel .react-multiple-carousel__arrow--left {
+  left: 0;
+}
+
+.home-shop-carousel .react-multiple-carousel__arrow--right {
+  right: 0;
+}
+
 @media only screen and (max-width: 1200px) {
   .homeMenuBox {
     height: auto;
