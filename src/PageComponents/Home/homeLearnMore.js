@@ -1,5 +1,10 @@
 "use client";
 import { Typography, Box, Button, IconButton } from "@mui/material";
+import { PortableText } from "@portabletext/react";
+import Image from "next/image";
+import { urlFor } from "@/sanity/image";
+
+// icons unchanged
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TikTokIcon from "./tiktokIcon";
 import YouTubeIcon from "@mui/icons-material/YouTube";
@@ -27,7 +32,12 @@ const socialIcons = [
     platform: "YouTube",
   },
 ];
-const HomeLearnMore = () => {
+
+const HomeLearnMore = ({ learnMoreData }) => {
+  if (!learnMoreData) return null;
+
+  const { subtitle, title, description, image } = learnMoreData;
+
   return (
     <Box
       sx={{
@@ -43,69 +53,62 @@ const HomeLearnMore = () => {
           width: "80%",
           height: "80%",
           display: "flex",
-          alignItems: "center",
           justifyContent: "space-between",
           padding: "0em 3em",
         }}
       >
+        {/* TEXT CONTENT */}
         <Box
           sx={{
             width: "70%",
             padding: "3em 0em",
-            height: { xl: "90%", md: "100%" },
             display: "flex",
             flexDirection: "column",
-            alignItems: "start",
-            justifyContent: "start",
           }}
         >
           <Typography variant="h4" sx={{ color: "primary.dark" }}>
-            Learn More About
+            {subtitle}
           </Typography>
+
           <Typography variant="h3" sx={{ color: "primary.dark" }}>
-            Suzie Aragon
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{ marginTop: "10px", color: "primary.dark" }}
-          >
-            Join Suzie Aragon's Newsletter and be the first to
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{ marginTop: "10px", color: "primary.dark" }}
-          >
-            know when her innovative cookbook arrives!
+            {title}
           </Typography>
 
           <Box
             sx={{
+              color: "primary.dark",
+              fontSize: "20px",
+              width: "100%",
+              textAlign: "left",
+            }}
+          >
+            <PortableText value={description} />
+          </Box>
+
+          {/* SOCIAL ICONS (unchanged) */}
+          <Box
+            sx={{
               width: { xl: "40%", md: "60%" },
-              height: { xl: "15%", md: "20%" },
               display: "flex",
               justifyContent: "space-between",
-              alignItems: "center",
               marginTop: "1em",
             }}
           >
-            {socialIcons.map(({ Icon, href, platform }, index) => (
+            {socialIcons.map(({ Icon, href, platform }) => (
               <IconButton
                 key={platform}
                 component="a"
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Visit ${platform}`}
                 sx={{
                   backgroundColor: "primary.dark",
                   color: "white",
                   padding: "10px",
-                  borderRadius: "50%",
-                  border: "1px solid transparent", // keeps layout stable
+                  border: "1px solid transparent",
                   "&:hover": {
-                    cursor: "pointer",
                     borderColor: "primary.light",
-                    backgroundColor: "primary.dark", // prevents default IconButton hover
+                    color: "primary.light",
                   },
                 }}
               >
@@ -116,35 +119,29 @@ const HomeLearnMore = () => {
 
           <Button
             variant="contained"
+            href="/contact"
             sx={{
-              width: { xl: "30%", md: "30%" },
-              height: "40px",
-              fontSize: { xl: "1em", md: "1em" },
+              width: "30%",
+              marginTop: "1em",
               backgroundColor: "#373e02",
-              borderRadius: "15px",
-              color: "#d9d9d9", // Dark Green text
-              border: "2px solid #d9d9d9", // Dark Green border
+              color: "#d9d9d9",
+              border: "2px solid #d9d9d9",
               fontWeight: "bold",
-              "&:hover": {
-                borderWidth: "2px",
-                borderStyle: "solid",
-                borderColor: "primary.light", // Optional: subtle hover effect
-              },
-              marginTop: { xl: "1em", md: "1em" },
             }}
           >
             Reach Out!
           </Button>
         </Box>
-        <Box
-          sx={{
-            width: "40%",
-            height: "90%",
-            backgroundImage: "url('/images/shared/food2.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+
+        {/* IMAGE */}
+        <Box sx={{ width: "40%", height: "90%", position: "relative" }}>
+          <Image
+            src={urlFor(image).width(800).height(1000).url()}
+            alt={title}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </Box>
       </Box>
     </Box>
   );

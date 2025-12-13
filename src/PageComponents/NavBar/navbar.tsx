@@ -279,7 +279,7 @@ export default function NavBar() {
                       fontFamily: "Birds",
                       textTransform: "none",
                       color: isActive(item.href)
-                        ? "primary.light"
+                        ? "primary.main"
                         : "primary.dark",
                       textDecoration: "none",
                       transition: "all .3s ease",
