@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
-const ContactHeader = () => {
+const ContactHeader = ({ data }) => {
   return (
     <Box
       sx={{
@@ -14,24 +14,26 @@ const ContactHeader = () => {
         alignItems: "center",
         gap: "1em",
         paddingTop: "12vh",
-        backgroundImage: "url('/images/shared/food2.jpg')",
+        backgroundImage: `url(${data?.backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
       <Typography
-        variant="h4"
+        variant="h2"
         sx={{ color: "secondary.main", fontWeight: "bold" }}
       >
-        Reach Out For A Quick Response!
+        {data?.title}
       </Typography>
+
       <Typography
         variant="h6"
         sx={{ color: "secondary.main", fontWeight: "bold" }}
       >
-        Volunteering - Teaching - Zoom Calls - Press - Social Media
+        {data?.subtitle}
       </Typography>
     </Box>
   );
 };
+
 export default ContactHeader;

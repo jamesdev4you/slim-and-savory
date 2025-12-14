@@ -1,14 +1,41 @@
 "use client";
 import React from "react";
-import { Typography, Box, Button, Link } from "@mui/material";
 import ContactForm from "./contactForm";
+import { Typography, Box, Button, IconButton } from "@mui/material";
+import { PortableText } from "@portabletext/react";
+import Image from "next/image";
+import { urlFor } from "@/sanity/image";
+
+// icons unchanged
 import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TikTokIcon from "../tiktokIcon";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
-const icons = [FacebookIcon, LinkedInIcon, YouTubeIcon, InstagramIcon];
 
-const ContactPage = () => {
+const socialIcons = [
+  {
+    Icon: TikTokIcon,
+    href: "https://www.tiktok.com/@slimandsavory",
+    platform: "TikTok",
+  },
+  {
+    Icon: InstagramIcon,
+    href: "https://www.instagram.com/slimandsavory/",
+    platform: "Instagram",
+  },
+  {
+    Icon: FacebookIcon,
+    href: "https://www.facebook.com/SlimandSavory/",
+    platform: "Facebook",
+  },
+  {
+    Icon: YouTubeIcon,
+    href: "https://www.youtube.com/@SlimSavory",
+    platform: "YouTube",
+  },
+];
+
+const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
   return (
     <Box
       sx={{
@@ -89,64 +116,82 @@ const ContactPage = () => {
           </Box>
           <Box
             sx={{
-              width: "50%",
-
-              height: { xl: "90%", md: "100%" },
+              width: "70%",
+              padding: "3em 0em",
               display: "flex",
               flexDirection: "column",
-              alignItems: "start",
-              justifyContent: "start",
             }}
           >
             <Typography variant="h4" sx={{ color: "primary.dark" }}>
-              Learn More About
+              {subtitle}
             </Typography>
+
             <Typography variant="h3" sx={{ color: "primary.dark" }}>
-              Suzie Aragon
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{ marginTop: "10px", color: "primary.dark" }}
-            >
-              Join Suzie Aragon's Newsletter and be the first to
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{ marginTop: "10px", color: "primary.dark" }}
-            >
-              know when her innovative cookbook arrives!
+              {title}
             </Typography>
 
             <Box
               sx={{
-                width: { xl: "40%", md: "60%" },
-                height: { xl: "15%", md: "20%" },
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
+                color: "primary.dark",
+                fontSize: "20px",
+                width: "100%",
+                textAlign: "left",
               }}
             >
-              {icons.map((Icon, index) => (
-                <Icon
-                  key={index}
+              <PortableText value={description} />
+            </Box>
+
+            {/* SOCIAL ICONS (unchanged) */}
+            <Box
+              sx={{
+                width: { xl: "40%", md: "60%" },
+                display: "flex",
+                justifyContent: "space-between",
+                marginTop: "1em",
+              }}
+            >
+              {socialIcons.map(({ Icon, href, platform }) => (
+                <IconButton
+                  key={platform}
+                  component="a"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   sx={{
-                    height: "50%",
-                    width: "auto",
-                    color: "white",
                     backgroundColor: "primary.dark",
-                    borderRadius: "50%",
+                    color: "white",
                     padding: "10px",
+                    border: "1px solid transparent",
                     "&:hover": {
-                      cursor: "pointer",
-                      color: "primary.light",
-                      borderWidht: "1px",
-                      borderStyle: "solid",
                       borderColor: "primary.light",
+                      color: "primary.light",
+                      backgroundColor: "primary.dark",
+                      boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
                     },
                   }}
-                />
+                >
+                  <Icon fontSize="large" />
+                </IconButton>
               ))}
             </Box>
+
+            <Button
+              variant="contained"
+              href={ctaHref}
+              sx={{
+                width: "30%",
+                marginTop: "1em",
+                backgroundColor: "#373e02",
+                color: "#d9d9d9",
+                border: "2px solid #d9d9d9",
+                fontWeight: "bold",
+                "&:hover": {
+                  borderColor: "primary.light",
+                },
+              }}
+            >
+              {ctaLabel}
+            </Button>
           </Box>
         </Box>
       </Box>

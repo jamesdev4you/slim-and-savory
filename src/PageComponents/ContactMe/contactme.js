@@ -4,10 +4,10 @@ import ContactHeader from "./contactheader.js";
 import ContactForm from "./contactform/contactpage.js";
 import { Box } from "@mui/material";
 
-const ContactMe = () => {
+const ContactMe = ({ headerData, contactContent }) => {
   return (
     <div>
-      <ContactHeader />
+      <ContactHeader data={headerData} />
       <Box
         sx={{
           width: "100%",
@@ -15,7 +15,7 @@ const ContactMe = () => {
           backgroundColor: "secondary.main",
         }}
       />
-      <ContactForm />
+      <ContactForm {...contactContent} />
     </div>
   );
 };
