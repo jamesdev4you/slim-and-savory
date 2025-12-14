@@ -1,10 +1,38 @@
-// src/components/Footer.tsx  (or wherever you keep components)
 "use client";
 
 import Link from "next/link";
 import { Typography, Box } from "@mui/material";
 
-const Footer = () => {
+const colWidth = {
+  xl: "20%",
+  lg: "20%",
+  md: "50%",
+  sm: "50%",
+  xs: "90%",
+};
+
+const FooterLink = ({ children, href }) => (
+  <Typography
+    component="a"
+    href={href}
+    sx={{
+      fontFamily: "Birds",
+      textTransform: "none",
+      color: "white",
+      transition: "all .1s ease",
+      textDecoration: "none",
+      cursor: "pointer",
+      "&:hover": {
+        color: "primary.light",
+        textDecoration: "underline",
+      },
+    }}
+  >
+    {children}
+  </Typography>
+);
+
+const Footer = ({ footer }) => {
   return (
     <Box sx={{ width: "100%", backgroundColor: "primary.main" }}>
       <Box
@@ -22,11 +50,12 @@ const Footer = () => {
         {/* Pages */}
         <Box
           sx={{
-            width: { xl: "20%", lg: "20%", md: "50%", sm: "50%", xs: "90%" },
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
+            width: colWidth,
             p: 3,
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            flexDirection: "column",
           }}
         >
           <Typography
@@ -36,208 +65,63 @@ const Footer = () => {
             Pages
           </Typography>
 
-          <Link
-            href="/"
-            className="nav_link"
-            style={{ textDecoration: "none" }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "Birds",
-                textTransform: "none",
-                color: "white",
-                transition: "all .1s ease",
-                textDecoration: "none",
-                "&:hover": {
-                  color: "primary.light",
-                  textDecoration: "underline",
-                },
-              }}
-            >
-              Blogs
-            </Typography>
+          <Link href="/" style={{ textDecoration: "none" }}>
+            <FooterLink href="/">Home</FooterLink>
           </Link>
-
-          <Link
-            href="/shop"
-            className="nav_link"
-            style={{ textDecoration: "none" }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "Birds",
-                textTransform: "none",
-                color: "white",
-                transition: "all .1s ease",
-                textDecoration: "none",
-                "&:hover": {
-                  color: "primary.light",
-                  textDecoration: "underline",
-                },
-              }}
-            >
-              Shop
-            </Typography>
+          <Link href="/shop" style={{ textDecoration: "none" }}>
+            <FooterLink href="/shop">Shop</FooterLink>
           </Link>
-
-          <Link
-            href="/about"
-            className="nav_link"
-            style={{ textDecoration: "none" }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "Birds",
-                textTransform: "none",
-                color: "white",
-                transition: "all .1s ease",
-                textDecoration: "none",
-                "&:hover": {
-                  color: "primary.light",
-                  textDecoration: "underline",
-                },
-              }}
-            >
-              About Me
-            </Typography>
+          <Link href="/about" style={{ textDecoration: "none" }}>
+            <FooterLink href="/about">About Me</FooterLink>
           </Link>
-
-          <Link
-            href="/contact"
-            className="nav_link"
-            style={{ textDecoration: "none" }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "Birds",
-                textTransform: "none",
-                color: "white",
-                transition: "all .1s ease",
-                textDecoration: "none",
-                "&:hover": {
-                  color: "primary.light",
-                  textDecoration: "underline",
-                },
-              }}
-            >
-              Contact Me
-            </Typography>
+          <Link href="/contact" style={{ textDecoration: "none" }}>
+            <FooterLink href="/contact">Contact Me</FooterLink>
           </Link>
-
-          <Link
-            href="/press"
-            className="nav_link"
-            style={{ textDecoration: "none" }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "Birds",
-                textTransform: "none",
-                color: "white",
-                transition: "all .1s ease",
-                textDecoration: "none",
-                "&:hover": {
-                  color: "primary.light",
-                  textDecoration: "underline",
-                },
-              }}
-            >
-              Press
-            </Typography>
+          <Link href="/recipes" style={{ textDecoration: "none" }}>
+            <FooterLink href="/recipes">Recipes</FooterLink>
+          </Link>
+          <Link href="/videos" style={{ textDecoration: "none" }}>
+            <FooterLink href="/videos">Videos</FooterLink>
           </Link>
         </Box>
 
-        {/* Blogs */}
+        {/* Explore */}
         <Box
           sx={{
-            width: { xl: "20%", lg: "20%", md: "50%", sm: "50%", xs: "90%" },
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
+            width: colWidth,
             p: 3,
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            flexDirection: "column",
           }}
         >
           <Typography
             variant="h5"
             sx={{ fontFamily: "Birds", mb: 2, borderBottom: "1px solid white" }}
           >
-            Blogs
+            Explore
           </Typography>
-          <Link
-            href="/about"
-            className="nav_link"
-            style={{ textDecoration: "none" }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "Birds",
-                textTransform: "none",
-                color: "white",
-                transition: "all .1s ease",
-                textDecoration: "none",
-                "&:hover": {
-                  color: "primary.light",
-                  textDecoration: "underline",
-                },
-              }}
-            >
-              Dinosaur nuggets
-            </Typography>
-          </Link>
 
-          <Link
-            href="/contact"
-            className="nav_link"
-            style={{ textDecoration: "none" }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "Birds",
-                textTransform: "none",
-                color: "white",
-                transition: "all .1s ease",
-                textDecoration: "none",
-                "&:hover": {
-                  color: "primary.light",
-                  textDecoration: "underline",
-                },
-              }}
-            >
-              Mexican food
-            </Typography>
-          </Link>
-
-          <Link
-            href="/press"
-            className="nav_link"
-            style={{ textDecoration: "none" }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "Birds",
-                textTransform: "none",
-                color: "white",
-                transition: "all .1s ease",
-                textDecoration: "none",
-                "&:hover": {
-                  color: "primary.light",
-                  textDecoration: "underline",
-                },
-              }}
-            >
-              Chinese food
-            </Typography>
-          </Link>
+          <FooterLink href="/recipes?category=high-protein">
+            High Protein
+          </FooterLink>
+          <FooterLink href="/recipes?dietary=low-carb">Low Carb</FooterLink>
+          <FooterLink href="/recipes?dietary=gluten-free">
+            Gluten Free
+          </FooterLink>
+          <FooterLink href="/videos">Cooking Videos</FooterLink>
         </Box>
 
-        {/* Contact */}
+        {/* Contact (CMS) */}
         <Box
           sx={{
-            width: { xl: "20%", lg: "20%", md: "50%", sm: "50%", xs: "90%" },
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
+            width: colWidth,
             p: 3,
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            flexDirection: "column",
           }}
         >
           <Typography
@@ -246,40 +130,37 @@ const Footer = () => {
           >
             Contact
           </Typography>
-          <Typography>
-            <a
-              href="tel:7274879698"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              (999) 999-9999
-            </a>
-          </Typography>
-          <Typography>jamesdev4you@gmail.com</Typography>
+
+          {footer?.contactEmail && (
+            <FooterLink href={`mailto:${footer.contactEmail}`}>
+              {footer.contactEmail}
+            </FooterLink>
+          )}
         </Box>
 
-        {/* Hours */}
+        {/* Follow Along (CMS) */}
         <Box
           sx={{
-            width: { xl: "20%", lg: "20%", md: "50%", sm: "50%", xs: "90%" },
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
+            width: colWidth,
             p: 3,
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            flexDirection: "column",
           }}
         >
           <Typography
             variant="h5"
             sx={{ fontFamily: "Birds", mb: 2, borderBottom: "1px solid white" }}
           >
-            Hours
+            Follow Along
           </Typography>
-          <Typography>Mon: 9am-8pm</Typography>
-          <Typography>Tues: 9am-8pm</Typography>
-          <Typography>Weds: 9am-8pm</Typography>
-          <Typography>Thurs: 9am-8pm</Typography>
-          <Typography>Fri: 9am-8pm</Typography>
-          <Typography>Sat: 9am-8pm</Typography>
-          <Typography>Sun: 9am-8pm</Typography>
+
+          {footer?.socialLinks?.map((link) => (
+            <FooterLink key={link.url} href={link.url}>
+              {link.platform.charAt(0).toUpperCase() + link.platform.slice(1)}
+            </FooterLink>
+          ))}
         </Box>
       </Box>
     </Box>

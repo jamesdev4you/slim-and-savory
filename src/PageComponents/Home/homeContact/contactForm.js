@@ -5,6 +5,36 @@ import { Typography, TextField, Button, Box } from "@mui/material";
 export default function ContactForm() {
   const form = useRef();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form.current);
+
+    const payload = {
+      firstName: formData.get("user_firstname"),
+      lastName: formData.get("user_lastname"),
+      email: formData.get("user_email"),
+      phone: formData.get("user_phone"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
+      alert("Message sent successfully!");
+      form.current.reset();
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send message. Please try again.");
+    }
+  };
+
   return (
     <div
       style={{
@@ -32,6 +62,7 @@ export default function ContactForm() {
       </Typography>
 
       <form
+        onSubmit={handleSubmit}
         style={{
           paddingTop: "5px",
           display: "flex",
