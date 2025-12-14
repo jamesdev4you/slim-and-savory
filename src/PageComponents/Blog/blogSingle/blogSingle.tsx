@@ -2,13 +2,59 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import MoreRecentRecipes from "./MoreRecentRecipes";
 import { useRef } from "react";
 
 type Props = {
   post: any;
+  recentPosts: any[];
 };
 
-export default function SinglePostLayout({ post }: Props) {
+export default function SinglePostLayout({ post, recentPosts }: Props) {
+  const instructionsRef = useRef<HTMLDivElement | null>(null);
+
+  const handlePrint = () => {
+    const printRoot = document.getElementById("print-root");
+    if (!printRoot || !instructionsRef.current) return;
+
+    // Clone ONLY the recipe content
+    printRoot.innerHTML = instructionsRef.current.innerHTML;
+
+    window.print();
+
+    // Cleanup after print
+    printRoot.innerHTML = "";
+  };
+
+  const handleJumpToRecipe = () => {
+    instructionsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  const handleEmailRecipe = async () => {
+    const email = prompt("Enter your email");
+    if (!email) return;
+
+    const recipePayload = {
+      title: post.title,
+      ingredients: post.ingredientsText.split("\n").filter(Boolean),
+      instructions: post.instructions.map((b: any) =>
+        b.children.map((c: any) => c.text).join("")
+      ),
+    };
+
+    await fetch("/api/email-recipe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, recipe: recipePayload }),
+    });
+
+    alert("Recipe sent!");
+  };
+
+  console.log("data", recentPosts);
   return (
     <Box>
       <Box
@@ -47,6 +93,7 @@ export default function SinglePostLayout({ post }: Props) {
           <Typography variant="h4">{post.title}</Typography>
           <Button
             variant="contained"
+            onClick={handleJumpToRecipe}
             sx={{
               width: { xl: "60%", md: "40%" },
               height: "40px",
@@ -59,7 +106,7 @@ export default function SinglePostLayout({ post }: Props) {
               "&:hover": {
                 borderWidth: "2px",
                 borderStyle: "solid",
-                borderColor: "#D2691E", // Optional: subtle hover effect
+                borderColor: "primary.light", // Optional: subtle hover effect
               },
               marginTop: { xl: "1em", md: "1em" },
             }}
@@ -160,7 +207,9 @@ export default function SinglePostLayout({ post }: Props) {
               sx={{
                 height: "100%",
                 width: "30vw",
-                backgroundImage: `url(${post.mainPicture.url})`,
+                backgroundImage: `url(${
+                  post.subPic?.url ?? post.mainPicture.url
+                })`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundColor: "#f2f2f2",
@@ -193,6 +242,7 @@ export default function SinglePostLayout({ post }: Props) {
               >
                 <Button
                   variant="contained"
+                  onClick={handlePrint}
                   sx={{
                     width: { xl: "40%", md: "30%" },
                     height: "40px",
@@ -205,7 +255,7 @@ export default function SinglePostLayout({ post }: Props) {
                     "&:hover": {
                       borderWidth: "2px",
                       borderStyle: "solid",
-                      borderColor: "#D2691E", // Optional: subtle hover effect
+                      borderColor: "primary.light", // Optional: subtle hover effect
                     },
                     marginTop: { xl: "1em", md: "1em" },
                   }}
@@ -214,6 +264,7 @@ export default function SinglePostLayout({ post }: Props) {
                 </Button>
                 <Button
                   variant="contained"
+                  onClick={handleEmailRecipe}
                   sx={{
                     width: { xl: "40%", md: "30%" },
                     height: "40px",
@@ -226,7 +277,7 @@ export default function SinglePostLayout({ post }: Props) {
                     "&:hover": {
                       borderWidth: "2px",
                       borderStyle: "solid",
-                      borderColor: "#D2691E", // Optional: subtle hover effect
+                      borderColor: "primary.light", // Optional: subtle hover effect
                     },
                     marginTop: { xl: "1em", md: "1em" },
                   }}
@@ -237,6 +288,8 @@ export default function SinglePostLayout({ post }: Props) {
             </Box>
           </Box>
           <Box
+            ref={instructionsRef}
+            className="print-only-recipe"
             sx={{
               width: "80%",
               height: "auto",
@@ -280,6 +333,7 @@ export default function SinglePostLayout({ post }: Props) {
             </Box>
           </Box>
         </Box>
+        <MoreRecentRecipes posts={recentPosts} />
       </Box>
     </Box>
   );

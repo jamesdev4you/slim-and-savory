@@ -22,6 +22,7 @@ export default function RootLayout({
         <ThemeRegistry>
           <Providers>
             <NavBar />
+            <div id="print-root" />
             {children}
             <Footer />
           </Providers>

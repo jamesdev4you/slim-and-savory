@@ -75,6 +75,29 @@ code {
   right: 0;
 }
 
+@media print {
+  @page {
+    margin: 1in;
+  }
+
+  body * {
+    display: none !important;
+  }
+
+  #print-root,
+  #print-root * {
+    display: block !important;
+  }
+
+  #print-root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   .homeMenuBox {
     height: auto;

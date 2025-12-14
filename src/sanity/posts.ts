@@ -48,6 +48,23 @@ export type PostDetail = PostCard & {
   }>;
 };
 
+export async function fetchRecentPosts(limit = 4) {
+  return client.fetch(
+    `
+    *[_type == "post"]
+    | order(publishedAt desc)[0...$limit]{
+      _id,
+      title,
+      slug,
+      mainPicture,
+      category,
+      publishedAt
+    }
+    `,
+    { limit }
+  );
+}
+
 /** ---- GROQ queries ---- */
 // Minimal card/list query (use on index/list pages)
 const POSTS_QUERY = /* groq */ `
