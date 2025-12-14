@@ -128,7 +128,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
               marginTop: { xl: "1em", md: "1em" },
             }}
           >
-            Jump to Reciepe
+            Jump to Recipe
           </Button>
         </Box>
       </Box>
