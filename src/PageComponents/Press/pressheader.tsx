@@ -2,8 +2,8 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
 
-const PressHeader = ({ videoHero }: { videoHero?: any }) => {
-  const videoUrl = videoHero?.video?.asset?.url;
+const PressHeader = ({ videoheader }: { videoheader?: any }) => {
+  const videoUrl = videoheader?.video?.asset?.url;
 
   return (
     <Box
@@ -64,13 +64,25 @@ const PressHeader = ({ videoHero }: { videoHero?: any }) => {
       <Typography
         variant="h4"
         sx={{
-          color: "secondary.main",
+          color: "white",
           fontWeight: "bold",
           position: "relative",
           zIndex: 2,
         }}
       >
-        {videoHero?.title ??
+        {videoheader?.subtitle ??
+          "Check out some of my step-by-step cooking videos!"}
+      </Typography>
+      <Typography
+        variant="h3"
+        sx={{
+          color: "white",
+          fontWeight: "bold",
+          position: "relative",
+          zIndex: 2,
+        }}
+      >
+        {videoheader?.title ??
           "Check out some of my step-by-step cooking videos!"}
       </Typography>
     </Box>

@@ -3,10 +3,17 @@
 import PressHeader from "./pressheader";
 import PressVideos from "./pressvideos/pressvideos";
 
-const Press = ({ videos }: { videos: any[] }) => {
+const Press = ({
+  videos,
+  videoheader,
+}: {
+  videos: any[];
+  videoheader: any[];
+}) => {
+  console.log("wtf", videoheader);
   return (
     <div>
-      <PressHeader />
+      <PressHeader videoheader={videoheader} />
       <PressVideos videos={videos} /> {/* pass videos down */}
     </div>
   );
