@@ -65,24 +65,17 @@ const Footer = ({ footer }) => {
             Pages
           </Typography>
 
-          <Link href="/" style={{ textDecoration: "none" }}>
-            <FooterLink href="/">Home</FooterLink>
-          </Link>
-          <Link href="/shop" style={{ textDecoration: "none" }}>
-            <FooterLink href="/shop">Shop</FooterLink>
-          </Link>
-          <Link href="/about" style={{ textDecoration: "none" }}>
-            <FooterLink href="/about">About Me</FooterLink>
-          </Link>
-          <Link href="/contact" style={{ textDecoration: "none" }}>
-            <FooterLink href="/contact">Contact Me</FooterLink>
-          </Link>
-          <Link href="/recipes" style={{ textDecoration: "none" }}>
-            <FooterLink href="/recipes">Recipes</FooterLink>
-          </Link>
-          <Link href="/videos" style={{ textDecoration: "none" }}>
-            <FooterLink href="/videos">Videos</FooterLink>
-          </Link>
+          <FooterLink href="/">Home</FooterLink>
+
+          <FooterLink href="/shop">Shop</FooterLink>
+
+          <FooterLink href="/about">About Me</FooterLink>
+
+          <FooterLink href="/contact">Contact Me</FooterLink>
+
+          <FooterLink href="/recipes">Recipes</FooterLink>
+
+          <FooterLink href="/videos">Videos</FooterLink>
         </Box>
 
         {/* Explore */}

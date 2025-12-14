@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import MoreRecentRecipes from "./MoreRecentRecipes";
+import { renderRecipeHTML } from "../../../emails/RecipeEmailTemplate";
+
 import { useRef } from "react";
 
 type Props = {
@@ -14,16 +16,31 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
   const instructionsRef = useRef<HTMLDivElement | null>(null);
 
   const handlePrint = () => {
-    const printRoot = document.getElementById("print-root");
-    if (!printRoot || !instructionsRef.current) return;
+    const recipe = {
+      title: post.title,
+      ingredients: post.ingredientsText
+        .split("\n")
+        .map((i: string) => i.trim())
+        .filter(Boolean),
 
-    // Clone ONLY the recipe content
-    printRoot.innerHTML = instructionsRef.current.innerHTML;
+      instructions: post.instructions.map((block: any) =>
+        block.children.map((c: any) => c.text).join("")
+      ),
+    };
 
-    window.print();
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) return;
 
-    // Cleanup after print
-    printRoot.innerHTML = "";
+    printWindow.document.open();
+    printWindow.document.write(renderRecipeHTML(recipe));
+    printWindow.document.close();
+
+    printWindow.focus();
+    printWindow.print();
+
+    setTimeout(() => {
+      printWindow.close();
+    }, 500);
   };
 
   const handleJumpToRecipe = () => {

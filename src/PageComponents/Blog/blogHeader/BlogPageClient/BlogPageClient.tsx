@@ -12,6 +12,7 @@ type Props = {
 };
 
 export default function BlogPageClient({ posts, groups }: Props) {
+  console.log("posts", posts);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
