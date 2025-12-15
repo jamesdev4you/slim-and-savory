@@ -8,7 +8,7 @@
     ],
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "allowJs": true,
     "checkJs": false,
     "strict": true,
@@ -41,7 +41,8 @@
     "src/PageComponents/Home/homeHeader.js",
     "src/app/providers.js",
     "src/app/shop/shop.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

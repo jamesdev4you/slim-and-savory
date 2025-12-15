@@ -1,29 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import ShopHeader from "./shopHeader";
 import ShopItems from "./shopItems";
 
-import { fetchShopPage } from "@/sanity/fetchShopPage";
-import { fetchShopItems } from "@/sanity/shop";
-
-const Shop = () => {
-  const [shopPage, setShopPage] = useState(null);
-  const [items, setItems] = useState(null);
-  const [activeSection, setActiveSection] = useState(null);
-
-  useEffect(() => {
-    async function loadData() {
-      const page = await fetchShopPage();
-      const products = await fetchShopItems();
-
-      setShopPage(page);
-      setItems(products);
-      setActiveSection("all"); // default
-    }
-    loadData();
-  }, []);
+const Shop = ({ shopPage, items }) => {
+  const [activeSection, setActiveSection] = useState("all");
 
   if (!shopPage || !items) return null;
 
