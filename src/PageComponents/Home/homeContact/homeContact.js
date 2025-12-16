@@ -9,35 +9,36 @@ const HomeContact = () => {
     <Box
       sx={{
         width: "100%",
-
+        minHeight: { md: "80vh", lg: "100vh" },
         height: "auto",
         display: "flex",
-        flexDirection: "row",
-        alignItems: "flex-start",
+        flexDirection: { md: "column", lg: "row" },
+        alignItems: { md: "center", lg: "flex-start" },
         justifyContent: "center",
         gap: "2em",
         backgroundSize: "cover",
         backgroundRepeat: "none",
         backgroundPosition: "center",
         backgroundColor: "primary.main",
-        padding: "4em",
+        padding: { md: "2em", lg: "4em" },
       }}
     >
       <Box
         sx={{
-          width: { lg: "40%", xl: "40%" },
+          width: { md: "90%", lg: "40%", xl: "40%" },
           height: "70%",
           display: "flex",
-          alignItems: "start",
+          alignItems: { md: "center", lg: "flex-start" },
           justifyContent: "start",
           flexDirection: "column",
         }}
       >
         <Box
           sx={{
-            width: { lg: "70%", xl: "100%" },
-            height: { lg: "100px", xl: "170px" },
+            width: { md: "70%", lg: "70%", xl: "100%" },
+            height: { md: "100px", lg: "100px", xl: "170px" },
             position: "relative",
+            display: { md: "none", lg: "flex" },
           }}
         >
           <Image
@@ -54,13 +55,32 @@ const HomeContact = () => {
         >
           Let's talk
         </Typography>
-        <Typography variant="h3" sx={{ color: "secondary.main" }}>
+        <Typography
+          variant="h3"
+          sx={{ color: "secondary.main", display: { md: "none", lg: "flex" } }}
+        >
           Slim and Savory.
         </Typography>
       </Box>
       <Box
         sx={{
-          width: { lg: "50%", xl: "40%" },
+          width: { md: "70%", lg: "70%", xl: "100%" },
+          height: { md: "150px", lg: "100px", xl: "170px" },
+          position: "relative",
+          display: { md: "flex", lg: "none" },
+        }}
+      >
+        <Image
+          src="/images/shared/LabelLogo.png"
+          alt="Label logo"
+          fill
+          style={{ objectFit: "contain" }}
+        />
+      </Box>
+
+      <Box
+        sx={{
+          width: { md: "80%", lg: "50%", xl: "40%" },
           gap: "1em",
           display: "flex",
           alignItems: "center",
@@ -90,7 +110,7 @@ const HomeContact = () => {
             marginTop: {
               xl: "0px",
               lg: "0px",
-              md: "50px",
+              md: "0px",
               sm: "50px",
               xs: "50px",
             },

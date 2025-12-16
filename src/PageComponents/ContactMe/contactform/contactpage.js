@@ -49,7 +49,7 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
         backgroundRepeat: "none",
         backgroundPosition: "center",
         backgroundColor: "secondary.main",
-        padding: "10em 2em",
+        padding: { md: "4em 1em", lg: "10em 2em" },
       }}
     >
       <Box
@@ -67,7 +67,7 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
             width: {
               xl: "40%",
               lg: "40%",
-              md: "100%",
+              md: "40%",
               sm: "90%",
               xs: "100%",
             },
@@ -85,7 +85,7 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
             marginTop: {
               xl: "0px",
               lg: "0px",
-              md: "50px",
+              md: "0px",
               sm: "50px",
               xs: "50px",
             },
@@ -96,7 +96,13 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
 
         <Box
           sx={{
-            width: "auto",
+            width: {
+              xl: "auto",
+              lg: "auto",
+              md: "50%",
+              sm: "90%",
+              xs: "100%",
+            },
             display: "flex",
             flexDirection: "column",
           }}

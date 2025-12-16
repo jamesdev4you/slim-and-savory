@@ -50,7 +50,6 @@ const PressHeader = ({ videoheader }: { videoheader?: any }) => {
         />
       )}
 
-      {/* 🖤 Overlay for readability */}
       <Box
         sx={{
           position: "absolute",
@@ -60,7 +59,6 @@ const PressHeader = ({ videoheader }: { videoheader?: any }) => {
         }}
       />
 
-      {/* 📝 Text (unchanged visually) */}
       <Typography
         variant="h4"
         sx={{
@@ -80,6 +78,8 @@ const PressHeader = ({ videoheader }: { videoheader?: any }) => {
           fontWeight: "bold",
           position: "relative",
           zIndex: 2,
+          width: "80%",
+          textAlign: "center",
         }}
       >
         {videoheader?.title ??

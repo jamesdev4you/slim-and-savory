@@ -33,7 +33,7 @@ export default function BlogPageClient({ posts, groups }: Props) {
   return (
     <Box
       sx={{
-        width: "95%",
+        width: { md: "100%", lg: "95%" },
         height: "100%",
         display: "flex",
         alignItems: "stretch",
@@ -48,7 +48,7 @@ export default function BlogPageClient({ posts, groups }: Props) {
           paddingTop: "10em",
           backgroundColor: "primary.main",
           display: "flex",
-          alignItems: "flex-start",
+          alignItems: { md: "center", lg: "flex-start" },
           justifyContent: "center",
         }}
       >
@@ -96,6 +96,7 @@ export default function BlogPageClient({ posts, groups }: Props) {
               flexDirection: "column",
               gap: 2,
               mt: 1,
+              paddingBottom: { md: "2em", lg: "none" },
             }}
           >
             {groups.map((g) => (
@@ -115,14 +116,15 @@ export default function BlogPageClient({ posts, groups }: Props) {
       {/* RIGHT CONTENT — POSTS */}
       <Box
         sx={{
-          width: { xs: "100%", lg: "60%" },
-          paddingTop: "10em",
+          width: { md: "100%", lg: "60%" },
+          paddingTop: { md: "4em", lg: "10em" },
           display: "flex",
           flexDirection: "column",
+          alignItems: { md: "center", lg: "flex-start" },
         }}
       >
         <Typography variant="h4" sx={{ marginBottom: "2em" }}>
-          Our Latest Blogs
+          My Latest Recipes
         </Typography>
 
         <PostsGridClient initialPosts={filteredPosts} pageSize={9} />

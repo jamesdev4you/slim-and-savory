@@ -77,7 +77,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
       sx={{
         display: "flex",
         flexDirection: "column",
-        gap: "4em",
+        gap: { md: "1em", lg: "4em" },
       }}
     >
       <Box
@@ -87,13 +87,14 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
           width: "100%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: { md: "start", lg: "start" },
+          gap: { md: "3em", lg: "3em", xl: "3em" },
         }}
       >
         <Box
           sx={{
-            height: "100vh",
-            width: "60vw",
+            height: { md: "50vh", lg: "100vh" },
+            width: { md: "50vw", lg: "60vw" },
             backgroundImage: `url(${post.mainPicture.url})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -103,7 +104,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
         />
         <Box
           sx={{
-            width: "35vw",
+            width: { md: "30vw", lg: "35vh" },
             height: "100%",
             display: "flex",
             alignItems: "flex-start",
@@ -118,7 +119,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
             variant="contained"
             onClick={handleJumpToRecipe}
             sx={{
-              width: { xl: "60%", md: "40%" },
+              width: { md: "60%", lg: "60%" },
               height: "40px",
               fontSize: "14px",
               backgroundColor: "#373e02",
@@ -132,6 +133,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
                 borderColor: "primary.light", // Optional: subtle hover effect
               },
               marginTop: { xl: "1em", md: "1em" },
+              padding: "1em",
             }}
           >
             Jump to Recipe
@@ -142,17 +144,18 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
       <Box
         sx={{
           width: "100%",
-          height: "100vh",
+          height: { md: "auto", xl: "100vh" },
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
           gap: ".5em",
+          padding: { md: "4em 0em", lg: "none" },
         }}
       >
         <Box
           sx={{
-            width: "80%",
+            width: { md: "90%", lg: "80%" },
             height: "100%",
             display: "flex",
             alignItems: "flex-start",
@@ -173,8 +176,14 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
             target="_blank"
             rel="noopener noreferrer"
             sx={{
-              height: "30vh",
-              width: "30vw",
+              width: {
+                xs: "100%",
+                sm: "100%",
+                md: "80%",
+                lg: "70%",
+                xl: "60%",
+              },
+              aspectRatio: "16 / 9",
               backgroundImage: `url(${
                 post.youtubeThumbnail?.url ?? post.mainPicture.url
               })`,
@@ -205,7 +214,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
       >
         <Box
           sx={{
-            width: "80%",
+            width: { md: "90%", lg: "80%" },
             height: "100%",
             display: "flex",
             alignItems: "flex-start",
@@ -218,7 +227,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
           <Box
             sx={{
               width: "100%",
-              height: "50vh",
+              height: { md: "35vh", lg: "50vh" },
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
@@ -247,8 +256,9 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                justifyContent: "center",
+                justifyContent: { md: "start", lg: "center" },
                 gap: ".6em",
+                padding: "1em",
               }}
             >
               <Typography variant="h5">Author: {post.author.name}</Typography>
@@ -267,7 +277,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
                   variant="contained"
                   onClick={handlePrint}
                   sx={{
-                    width: { xl: "40%", md: "30%" },
+                    width: { xl: "40%", md: "40%" },
                     height: "40px",
                     fontSize: "14px",
                     backgroundColor: "#373e02",
@@ -289,7 +299,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
                   variant="contained"
                   onClick={handleEmailRecipe}
                   sx={{
-                    width: { xl: "40%", md: "30%" },
+                    width: { xl: "40%", md: "40%" },
                     height: "40px",
                     fontSize: "14px",
                     backgroundColor: "#373e02",

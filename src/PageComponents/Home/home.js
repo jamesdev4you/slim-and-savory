@@ -16,7 +16,7 @@ const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
         sx={{
           width: "100%",
           height: "1px",
-          backgroundColor: "background.line",
+          backgroundColor: "primary.light",
         }}
       />
       <HomeCookbook cookbookData={cookbookData} />
@@ -24,7 +24,7 @@ const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
         sx={{
           width: "100%",
           height: "1px",
-          backgroundColor: "background.line",
+          backgroundColor: "primary.light",
         }}
       />
       <HomeLearnMore learnMoreData={learnMoreData} />
@@ -32,7 +32,7 @@ const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
         sx={{
           width: "100%",
           height: "1px",
-          backgroundColor: "background.line",
+          backgroundColor: "primary.light",
         }}
       />
       <HomeBlog posts={homePosts} />
@@ -40,7 +40,7 @@ const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
         sx={{
           width: "100%",
           height: "1px",
-          backgroundColor: "background.line",
+          backgroundColor: "primary.light",
         }}
       />
       <HomeShop />
@@ -48,7 +48,7 @@ const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
         sx={{
           width: "100%",
           height: "1px",
-          backgroundColor: "background.line",
+          backgroundColor: "primary.light",
         }}
       />
       <HomeContact />
@@ -56,7 +56,7 @@ const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
         sx={{
           width: "100%",
           height: "1px",
-          backgroundColor: "secondary.main",
+          backgroundColor: "secondary.light",
         }}
       />
     </div>

@@ -41,7 +41,7 @@ const ShopItems = ({ activeSection, items }) => {
             key={item._id}
             sx={{
               width: "23%",
-              minWidth: "230px",
+              minWidth: { md: "180px", lg: "230px" },
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -64,7 +64,7 @@ const ShopItems = ({ activeSection, items }) => {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                height: { xl: "40vh", md: "30vh", sm: "30vh", xs: "180px" },
+                height: { xl: "40vh", md: "15vh", sm: "30vh", xs: "180px" },
                 boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px",
                 "&:hover": { transform: "scale(1.02)" },
                 transition: "transform 0.3s ease-in-out",
@@ -75,7 +75,7 @@ const ShopItems = ({ activeSection, items }) => {
             <Typography
               sx={{
                 mt: 1.5,
-                fontSize: "24px",
+                fontSize: { md: "18px", lg: "24px" },
                 color: "primary.main",
                 textAlign: "center",
                 fontWeight: "bold",

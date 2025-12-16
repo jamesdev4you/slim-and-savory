@@ -77,7 +77,7 @@ const HomeShop = () => {
     <Box
       sx={{
         width: "100%",
-        minHeight: "80vh",
+        minHeight: { md: "40vh", lg: "80vh" },
         backgroundColor: "secondary.main",
         display: "flex",
         justifyContent: "center",
@@ -87,7 +87,7 @@ const HomeShop = () => {
     >
       <Box
         sx={{
-          width: "80%",
+          width: { md: "90%", lg: "80%" },
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

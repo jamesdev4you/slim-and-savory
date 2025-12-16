@@ -13,7 +13,7 @@ const ShopHeader = ({
     <Box
       sx={{
         mt: "3em",
-        height: "70vh",
+        height: { md: "50vh", lg: "70vh" },
         textAlign: "center",
         display: "flex",
         alignItems: "center",
@@ -30,7 +30,11 @@ const ShopHeader = ({
       </Typography>
 
       <Box
-        sx={{ display: "flex", justifyContent: "space-between", width: "90%" }}
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: "90%",
+        }}
       >
         {shopSections.map((section) => (
           <ShopButton

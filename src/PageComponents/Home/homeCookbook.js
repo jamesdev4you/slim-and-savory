@@ -21,12 +21,12 @@ const HomeCookbook = ({ cookbookData }) => {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        height: "70vh",
+        height: { md: "50vh", lg: "70vh" },
       }}
     >
       <Box
         sx={{
-          width: "80%",
+          width: { md: "90%", lg: "80%" },
           height: "80%",
           backgroundColor: "background.dark",
           display: "flex",
@@ -38,8 +38,8 @@ const HomeCookbook = ({ cookbookData }) => {
         {/* IMAGE */}
         <Box
           sx={{
-            width: "30%",
-            height: "85%",
+            width: { md: "25%", lg: "30%" },
+            aspectRatio: "4 / 5",
             position: "relative",
           }}
         >
@@ -56,8 +56,7 @@ const HomeCookbook = ({ cookbookData }) => {
         {/* CONTENT */}
         <Box
           sx={{
-            width: "70%",
-
+            width: { md: "75%", lg: "70%" },
             height: "90%",
             display: "flex",
             flexDirection: "column",
@@ -73,7 +72,11 @@ const HomeCookbook = ({ cookbookData }) => {
 
           <Typography
             variant="h3"
-            sx={{ color: "primary.dark", fontWeight: "bold" }}
+            sx={{
+              color: "primary.dark",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
           >
             {title}
           </Typography>

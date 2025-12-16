@@ -21,7 +21,8 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
           <Box
             key={video._id || index}
             sx={{
-              height: "80vh",
+              height: { md: "auto", lg: "80vh" },
+              padding: { md: "10em 0em", lg: "none" },
               width: "100%",
               backgroundColor: bgColor,
               borderBottom: "1px solid",
@@ -37,7 +38,7 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
             <Box
               sx={{
                 width: "40vw",
-                height: "55%",
+                aspectRatio: "16 / 9",
                 position: "relative",
                 borderRadius: "5px",
                 overflow: "hidden",

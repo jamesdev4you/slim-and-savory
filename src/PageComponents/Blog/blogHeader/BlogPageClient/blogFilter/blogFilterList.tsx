@@ -26,7 +26,7 @@ export default function BlogFilterItem({
   options = [],
   value,
   onChange,
-  defaultOpen = true,
+  defaultOpen = false,
 }: FilterSectionProps) {
   const [open, setOpen] = React.useState(defaultOpen);
   const [internal, setInternal] = React.useState<string[]>([]);
@@ -48,6 +48,7 @@ export default function BlogFilterItem({
         flexDirection: "column",
         alignItems: "start",
         justifyContent: "center",
+        paddingBottom: { md: "1em", lg: "none" },
       }}
     >
       <Box

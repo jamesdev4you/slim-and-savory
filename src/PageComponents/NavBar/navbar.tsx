@@ -117,19 +117,19 @@ export default function NavBar() {
         >
           <Box
             sx={{
-              width: "85%",
+              width: { md: "70%", lg: "85%" },
               backgroundColor: "primary.light",
               height: "100%",
               display: "flex",
               fontFamily: "Birds",
               alignItems: "center",
-              justifyContent: "space-between",
+              justifyContent: { md: "center", lg: "space-between" },
             }}
           >
             <Typography
               sx={{
                 fontWeight: "bold",
-                ml: { xl: "20em", md: "10em" },
+                ml: { xl: "20em", md: "60px" },
                 fontSize: 16,
                 fontFamily: "Birds",
                 color: "#1B1E1E",
@@ -148,6 +148,7 @@ export default function NavBar() {
                   fontSize: 16,
                   mr: 1,
                   color: "#1B1E1E",
+                  display: { md: "none", lg: "flex" },
                   fontFamily: "Birds",
                   "&:hover": { cursor: "pointer", textDecoration: "underline" },
                 }}
@@ -180,7 +181,7 @@ export default function NavBar() {
 
           <Box
             sx={{
-              width: "20%",
+              width: { md: "30%", lg: "15%" },
               backgroundColor: "black",
               height: "100%",
               display: "flex",
@@ -209,14 +210,13 @@ export default function NavBar() {
                     display: "flex",
                     alignItems: "center",
                     height: "100%",
-                    width: "8%",
                   }}
                 >
                   <Box
                     component={Icon}
                     sx={{
                       height: "100%",
-                      width: "100%",
+                      width: { md: "50%", lg: "40%" },
                       color: "white",
                       transition: "all .2s ease",
                       "&:hover": {
@@ -260,6 +260,7 @@ export default function NavBar() {
               ml: "auto",
               mr: "auto",
               alignItems: "center",
+              gap: { md: "3em", lg: "none" },
             }}
           >
             {navItems.map((item, index) => (
@@ -268,7 +269,8 @@ export default function NavBar() {
                 sx={{
                   display: "flex",
                   alignItems: "space-around",
-                  mx: 4,
+                  mx: { md: "none", lg: 4 },
+                  gap: "2em",
                 }}
               >
                 {index !== 0 && (
@@ -276,7 +278,7 @@ export default function NavBar() {
                     sx={{
                       width: "1px",
                       height: "20px",
-                      marginRight: "50px",
+                      marginRight: { md: "0px", lg: "50px" },
                       backgroundColor: "primary.dark",
                     }}
                   />

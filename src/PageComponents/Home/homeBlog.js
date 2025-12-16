@@ -2,9 +2,23 @@
 import Link from "next/link";
 import { Typography, Box } from "@mui/material";
 import { DarkButtonBlog } from "../Styled/styledButtons.js";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 const HomeBlog = ({ posts }) => {
   if (!posts?.length) return null;
+  const theme = useTheme();
+
+  const isXL = useMediaQuery(theme.breakpoints.up("xl"));
+  const isLG = useMediaQuery(theme.breakpoints.only("lg"));
+  const isMD = useMediaQuery(theme.breakpoints.only("md"));
+  const isSM = useMediaQuery(theme.breakpoints.only("sm"));
+
+  const visiblePosts = (() => {
+    if (isXL || isLG) return posts.slice(0, 8);
+    if (isMD) return posts.slice(0, 6); // ✅ 2 less on md
+    if (isSM) return posts.slice(0, 4);
+    return posts.slice(0, 4); // xs
+  })();
 
   return (
     <Box
@@ -60,7 +74,7 @@ const HomeBlog = ({ posts }) => {
           gap: 2,
         }}
       >
-        {posts.map((post) => {
+        {visiblePosts.map((post) => {
           const slug =
             typeof post.slug === "string" ? post.slug : post.slug?.current;
 
@@ -96,7 +110,7 @@ const HomeBlog = ({ posts }) => {
                     height: {
                       xl: "30vh",
                       lg: "20vh",
-                      md: "30vh",
+                      md: "20vh",
                       sm: "30vh",
                       xs: "180px",
                     },

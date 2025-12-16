@@ -43,7 +43,7 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
           display: "grid",
           gridTemplateColumns: {
             xs: "1fr",
-            sm: "repeat(2, 1fr)",
+            sm: "repeat(3, 1fr)",
             lg: "repeat(3, 1fr)", // 3-wide on desktop
           },
           gap: 2,
