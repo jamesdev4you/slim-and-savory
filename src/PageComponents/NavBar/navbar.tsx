@@ -108,11 +108,11 @@ export default function NavBar() {
         {/* Top strip */}
         <Box
           sx={{
-            backgroundColor: "#FFF5E1",
             height: 60,
             textAlign: "center",
             fontFamily: "Birds",
             display: "flex",
+            background: "linear-gradient(to right, #a0c49d 80%, #7c8e76 20%)",
           }}
         >
           <Box
@@ -157,8 +157,22 @@ export default function NavBar() {
             </Link>
           </Box>
 
-          <Box sx={{ width: 60, height: 60, flexShrink: 0 }}>
-            <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+          <Box
+            sx={{
+              width: 60,
+              height: 60,
+              flexShrink: 0,
+              "& svg": {
+                display: "block",
+              },
+            }}
+          >
+            <svg
+              width="60"
+              height="60"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ display: "block" }}
+            >
               <polygon points="0,0 0,60 60,60" fill="#a0c49d" />
               <polygon points="0,0 60,0 60,60" fill="#7c8e76" />
             </svg>
