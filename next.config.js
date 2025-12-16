@@ -2,6 +2,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  turbopack: false,
   webpack: (config) => {
     // force webpack resolver
     config.experiments = config.experiments || {};
