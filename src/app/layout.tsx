@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Providers from "./providers";
 import ThemeRegistry from "./theme-registry";
 import { fetchFooterSettings } from "@/sanity/fetchFooterSettings";
 
@@ -23,12 +22,10 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <ThemeRegistry>
-          <Providers>
-            <NavBar />
-            <div id="print-root" />
-            {children}
-            <Footer footer={footer} />
-          </Providers>
+          <NavBar />
+          <div id="print-root" />
+          {children}
+          <Footer footer={footer} />
         </ThemeRegistry>
       </body>
     </html>

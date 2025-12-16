@@ -9,8 +9,9 @@ const HomeBlog = ({ posts }) => {
   return (
     <Box
       sx={{
-        width: "100%",
+        width: "90%",
         minHeight: "100vh",
+        margin: "auto",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -93,7 +94,7 @@ const HomeBlog = ({ posts }) => {
                 <Box
                   sx={{
                     height: {
-                      xl: "50vh",
+                      xl: "30vh",
                       md: "30vh",
                       sm: "30vh",
                       xs: "180px",

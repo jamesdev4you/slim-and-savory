@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -104,8 +103,7 @@ export default function NavBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <CssBaseline />
+    <Box sx={{ flexGrow: 1 }} suppressHydrationWarning>
       <AppBar component="nav">
         {/* Top strip */}
         <Box

@@ -13,7 +13,8 @@ const HomeContact = () => {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "space-around",
+        justifyContent: "center",
+        gap: "2em",
         backgroundSize: "cover",
         backgroundRepeat: "none",
         backgroundPosition: "center",
@@ -59,7 +60,7 @@ const HomeContact = () => {
       </Box>
       <Box
         sx={{
-          width: "50%",
+          width: "40%",
           gap: "1em",
           display: "flex",
           alignItems: "center",
@@ -69,7 +70,7 @@ const HomeContact = () => {
         <Box
           sx={{
             width: {
-              xl: "40%",
+              xl: "100%",
               lg: "100%",
               md: "100%",
               sm: "90%",

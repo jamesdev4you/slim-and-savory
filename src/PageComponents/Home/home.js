@@ -9,7 +9,6 @@ import HomeContact from "./homeContact/homeContact.js";
 import { Box } from "@mui/material";
 
 const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
-  console.log("HEADERDATA IN HOME:", headerData);
   return (
     <div>
       <HomeHeader headerData={headerData} />
@@ -48,8 +47,8 @@ const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
       <Box
         sx={{
           width: "100%",
-          height: "3px",
-          backgroundColor: "primary.main",
+          height: "1px",
+          backgroundColor: "background.line",
         }}
       />
       <HomeContact />

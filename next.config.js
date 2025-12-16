@@ -2,10 +2,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  eslint: {
-    // Do not fail build on ESLint errors during development
-    ignoreDuringBuilds: true,
+  webpack: (config) => {
+    // force webpack resolver
+    config.experiments = config.experiments || {};
+    config.experiments.topLevelAwait = false;
+    return config;
   },
   typescript: {
     // Do not fail production build on TS errors while you migrate

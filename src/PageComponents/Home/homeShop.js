@@ -1,30 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Typography, Box, Button } from "@mui/material";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
 import Image from "next/image";
 import Link from "next/link";
 import { fetchShopItems } from "@/sanity/shop";
 
-/* ---------- Carousel breakpoints ---------- */
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 640 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 640, min: 0 },
-    items: 1,
-  },
-};
-
-/* ---------- Custom arrows (unchanged visually) ---------- */
+/* ---------- Custom arrows (VISUALLY IDENTICAL) ---------- */
 const ArrowLeft = ({ onClick }) => (
   <button
     onClick={onClick}
@@ -73,6 +58,7 @@ const ArrowRight = ({ onClick }) => (
 
 const HomeShop = () => {
   const [items, setItems] = useState([]);
+  const swiperRef = useRef(null);
 
   useEffect(() => {
     async function loadItems() {
@@ -91,7 +77,7 @@ const HomeShop = () => {
     <Box
       sx={{
         width: "100%",
-        minHeight: "90vh",
+        minHeight: "80vh",
         backgroundColor: "secondary.main",
         display: "flex",
         justifyContent: "center",
@@ -100,18 +86,18 @@ const HomeShop = () => {
     >
       <Box
         sx={{
-          width: "90%",
+          width: "80%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: "2em",
+          gap: "3em",
         }}
       >
         <Typography variant="h2" sx={{ color: "primary.dark" }}>
           Come Shop With Me
         </Typography>
 
-        {/* ---------- Carousel ---------- */}
+        {/* ---------- Swiper Carousel ---------- */}
         <Box
           sx={{
             width: "100%",
@@ -119,73 +105,81 @@ const HomeShop = () => {
             overflow: "visible",
           }}
         >
-          <Carousel
-            responsive={responsive}
-            infinite
-            draggable
-            customLeftArrow={<ArrowLeft />}
-            customRightArrow={<ArrowRight />}
+          <ArrowLeft onClick={() => swiperRef.current?.slidePrev()} />
+          <ArrowRight onClick={() => swiperRef.current?.slideNext()} />
+
+          <Swiper
+            modules={[Navigation]}
+            loop
+            grabCursor
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 4 },
+            }}
           >
             {homeItems.map((item) => (
-              <Box
-                key={item._id}
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                {/* Clickable card → Amazon affiliate link */}
+              <SwiperSlide key={item._id}>
                 <Box
-                  component="a"
-                  href={item.amazonUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   sx={{
-                    width: "70%",
-                    maxWidth: "200px",
-                    borderRadius: "12px",
-                    overflow: "hidden",
-                    textDecoration: "none",
-                    transition: "transform 0.3s ease",
-                    "&:hover": {
-                      transform: "scale(1.03)",
-                      cursor: "pointer",
-                    },
+                    display: "flex",
+                    justifyContent: "center",
                   }}
                 >
+                  {/* Clickable card → Amazon affiliate link */}
                   <Box
+                    component="a"
+                    href={item.amazonUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     sx={{
-                      position: "relative",
-                      width: "100%",
-                      height: "220px",
-                      boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+                      width: "70%",
+                      maxWidth: "200px",
+                      borderRadius: "12px",
+                      overflow: "hidden",
+                      textDecoration: "none",
+                      transition: "transform 0.3s ease",
+                      "&:hover": {
+                        transform: "scale(1.03)",
+                        cursor: "pointer",
+                      },
                     }}
                   >
-                    {item.image?.asset?.url && (
-                      <Image
-                        src={item.image?.asset?.url}
-                        alt={item.title}
-                        fill
-                        style={{ objectFit: "cover" }}
-                      />
-                    )}
-                  </Box>
+                    <Box
+                      sx={{
+                        position: "relative",
+                        width: "100%",
+                        height: "220px",
+                        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+                      }}
+                    >
+                      {item.image?.asset?.url && (
+                        <Image
+                          src={item.image.asset.url}
+                          alt={item.title}
+                          fill
+                          style={{ objectFit: "cover" }}
+                        />
+                      )}
+                    </Box>
 
-                  <Typography
-                    sx={{
-                      mt: 1.5,
-                      fontSize: "18px",
-                      textAlign: "center",
-                      fontWeight: "bold",
-                      color: "primary.main",
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
+                    <Typography
+                      sx={{
+                        mt: 1.5,
+                        fontSize: "18px",
+                        textAlign: "center",
+                        fontWeight: "bold",
+                        color: "primary.main",
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Box>
                 </Box>
-              </Box>
+              </SwiperSlide>
             ))}
-          </Carousel>
+          </Swiper>
         </Box>
 
         {/* ---------- CTA BUTTON → /shop ---------- */}
