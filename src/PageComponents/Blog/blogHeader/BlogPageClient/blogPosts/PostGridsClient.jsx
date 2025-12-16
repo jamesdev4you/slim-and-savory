@@ -103,6 +103,7 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
                     alignItems: "start",
                     flexDirection: "column",
                     gap: ".5em",
+                    height: "auto",
                   }}
                 >
                   <Typography variant="h6" sx={{ height: "10vh" }}>
@@ -145,7 +146,9 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
         </Typography>
 
         {/* Page numbers */}
-        <Box sx={{ display: "flex", gap: 2 }}>
+        <Box
+          sx={{ display: "flex", gap: 2, height: "20vh", alignItems: "center" }}
+        >
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
             <Typography
               key={n}

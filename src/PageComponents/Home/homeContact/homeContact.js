@@ -9,18 +9,18 @@ const HomeContact = () => {
     <Box
       sx={{
         width: "100%",
-        height: "100vh",
+
+        height: "auto",
         display: "flex",
         flexDirection: "row",
-        alignItems: "center",
+        alignItems: "flex-start",
         justifyContent: "center",
         gap: "2em",
         backgroundSize: "cover",
         backgroundRepeat: "none",
         backgroundPosition: "center",
         backgroundColor: "primary.main",
-        paddingTop: "50px",
-        padding: "2em",
+        padding: "4em",
       }}
     >
       <Box
@@ -76,7 +76,7 @@ const HomeContact = () => {
               sm: "90%",
               xs: "100%",
             },
-            height: "60vh",
+
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

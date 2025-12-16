@@ -82,6 +82,7 @@ const HomeShop = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        padding: "3em 0em",
       }}
     >
       <Box

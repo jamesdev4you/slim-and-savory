@@ -45,7 +45,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        height: "70vh",
+        height: "80vh",
       }}
     >
       <Box
@@ -54,6 +54,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
           height: "80%",
           display: "flex",
           justifyContent: "space-between",
+          alignItems: "center",
           padding: "0em 3em",
         }}
       >

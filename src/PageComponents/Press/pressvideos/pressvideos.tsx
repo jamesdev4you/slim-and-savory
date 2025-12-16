@@ -57,14 +57,14 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
             <Box
               sx={{
                 width: "35vw",
-                height: { lg: "55%", xl: "40%" },
+                height: { lg: "55%", xl: "55%" },
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: ".75em",
               }}
             >
-              <Typography variant="h3" sx={{ color: textColor }}>
+              <Typography variant="h4" sx={{ color: textColor }}>
                 {video.title}
               </Typography>
 

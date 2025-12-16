@@ -14,9 +14,10 @@ const AboutHeader = ({ data }) => {
     <Box
       sx={{
         width: "100%",
-        height: "90vh",
+        height: { lg: "110vh", xl: "90vh" },
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
         paddingTop: "12vh",
       }}
     >

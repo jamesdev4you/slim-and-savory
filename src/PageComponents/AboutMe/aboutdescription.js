@@ -15,12 +15,13 @@ const AboutDescription = ({ data }) => {
         height: "90vh",
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
         backgroundColor: "primary.main",
       }}
     >
       <Box
         sx={{
-          width: "80%",
+          width: "90%",
           height: "80vh",
           display: "flex",
           alignItems: "center",
@@ -31,12 +32,12 @@ const AboutDescription = ({ data }) => {
         {/* LEFT TEXT COLUMN — unchanged */}
         <Box
           sx={{
-            width: "50%",
+            width: "60%",
             padding: "3em 0em",
             height: { xl: "90%", md: "100%" },
             display: "flex",
             flexDirection: "column",
-            alignItems: "start",
+            alignItems: "center",
             justifyContent: "center",
             gap: "1em",
           }}
@@ -67,7 +68,7 @@ const AboutDescription = ({ data }) => {
         <Box
           sx={{
             width: "30vw",
-            height: "70%",
+            height: { md: "70%", lg: "70%", xl: "70%" },
             backgroundImage: image
               ? `url(${urlFor(image).width(1200).url()})`
               : "none",

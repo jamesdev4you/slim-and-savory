@@ -45,7 +45,7 @@ export default function ContactForm() {
         backgroundColor: "#f7ffe5",
         padding: "20px",
         borderRadius: "15px",
-        width: "70%",
+        width: "100%",
         borderWidth: "2px",
         borderStyle: "solid",
         borderColor: "#373e02",

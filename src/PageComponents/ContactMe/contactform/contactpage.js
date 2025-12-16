@@ -40,7 +40,7 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
     <Box
       sx={{
         width: "100%",
-        height: "90vh",
+        height: "auto",
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
@@ -49,149 +49,127 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
         backgroundRepeat: "none",
         backgroundPosition: "center",
         backgroundColor: "secondary.main",
-        paddingTop: "50px",
-        padding: "2em",
+        padding: "10em 2em",
       }}
     >
       <Box
         sx={{
           width: "100%",
-          height: "70%",
+          height: "auto",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
+          alignItems: "start",
+          justifyContent: "space-around",
+          flexDirection: "row",
         }}
       >
         <Box
           sx={{
-            width: "100%",
-            height: "100%",
+            width: {
+              xl: "40%",
+              lg: "40%",
+              md: "100%",
+              sm: "90%",
+              xs: "100%",
+            },
+            height: "auto",
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
-            padding: "0em 3em",
+            justifyContent: "center",
+            marginBottom: {
+              xl: "0px",
+              lg: "0px",
+              md: "50px",
+              sm: "50px",
+              xs: "50px",
+            },
+            marginTop: {
+              xl: "0px",
+              lg: "0px",
+              md: "50px",
+              sm: "50px",
+              xs: "50px",
+            },
           }}
         >
+          <ContactForm />
+        </Box>
+
+        <Box
+          sx={{
+            width: "auto",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Typography variant="h4" sx={{ color: "primary.dark" }}>
+            {subtitle}
+          </Typography>
+
+          <Typography variant="h3" sx={{ color: "primary.dark" }}>
+            {title}
+          </Typography>
+
           <Box
             sx={{
-              width: "70%",
-              gap: "1em",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              color: "primary.dark",
+              fontSize: "20px",
+              width: "100%",
+              textAlign: "left",
             }}
           >
-            <Box
-              sx={{
-                width: {
-                  xl: "100%",
-                  lg: "100%",
-                  md: "100%",
-                  sm: "90%",
-                  xs: "100%",
-                },
-                height: "60vh",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: {
-                  xl: "0px",
-                  lg: "0px",
-                  md: "50px",
-                  sm: "50px",
-                  xs: "50px",
-                },
-                marginTop: {
-                  xl: "0px",
-                  lg: "0px",
-                  md: "50px",
-                  sm: "50px",
-                  xs: "50px",
-                },
-              }}
-            >
-              <ContactForm />
-            </Box>
+            <PortableText value={description} />
           </Box>
+
+          {/* SOCIAL ICONS (unchanged) */}
           <Box
             sx={{
               width: "70%",
-              padding: "3em 0em",
               display: "flex",
-              flexDirection: "column",
+              justifyContent: "space-between",
             }}
           >
-            <Typography variant="h4" sx={{ color: "primary.dark" }}>
-              {subtitle}
-            </Typography>
-
-            <Typography variant="h3" sx={{ color: "primary.dark" }}>
-              {title}
-            </Typography>
-
-            <Box
-              sx={{
-                color: "primary.dark",
-                fontSize: "20px",
-                width: "100%",
-                textAlign: "left",
-              }}
-            >
-              <PortableText value={description} />
-            </Box>
-
-            {/* SOCIAL ICONS (unchanged) */}
-            <Box
-              sx={{
-                width: { xl: "40%", md: "60%" },
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              {socialIcons.map(({ Icon, href, platform }) => (
-                <IconButton
-                  key={platform}
-                  component="a"
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
+            {socialIcons.map(({ Icon, href, platform }) => (
+              <IconButton
+                key={platform}
+                component="a"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  backgroundColor: "primary.dark",
+                  color: "white",
+                  padding: "10px",
+                  border: "1px solid transparent",
+                  "&:hover": {
+                    borderColor: "primary.light",
+                    color: "primary.light",
                     backgroundColor: "primary.dark",
-                    color: "white",
-                    padding: "10px",
-                    border: "1px solid transparent",
-                    "&:hover": {
-                      borderColor: "primary.light",
-                      color: "primary.light",
-                      backgroundColor: "primary.dark",
-                      boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-                    },
-                  }}
-                >
-                  <Icon fontSize="large" />
-                </IconButton>
-              ))}
-            </Box>
-
-            <Button
-              variant="contained"
-              href={ctaHref}
-              sx={{
-                width: "30%",
-                marginTop: "2em",
-                backgroundColor: "#373e02",
-                color: "#d9d9d9",
-                border: "2px solid #d9d9d9",
-                fontWeight: "bold",
-                "&:hover": {
-                  borderColor: "primary.light",
-                },
-              }}
-            >
-              {ctaLabel}
-            </Button>
+                    boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+                  },
+                }}
+              >
+                <Icon fontSize="large" />
+              </IconButton>
+            ))}
           </Box>
+
+          <Button
+            variant="contained"
+            href={ctaHref}
+            sx={{
+              width: "30%",
+              marginTop: "2em",
+              backgroundColor: "#373e02",
+              color: "#d9d9d9",
+              border: "2px solid #d9d9d9",
+              fontWeight: "bold",
+              "&:hover": {
+                borderColor: "primary.light",
+              },
+            }}
+          >
+            {ctaLabel}
+          </Button>
         </Box>
       </Box>
     </Box>

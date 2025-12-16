@@ -73,7 +73,13 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
 
   console.log("data", recentPosts);
   return (
-    <Box>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "4em",
+      }}
+    >
       <Box
         sx={{
           height: "auto",

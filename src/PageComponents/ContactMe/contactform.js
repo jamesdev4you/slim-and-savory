@@ -8,7 +8,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 
 const icons = [FacebookIcon, LinkedInIcon, YouTubeIcon, InstagramIcon];
 
-const ContactForm = () => {
+const ContactForm = (data) => {
   return (
     <Box
       sx={{
