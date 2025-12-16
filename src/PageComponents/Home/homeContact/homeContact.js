@@ -25,7 +25,7 @@ const HomeContact = () => {
     >
       <Box
         sx={{
-          width: "40%",
+          width: { lg: "40%", xl: "40%" },
           height: "70%",
           display: "flex",
           alignItems: "start",
@@ -35,8 +35,8 @@ const HomeContact = () => {
       >
         <Box
           sx={{
-            width: "100%",
-            height: "170px", // or a fixed height like "300px"
+            width: { lg: "70%", xl: "100%" },
+            height: { lg: "100px", xl: "170px" },
             position: "relative",
           }}
         >
@@ -60,7 +60,7 @@ const HomeContact = () => {
       </Box>
       <Box
         sx={{
-          width: "40%",
+          width: { lg: "50%", xl: "40%" },
           gap: "1em",
           display: "flex",
           alignItems: "center",

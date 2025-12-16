@@ -32,7 +32,8 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        height: "90%",
+        height: { lg: "100%", xl: "90%" },
+        pb: { lg: "1em", xl: "none" },
       }}
     >
       {/* 3x3 responsive grid. Only renders real posts; no dummy cards. */}
@@ -108,10 +109,7 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
                     {post?.title ?? ""}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {post?.category?.title ?? "—"} {" | "}
-                    {post?.publishedAt
-                      ? new Date(post.publishedAt).toLocaleDateString()
-                      : ""}
+                    {post?.category?.title ?? "—"}
                   </Typography>
                   <DarkButtonBlog>Read</DarkButtonBlog>
                 </Box>

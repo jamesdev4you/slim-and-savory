@@ -95,6 +95,7 @@ const HomeBlog = ({ posts }) => {
                   sx={{
                     height: {
                       xl: "30vh",
+                      lg: "25vh",
                       md: "30vh",
                       sm: "30vh",
                       xs: "180px",
@@ -127,11 +128,12 @@ const HomeBlog = ({ posts }) => {
                     {post.title}
                   </Typography>
 
-                  <Typography variant="body2" color="text.secondary">
-                    {post?.category?.title ?? "RECIPE"} |{" "}
-                    {post?.publishedAt
-                      ? new Date(post.publishedAt).toLocaleDateString()
-                      : ""}
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ marginLeft: { lg: ".1em", xl: "none" } }}
+                  >
+                    {post?.category?.title ?? "RECIPE"}
                   </Typography>
 
                   <DarkButtonBlog>Read</DarkButtonBlog>

@@ -64,6 +64,7 @@ const HomeCookbook = ({ cookbookData }) => {
             alignItems: "center",
             justifyContent: "start",
             marginTop: "3%",
+            gap: { lg: "none", xl: ".5em" },
           }}
         >
           <Typography variant="h5" sx={{ color: "primary.dark" }}>
@@ -80,11 +81,14 @@ const HomeCookbook = ({ cookbookData }) => {
           {/* DESCRIPTION */}
           <Box
             sx={{
-              marginTop: "20px",
               color: "primary.dark",
               fontSize: "20px",
               width: "100%",
               textAlign: "center",
+              "& p": {
+                lineHeight: "1",
+                marginBottom: "1rem",
+              },
             }}
           >
             <PortableText value={description} />
@@ -96,7 +100,7 @@ const HomeCookbook = ({ cookbookData }) => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              marginTop: "2em",
+              marginTop: "1em",
               width: "100%",
             }}
           >

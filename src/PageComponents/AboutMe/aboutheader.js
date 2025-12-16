@@ -67,8 +67,8 @@ const AboutHeader = ({ data }) => {
           {/* LOGO — unchanged */}
           <Box
             sx={{
-              width: "75%",
-              height: "170px",
+              width: { lg: "60%", xl: "75%" },
+              height: { lg: "100px", xl: "170px" },
               backgroundImage: "url('/images/shared/LabelLogo.png')",
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",

@@ -114,9 +114,18 @@ const HomeShop = () => {
             grabCursor
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             breakpoints={{
-              0: { slidesPerView: 1 },
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 4 },
+              0: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3, // LG (1280 lives here)
+              },
+              1600: {
+                slidesPerView: 4, // XL
+              },
             }}
           >
             {homeItems.map((item) => (
