@@ -95,7 +95,7 @@ const HomeBlog = ({ posts }) => {
                   sx={{
                     height: {
                       xl: "30vh",
-                      lg: "25vh",
+                      lg: "20vh",
                       md: "30vh",
                       sm: "30vh",
                       xs: "180px",
@@ -121,7 +121,7 @@ const HomeBlog = ({ posts }) => {
                     alignItems: "start",
                     flexDirection: "column",
                     gap: ".5em",
-                    height: "22vh",
+                    height: "170px",
                   }}
                 >
                   <Typography variant="h6" sx={{ marginBottom: "auto" }}>
