@@ -147,7 +147,6 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
                 width: { xl: "40%", md: "60%" },
                 display: "flex",
                 justifyContent: "space-between",
-                marginTop: "1em",
               }}
             >
               {socialIcons.map(({ Icon, href, platform }) => (
@@ -180,7 +179,7 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
               href={ctaHref}
               sx={{
                 width: "30%",
-                marginTop: "1em",
+                marginTop: "2em",
                 backgroundColor: "#373e02",
                 color: "#d9d9d9",
                 border: "2px solid #d9d9d9",

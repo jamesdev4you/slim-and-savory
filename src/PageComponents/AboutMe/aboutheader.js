@@ -68,9 +68,10 @@ const AboutHeader = ({ data }) => {
           <Box
             sx={{
               width: "75%",
-              height: "100px",
+              height: "170px",
               backgroundImage: "url('/images/shared/LabelLogo.png')",
-              backgroundSize: "cover",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
           />

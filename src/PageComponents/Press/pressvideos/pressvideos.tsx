@@ -57,7 +57,7 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
             <Box
               sx={{
                 width: "35vw",
-                height: "60%",
+                height: "40%",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",

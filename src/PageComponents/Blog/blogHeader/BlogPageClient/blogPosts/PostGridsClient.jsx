@@ -32,6 +32,7 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
+        height: "90%",
       }}
     >
       {/* 3x3 responsive grid. Only renders real posts; no dummy cards. */}
@@ -48,8 +49,6 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
         }}
       >
         {pagePosts.map((post) => {
-          console.log("FULL POST OBJECT:", post);
-
           const slug =
             typeof post.slug === "string" ? post.slug : post.slug?.current;
 
@@ -79,7 +78,7 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
                 {/* Image */}
                 <Box
                   sx={{
-                    height: { xl: "50vh", md: "30vh", sm: "30vh", xs: "180px" },
+                    height: { xl: "30vh", md: "30vh", sm: "30vh", xs: "180px" },
                     backgroundImage: `url(${post?.mainPicture?.url ?? ""})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -131,7 +130,7 @@ export default function PostsGridClient({ initialPosts, pageSize = 9 }) {
           justifyContent: "center",
           alignItems: "center",
           gap: 2,
-          mt: "1em",
+          mt: "auto",
         }}
       >
         {/* Prev */}

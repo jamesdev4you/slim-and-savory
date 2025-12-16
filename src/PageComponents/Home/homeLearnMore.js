@@ -80,6 +80,10 @@ const HomeLearnMore = ({ learnMoreData }) => {
               fontSize: "20px",
               width: "100%",
               textAlign: "left",
+              "& p": {
+                lineHeight: "1",
+                marginBottom: "1rem",
+              },
             }}
           >
             <PortableText value={description} />
@@ -124,7 +128,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
             href="/contact"
             sx={{
               width: "30%",
-              marginTop: "1em",
+              marginTop: "2em",
               backgroundColor: "#373e02",
               color: "#d9d9d9",
               border: "2px solid #d9d9d9",
