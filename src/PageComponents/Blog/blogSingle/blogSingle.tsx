@@ -104,7 +104,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
         />
         <Box
           sx={{
-            width: { md: "30vw", lg: "35vh" },
+            width: { md: "30vw", lg: "35vw" },
             height: "100%",
             display: "flex",
             alignItems: "flex-start",
@@ -258,7 +258,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
                 alignItems: "flex-start",
                 justifyContent: { md: "start", lg: "center" },
                 gap: ".6em",
-                padding: "1em",
+                paddingTop: "1em",
               }}
             >
               <Typography variant="h5">Author: {post.author.name}</Typography>

@@ -269,8 +269,8 @@ export default function NavBar() {
                 sx={{
                   display: "flex",
                   alignItems: "space-around",
-                  mx: { md: "none", lg: 4 },
-                  gap: "2em",
+                  mx: { md: "none", lg: 1 },
+                  gap: { md: "2em", lg: "none" },
                 }}
               >
                 {index !== 0 && (

@@ -13,7 +13,7 @@ const ShopHeader = ({
     <Box
       sx={{
         mt: "3em",
-        height: { md: "50vh", lg: "70vh" },
+        height: { md: "60vh", lg: "80vh" },
         textAlign: "center",
         display: "flex",
         alignItems: "center",

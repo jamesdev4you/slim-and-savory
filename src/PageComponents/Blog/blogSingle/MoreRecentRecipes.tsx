@@ -66,6 +66,7 @@ export default function MoreRecentRecipes({ posts }) {
                     sx={{
                       height: {
                         xl: "50vh",
+                        lg: "40vh",
                         md: "20vh",
                         sm: "30vh",
                         xs: "180px",

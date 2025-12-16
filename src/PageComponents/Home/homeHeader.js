@@ -13,7 +13,7 @@ const HomeHeader = ({ headerData }) => {
     <Box
       sx={{
         width: "100%",
-        height: { md: "60vh", xl: "100vh" },
+        height: { md: "60vh", lg: "100vh", xl: "100vh" },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
