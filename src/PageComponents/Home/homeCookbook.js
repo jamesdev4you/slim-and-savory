@@ -57,13 +57,13 @@ const HomeCookbook = ({ cookbookData }) => {
         <Box
           sx={{
             width: "70%",
-            padding: "3em 0em",
+
             height: "90%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "start",
-            marginTop: "3%",
+            justifyContent: "center",
+
             gap: { lg: "none", xl: ".5em" },
           }}
         >

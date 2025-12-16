@@ -10,7 +10,6 @@ const Press = ({
   videos: any[];
   videoheader: any[];
 }) => {
-  console.log("wtf", videoheader);
   return (
     <div>
       <PressHeader videoheader={videoheader} />
