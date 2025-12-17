@@ -20,6 +20,7 @@ const HomeCookbook = ({ cookbookData }) => {
         display: "flex",
         flexDirection: { xs: "column", sm: "column", md: "row" },
         alignItems: "center",
+        justifyContent: "center",
         width: "100%",
         pb: { xs: "10vh", md: "none" },
         pt: { xs: "10vh", md: "none" },
