@@ -35,8 +35,7 @@
     "build": "next build --webpack",
     "start": "npx serve@latest ./build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "seed": "prisma db seed"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
