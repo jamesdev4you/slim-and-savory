@@ -64,7 +64,7 @@ const HomeHeader = ({ headerData }) => {
               }}
             >
               <Link
-                href={item.link}
+                href={item?.link || ""}
                 style={{
                   width: "100%",
                   display: "flex",
