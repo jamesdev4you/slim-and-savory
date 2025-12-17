@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Typography, Box, Button } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import Image from "next/image";
 import Link from "next/link";
-import { fetchShopItems } from "@/sanity/shop";
 
-/* ---------- Custom arrows (VISUALLY IDENTICAL) ---------- */
 const ArrowLeft = ({ onClick }) => (
   <button
     onClick={onClick}
@@ -56,23 +54,11 @@ const ArrowRight = ({ onClick }) => (
   </button>
 );
 
-const HomeShop = () => {
-  const [items, setItems] = useState([]);
+const HomeShop = ({ items = [] }) => {
   const swiperRef = useRef(null);
   const isMobile = typeof window !== "undefined" && window.innerWidth < 480;
 
-  useEffect(() => {
-    async function loadItems() {
-      const data = await fetchShopItems();
-      setItems(data || []);
-    }
-    loadItems();
-  }, []);
-
-  /* ✅ LIMIT TO 5 ITEMS */
-  const homeItems = items.slice(0, 5);
-
-  if (!homeItems.length) return null;
+  if (!items.length) return null;
 
   return (
     <Box
@@ -102,7 +88,6 @@ const HomeShop = () => {
           Come Shop With Me
         </Typography>
 
-        {/* ---------- Swiper Carousel ---------- */}
         <Box
           sx={{
             width: "100%",
@@ -136,7 +121,7 @@ const HomeShop = () => {
               },
             }}
           >
-            {homeItems.map((item) => (
+            {items.map((item) => (
               <SwiperSlide key={item._id}>
                 <Box
                   sx={{
@@ -200,23 +185,7 @@ const HomeShop = () => {
           </Swiper>
         </Box>
 
-        {/* ---------- CTA BUTTON → /shop ---------- */}
-        <Button
-          component={Link}
-          href="/shop"
-          variant="contained"
-          sx={{
-            width: { xs: "80%", md: "30%" },
-            height: "60px",
-            backgroundColor: "#373e02",
-            color: "#d9d9d9",
-            border: "2px solid #d9d9d9",
-            fontWeight: "bold",
-            "&:hover": {
-              borderColor: "primary.light",
-            },
-          }}
-        >
+        <Button component={Link} href="/shop" variant="contained">
           Shop Now
         </Button>
       </Box>

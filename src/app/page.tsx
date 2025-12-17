@@ -3,12 +3,14 @@ import { fetchHomeHeader } from "@/sanity/fetchHomeHeaderData";
 import { fetchHomeCookbook } from "@/sanity/fetchHomeCookbook";
 import { fetchHomeLearnMore } from "@/sanity/fetchHomeLearnMore";
 import { fetchHomePosts } from "@/sanity/fetchHomePosts";
+import { fetchShopItems } from "@/sanity/shop";
 
 export default async function Page() {
   const headerData = await fetchHomeHeader();
   const cookbookData = await fetchHomeCookbook();
   const learnMoreData = await fetchHomeLearnMore();
   const homePosts = await fetchHomePosts();
+  const shopItems = await fetchShopItems();
 
   return (
     <main>
@@ -17,6 +19,7 @@ export default async function Page() {
         cookbookData={cookbookData}
         learnMoreData={learnMoreData}
         homePosts={homePosts}
+        shopItems={shopItems}
       />
     </main>
   );

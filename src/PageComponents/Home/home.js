@@ -8,7 +8,13 @@ import HomeShop from "./homeShop.js";
 import HomeContact from "./homeContact/homeContact.js";
 import { Box } from "@mui/material";
 
-const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
+const Home = ({
+  headerData,
+  cookbookData,
+  learnMoreData,
+  homePosts,
+  shopItems,
+}) => {
   return (
     <div>
       <HomeHeader headerData={headerData} />
@@ -43,7 +49,7 @@ const Home = ({ headerData, cookbookData, learnMoreData, homePosts }) => {
           backgroundColor: "primary.light",
         }}
       />
-      <HomeShop />
+      <HomeShop items={shopItems.slice(0, 5)} />
       <Box
         sx={{
           width: "100%",
