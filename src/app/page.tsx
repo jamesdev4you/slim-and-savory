@@ -5,6 +5,8 @@ import { fetchHomeLearnMore } from "@/sanity/fetchHomeLearnMore";
 import { fetchHomePosts } from "@/sanity/fetchHomePosts";
 import { fetchShopItems } from "@/sanity/shop";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   const headerData = await fetchHomeHeader();
   const cookbookData = await fetchHomeCookbook();
