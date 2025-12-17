@@ -22,12 +22,14 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
             key={video._id || index}
             sx={{
               height: { md: "auto", lg: "80vh" },
-              padding: { md: "10em 0em", lg: "none" },
+              padding: { xs: "1em", md: "10em 0em", lg: "none" },
               width: "100%",
               backgroundColor: bgColor,
               borderBottom: "1px solid",
               borderColor: "secondary.main",
               display: "flex",
+              flexDirection: { xs: "column", md: "column", lg: "row" },
+
               alignItems: "center",
               justifyContent: "center",
               gap: "3em",
@@ -37,7 +39,7 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
             {/* Thumbnail */}
             <Box
               sx={{
-                width: "40vw",
+                width: { xs: "90%", md: "40vw" },
                 aspectRatio: "16 / 9",
                 position: "relative",
                 borderRadius: "5px",
@@ -57,7 +59,7 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
             {/* Content */}
             <Box
               sx={{
-                width: "35vw",
+                width: { xs: "90%", md: "35vw" },
                 height: { lg: "100%", xl: "55%" },
                 display: "flex",
                 flexDirection: "column",

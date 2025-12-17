@@ -83,9 +83,10 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
       <Box
         sx={{
           height: "auto",
-          paddingTop: "4em",
+          paddingTop: { xs: "8em", md: "4em" },
           width: "100%",
           display: "flex",
+          flexDirection: { xs: "column", sm: "row", md: "row" },
           alignItems: "center",
           justifyContent: { md: "start", lg: "start" },
           gap: { md: "3em", lg: "3em", xl: "3em" },
@@ -93,8 +94,8 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
       >
         <Box
           sx={{
-            height: { md: "50vh", lg: "100vh" },
-            width: { md: "50vw", lg: "60vw" },
+            height: { xs: "30vh", md: "50vh", lg: "100vh" },
+            width: { xs: "95%", md: "50vw", lg: "60vw" },
             backgroundImage: `url(${post.mainPicture.url})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -104,13 +105,14 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
         />
         <Box
           sx={{
-            width: { md: "30vw", lg: "35vw" },
+            width: { xs: "95%", md: "30vw", lg: "35vw" },
             height: "100%",
             display: "flex",
             alignItems: "flex-start",
-            justifyContent: "center",
+            justifyContent: { xs: "start", md: "center" },
             flexDirection: "column",
             gap: ".5em",
+            pb: { xs: "4em", md: "none" },
           }}
         >
           <Typography variant="h5">{post.category.title}</Typography>
@@ -155,7 +157,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
       >
         <Box
           sx={{
-            width: { md: "90%", lg: "80%" },
+            width: { xs: "95%", md: "90%", lg: "80%" },
             height: "100%",
             display: "flex",
             alignItems: "flex-start",
@@ -169,7 +171,12 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
             Recipes {">"} {post.category.title} {">"} {post.title}
           </Typography>
           <Typography variant="h2">{post.title}</Typography>
-          <Typography variant="h4">{post.description}</Typography>
+          <Typography variant="h4" sx={{ display: { xs: "none", md: "flex" } }}>
+            {post.description}
+          </Typography>
+          <Typography variant="h6" sx={{ display: { xs: "flex", md: "none" } }}>
+            {post.description}
+          </Typography>
           <Box
             component="a"
             href={post.youtubeUrl}
@@ -217,6 +224,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
             width: { md: "90%", lg: "80%" },
             height: "100%",
             display: "flex",
+
             alignItems: "flex-start",
             justifyContent: "flex-start",
             flexDirection: "column",
@@ -227,11 +235,11 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
           <Box
             sx={{
               width: "100%",
-              height: { md: "35vh", lg: "50vh" },
+              height: { xs: "auto", md: "35vh", lg: "50vh" },
               display: "flex",
-              flexDirection: "row",
+              flexDirection: { xs: "column", md: "row" },
               alignItems: "center",
-              justifyContent: "flex-start",
+              justifyContent: "start",
               gap: "1em",
             }}
           >
@@ -251,12 +259,12 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
 
             <Box
               sx={{
-                width: "40vw",
+                width: { xs: "95%", md: "40vw" },
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                justifyContent: { md: "start", lg: "center" },
+                justifyContent: { xs: "start", md: "start", lg: "center" },
                 gap: ".6em",
                 paddingTop: "1em",
               }}

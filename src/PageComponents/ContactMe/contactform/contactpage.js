@@ -49,7 +49,7 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
         backgroundRepeat: "none",
         backgroundPosition: "center",
         backgroundColor: "secondary.main",
-        padding: { md: "4em 1em", lg: "10em 2em" },
+        padding: { xs: "1em", md: "4em 1em", lg: "10em 2em" },
       }}
     >
       <Box
@@ -59,7 +59,11 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
           display: "flex",
           alignItems: "start",
           justifyContent: "space-around",
-          flexDirection: "row",
+          flexDirection: {
+            xs: "column-reverse",
+            sm: "column-reverse",
+            md: "row",
+          },
         }}
       >
         <Box
@@ -129,7 +133,7 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
           {/* SOCIAL ICONS (unchanged) */}
           <Box
             sx={{
-              width: "70%",
+              width: { xs: "100%", md: "70%" },
               display: "flex",
               justifyContent: "space-between",
             }}
@@ -163,7 +167,7 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
             variant="contained"
             href={ctaHref}
             sx={{
-              width: "30%",
+              width: { xs: "100%", md: "30%" },
               marginTop: "2em",
               backgroundColor: "#373e02",
               color: "#d9d9d9",

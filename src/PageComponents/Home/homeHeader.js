@@ -13,17 +13,19 @@ const HomeHeader = ({ headerData }) => {
     <Box
       sx={{
         width: "100%",
-        height: { md: "60vh", lg: "100vh", xl: "100vh" },
+        height: { sm: "auto", md: "60vh", lg: "100vh", xl: "100vh" },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         pt: "64px",
+        pb: { xs: "10vh", md: "none" },
       }}
     >
       <Box
         sx={{
           width: { xl: "80%", md: "100%", sm: "95%", xs: "95%" },
           display: "flex",
+          flexDirection: { xs: "column", sm: "column", md: "row" },
           alignItems: "center",
           justifyContent: "center",
           height: { md: "70%", lg: "100%" },
@@ -34,8 +36,8 @@ const HomeHeader = ({ headerData }) => {
           <Box
             key={index}
             sx={{
-              width: "20%",
-              height: "70%",
+              width: { xs: "80%", sm: "80%", md: "20%" },
+              height: { xs: "25vh", sm: "25vh", md: "70%" },
               borderRadius: "8px",
               position: "relative",
             }}

@@ -72,26 +72,36 @@ export default function NavBar() {
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
-      sx={{ textAlign: "center", backgroundColor: "#E4DCC0" }}
+      sx={{ textAlign: "center", backgroundColor: "white" }}
     >
       <Image
-        src="/images/shared/logo.png"
+        src="/images/shared/LabelLogo.png"
         alt="Logo"
-        height={150}
-        width={150}
+        height={50}
+        width={170}
         priority
+        style={{ margin: "1em" }}
       />
-      <Divider sx={{ backgroundColor: "#1B1E1E" }} />
-      <List sx={{ backgroundColor: "#E4DCC0" }}>
+      <Divider sx={{ backgroundColor: "primary.light" }} />
+      <List sx={{ backgroundColor: "white", width: "100%" }}>
         {navItems.map((item) => (
-          <ListItem key={item.text} sx={{ my: 3 }} disablePadding>
+          <ListItem
+            key={item.text}
+            sx={{
+              width: "100%",
+              borderBottomWidth: "1px",
+              borderBottomStyle: "solid",
+              borderBottomColor: "primary.light",
+            }}
+          >
             <Link
               href={item.href}
               style={{
                 textDecoration: "none",
-                color: "#1B1E1E",
+                color: "#7c8e76",
                 fontFamily: "Birds",
                 fontSize: 24,
+                padding: "1em",
               }}
             >
               {item.text}
@@ -111,7 +121,7 @@ export default function NavBar() {
             height: 60,
             textAlign: "center",
             fontFamily: "Birds",
-            display: "flex",
+            display: { xs: "none", md: "flex" },
             background: "linear-gradient(to right, #a0c49d 80%, #7c8e76 20%)",
           }}
         >
@@ -231,7 +241,7 @@ export default function NavBar() {
           </Box>
         </Box>
 
-        <Toolbar sx={{ backgroundColor: "background.paper" }}>
+        <Toolbar sx={{ backgroundColor: "#fefefe" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -239,20 +249,20 @@ export default function NavBar() {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "block", md: "none" } }}
           >
-            <MenuIcon sx={{ color: "#1B1E1E" }} />
+            <MenuIcon sx={{ color: "primary.main" }} />
           </IconButton>
-
-          <Link href="/" style={{ display: "inline-flex" }}>
-            <Image
-              src="/images/shared/logo.png"
-              alt="Logo"
-              width={80}
-              height={80}
-              style={{ display: "none" }}
-              priority
-            />
-          </Link>
-
+          <Box sx={{ flexGrow: 1, display: { md: "none" } }} />
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+            <Link href="/">
+              <Image
+                src="/images/shared/LabelLogo.png"
+                alt="Logo"
+                width={280}
+                height={80}
+                priority
+              />
+            </Link>
+          </Box>
           {/* Desktop menu */}
           <Box
             sx={{
@@ -312,7 +322,7 @@ export default function NavBar() {
       </AppBar>
 
       {/* Mobile drawer */}
-      <Box component="nav" sx={{ backgroundColor: "#E4DCC0" }}>
+      <Box component="nav" sx={{ backgroundColor: "white" }}>
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -323,7 +333,7 @@ export default function NavBar() {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundColor: "#E4DCC0",
+              backgroundColor: "white",
             },
           }}
         >

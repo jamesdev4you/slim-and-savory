@@ -12,28 +12,49 @@ const ShopHeader = ({
   return (
     <Box
       sx={{
-        mt: "3em",
-        height: { md: "60vh", lg: "80vh" },
+        mt: { xs: "7em", md: "3em" },
+        mb: { xs: "7em", md: "0em" },
+        height: { xs: "auto", md: "60vh", lg: "80vh" },
         textAlign: "center",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        width: "100%",
+        width: { xs: "95%", md: "90%" },
       }}
     >
       <Typography variant="h2" sx={{ color: "primary.dark" }}>
         {title}
       </Typography>
-      <Typography variant="h4" sx={{ color: "primary.dark", mb: "2em" }}>
+      <Typography
+        variant="h4"
+        sx={{
+          color: "primary.dark",
+          mb: { xs: "1em", sm: "2em" },
+          display: { xs: "none", md: "inlane" },
+        }}
+      >
+        {subtitle}
+      </Typography>
+      <Typography
+        variant="h6"
+        sx={{
+          color: "primary.dark",
+          mb: { xs: "1em", sm: "2em" },
+          display: { xs: "inline", md: "none" },
+        }}
+      >
         {subtitle}
       </Typography>
 
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
+          alignItems: "center",
           width: "90%",
+          gap: "1em",
         }}
       >
         {shopSections.map((section) => (

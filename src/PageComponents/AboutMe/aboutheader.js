@@ -14,12 +14,14 @@ const AboutHeader = ({ data }) => {
     <Box
       sx={{
         width: "100%",
-        minHeight: { md: "auto", lg: "85vh", xl: "95vh" },
+        minHeight: { xs: "auto", lg: "85vh", xl: "95vh" },
         maxHeight: { lg: "900px", xl: "1100px" },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        paddingTop: { md: "6em", lg: "10vh" },
+
+        pb: { xs: "none", md: "none" },
+        pt: { xs: "10vh", md: "6em" },
       }}
     >
       <Box
@@ -28,9 +30,11 @@ const AboutHeader = ({ data }) => {
           height: "100%",
           maxHeight: { lg: "700px", xl: "850px" },
           display: "flex",
+          flexDirection: { xs: "column", sm: "row", md: "row" },
+
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "8em 3em",
+          padding: { xs: "3em", md: "8em 3em" },
         }}
       >
         {/* LEFT IMAGE — author image */}
@@ -38,7 +42,7 @@ const AboutHeader = ({ data }) => {
           sx={{
             width: {
               xs: "100%",
-              sm: "80%",
+              sm: "40%",
               md: "20vw",
               lg: "30vw",
             },
@@ -55,7 +59,7 @@ const AboutHeader = ({ data }) => {
         {/* RIGHT TEXT — unchanged layout */}
         <Box
           sx={{
-            width: { md: "60%", lg: "50%" },
+            width: { xs: "90%", sm: "55%", md: "60%", lg: "50%" },
             padding: "3em 0em",
             height: { xl: "90%", md: "100%" },
             display: "flex",
@@ -70,7 +74,7 @@ const AboutHeader = ({ data }) => {
             sx={{
               color: "primary.dark",
               fontWeight: "bold",
-              display: { md: "none", lg: "inline" },
+              display: { xs: "none", md: "none", lg: "inline" },
             }}
           >
             {title}

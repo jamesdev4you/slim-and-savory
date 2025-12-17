@@ -28,7 +28,7 @@ const ShopItems = ({ activeSection, items }) => {
         display: "flex",
         flexWrap: "wrap",
         gap: "2%",
-        justifyContent: "start",
+        justifyContent: { sm: "center", md: "start" },
       }}
     >
       {filteredItems.length === 0 ? (
@@ -40,7 +40,7 @@ const ShopItems = ({ activeSection, items }) => {
           <Box
             key={item._id}
             sx={{
-              width: "23%",
+              width: { xs: "100%", sm: "40%", md: "23%" },
               minWidth: { md: "180px", lg: "230px" },
               display: "flex",
               flexDirection: "column",

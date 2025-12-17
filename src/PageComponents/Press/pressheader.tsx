@@ -74,6 +74,26 @@ const PressHeader = ({ videoheader }: { videoheader?: any }) => {
       <Typography
         variant="h3"
         sx={{
+          display: {
+            xs: "none",
+            md: "flex",
+          },
+          color: "white",
+          fontWeight: "bold",
+          position: "relative",
+          zIndex: 2,
+          width: "80%",
+          textAlign: "center",
+        }}
+      >
+        {videoheader?.title ??
+          "Check out some of my step-by-step cooking videos!"}
+      </Typography>
+      <Typography
+        variant="p"
+        sx={{
+          display: { xs: "flex-inline", md: "none" },
+
           color: "white",
           fontWeight: "bold",
           position: "relative",

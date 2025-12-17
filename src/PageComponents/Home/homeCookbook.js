@@ -18,18 +18,27 @@ const HomeCookbook = ({ cookbookData }) => {
     <Box
       sx={{
         display: "flex",
+        flexDirection: { xs: "column", sm: "column", md: "row" },
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        height: { md: "50vh", lg: "70vh" },
+        pb: { xs: "10vh", md: "none" },
+        pt: { xs: "10vh", md: "none" },
+        height: { xs: "auto", md: "50vh", lg: "70vh" },
       }}
     >
       <Box
         sx={{
           width: { md: "90%", lg: "80%" },
-          height: "80%",
+          gap: { xs: "5em", md: "none" },
+          height: "auto",
           backgroundColor: "background.dark",
           display: "flex",
+          flexDirection: {
+            xs: "column-reverse",
+            sm: "column-reverse",
+            md: "row",
+          },
           alignItems: "center",
           justifyContent: "space-between",
           padding: "0em 3em",
@@ -38,7 +47,7 @@ const HomeCookbook = ({ cookbookData }) => {
         {/* IMAGE */}
         <Box
           sx={{
-            width: { md: "25%", lg: "30%" },
+            width: { xs: "80%", md: "25%", lg: "30%" },
             aspectRatio: "4 / 5",
             position: "relative",
           }}
@@ -56,7 +65,7 @@ const HomeCookbook = ({ cookbookData }) => {
         {/* CONTENT */}
         <Box
           sx={{
-            width: { md: "75%", lg: "70%" },
+            width: { xs: "100%", md: "75%", lg: "70%" },
             height: "90%",
             display: "flex",
             flexDirection: "column",
@@ -86,11 +95,11 @@ const HomeCookbook = ({ cookbookData }) => {
             sx={{
               color: "primary.dark",
               fontSize: "20px",
-              width: "100%",
+              width: { xs: "80%", md: "100%" },
               textAlign: "center",
               "& p": {
                 lineHeight: "1",
-                marginBottom: "1rem",
+                marginBottom: { xs: ".1em", md: "1rem" },
               },
             }}
           >
@@ -111,7 +120,7 @@ const HomeCookbook = ({ cookbookData }) => {
               <Button
                 variant="contained"
                 sx={{
-                  width: { xl: "200px", md: "200px" },
+                  width: { xs: "250px", md: "200px", xl: "200px" },
                   height: "40px",
                   borderRadius: "0px",
                   backgroundColor: "#373e02",

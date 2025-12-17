@@ -14,8 +14,8 @@ const HomeBlog = ({ posts }) => {
   const isSM = useMediaQuery(theme.breakpoints.only("sm"));
 
   const visiblePosts = (() => {
-    if (isXL || isLG) return posts.slice(0, 8);
-    if (isMD) return posts.slice(0, 6); // ✅ 2 less on md
+    if (isXL) return posts.slice(0, 8);
+    if (isMD || isLG) return posts.slice(0, 6); // ✅ 2 less on md
     if (isSM) return posts.slice(0, 4);
     return posts.slice(0, 4); // xs
   })();
@@ -39,7 +39,7 @@ const HomeBlog = ({ posts }) => {
         sx={{
           width: "90%",
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: { xs: "center", md: "space-between" },
           alignItems: "center",
           mb: 4,
         }}
@@ -52,6 +52,7 @@ const HomeBlog = ({ posts }) => {
           variant="h6"
           color="text.secondary"
           sx={{
+            display: { xs: "none", md: "flex" },
             textDecoration: "underline",
             transition: "all .3s ease-in-out",
             "&:hover": {
@@ -70,7 +71,7 @@ const HomeBlog = ({ posts }) => {
           width: "90%",
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-between",
+          justifyContent: { xs: "center", md: "space-between" },
           gap: 2,
         }}
       >
@@ -85,13 +86,14 @@ const HomeBlog = ({ posts }) => {
               style={{
                 textDecoration: "none",
                 color: "inherit",
-                width: "23%",
-                minWidth: "230px",
+                width: "100%",
+                maxWidth: "220px",
               }}
             >
               <Box
                 sx={{
                   backgroundColor: "#FFFFFF",
+
                   borderRadius: "8px",
                   overflow: "hidden",
                   boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",

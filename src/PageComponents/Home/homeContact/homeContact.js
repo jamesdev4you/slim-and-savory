@@ -9,25 +9,25 @@ const HomeContact = () => {
     <Box
       sx={{
         width: "100%",
-        minHeight: { md: "80vh", lg: "100vh" },
+        minHeight: { xs: "auto", md: "80vh", lg: "100vh" },
         height: "auto",
         display: "flex",
-        flexDirection: { md: "column", lg: "row" },
-        alignItems: { md: "center", lg: "flex-start" },
+        flexDirection: { xs: "column", md: "column", lg: "row" },
+        alignItems: { xs: "column", md: "center", lg: "flex-start" },
         justifyContent: "center",
         gap: "2em",
         backgroundSize: "cover",
         backgroundRepeat: "none",
         backgroundPosition: "center",
         backgroundColor: "primary.main",
-        padding: { md: "2em", lg: "4em" },
+        padding: { xs: "1em", md: "2em", lg: "4em" },
       }}
     >
       <Box
         sx={{
           width: { md: "90%", lg: "40%", xl: "40%" },
           height: "70%",
-          display: "flex",
+          display: { xs: "none", md: "flex" },
           alignItems: { md: "center", lg: "flex-start" },
           justifyContent: "start",
           flexDirection: "column",
@@ -80,7 +80,7 @@ const HomeContact = () => {
 
       <Box
         sx={{
-          width: { md: "80%", lg: "50%", xl: "40%" },
+          width: { xs: "100%", md: "80%", lg: "50%", xl: "40%" },
           gap: "1em",
           display: "flex",
           alignItems: "center",
@@ -93,7 +93,7 @@ const HomeContact = () => {
               xl: "100%",
               lg: "100%",
               md: "100%",
-              sm: "90%",
+              sm: "100%",
               xs: "100%",
             },
 

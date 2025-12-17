@@ -96,7 +96,7 @@ export default function BlogPageClient({ posts, groups }: Props) {
               flexDirection: "column",
               gap: 2,
               mt: 1,
-              paddingBottom: { md: "2em", lg: "none" },
+              paddingBottom: { xs: "3em", lg: "none" },
             }}
           >
             {groups.map((g) => (
@@ -106,7 +106,6 @@ export default function BlogPageClient({ posts, groups }: Props) {
                 options={g.options}
                 value={selectedFilters}
                 onChange={setSelectedFilters}
-                defaultOpen
               />
             ))}
           </Box>
@@ -116,14 +115,18 @@ export default function BlogPageClient({ posts, groups }: Props) {
       {/* RIGHT CONTENT — POSTS */}
       <Box
         sx={{
-          width: { md: "100%", lg: "60%" },
-          paddingTop: { md: "4em", lg: "10em" },
+          width: { xs: "100%", lg: "60%" },
+          padding: { xs: "1em", lg: "none" },
+          paddingTop: { xs: "4em", lg: "10em" },
           display: "flex",
           flexDirection: "column",
           alignItems: { md: "center", lg: "flex-start" },
         }}
       >
-        <Typography variant="h4" sx={{ marginBottom: "2em" }}>
+        <Typography
+          variant="h4"
+          sx={{ marginBottom: "2em", textAlign: { xs: "center", lg: "none" } }}
+        >
           My Latest Recipes
         </Typography>
 

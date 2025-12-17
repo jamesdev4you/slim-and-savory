@@ -77,7 +77,7 @@ const HomeShop = () => {
     <Box
       sx={{
         width: "100%",
-        minHeight: { md: "40vh", lg: "80vh" },
+        minHeight: { xs: "auto", md: "40vh", lg: "80vh" },
         backgroundColor: "secondary.main",
         display: "flex",
         justifyContent: "center",
@@ -87,14 +87,17 @@ const HomeShop = () => {
     >
       <Box
         sx={{
-          width: { md: "90%", lg: "80%" },
+          width: { xs: "95%", md: "90%", lg: "80%" },
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           gap: "3em",
         }}
       >
-        <Typography variant="h2" sx={{ color: "primary.dark" }}>
+        <Typography
+          variant="h2"
+          sx={{ color: "primary.dark", textAlign: "center" }}
+        >
           Come Shop With Me
         </Typography>
 
@@ -198,7 +201,7 @@ const HomeShop = () => {
           href="/shop"
           variant="contained"
           sx={{
-            width: "30%",
+            width: { xs: "80%", md: "30%" },
             height: "60px",
             backgroundColor: "#373e02",
             color: "#d9d9d9",

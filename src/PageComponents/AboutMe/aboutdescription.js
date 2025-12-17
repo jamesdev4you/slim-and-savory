@@ -27,15 +27,16 @@ const AboutDescription = ({ data }) => {
           height: "100%",
           maxHeight: { lg: "700px", xl: "850px" },
           display: "flex",
+          flexDirection: { xs: "column", sm: "column", md: "row" },
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0 3em",
+          padding: { xs: "3em", md: "0 3em" },
         }}
       >
         {/* LEFT TEXT COLUMN — unchanged */}
         <Box
           sx={{
-            width: "60%",
+            width: { xs: "97%", md: "60%" },
             padding: "3em 0em",
             height: { xl: "90%", md: "100%" },
             display: "flex",
@@ -70,7 +71,7 @@ const AboutDescription = ({ data }) => {
         {/* RIGHT IMAGE — still a background image */}
         <Box
           sx={{
-            width: { md: "35%", lg: "30vw" },
+            width: { xs: "95%", md: "35%", lg: "30vw" },
             maxWidth: "420px",
             aspectRatio: "3 / 4",
             backgroundImage: image

@@ -45,16 +45,25 @@ const HomeLearnMore = ({ learnMoreData }) => {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        height: { md: "60vh", lg: "80vh" },
+        pb: { xs: "10vh", md: "none" },
+        pt: { xs: "5vh", md: "none" },
+        height: { xs: "auto", md: "50vh", lg: "70vh" },
       }}
     >
       <Box
         sx={{
-          width: { md: "85%", lg: "80%" },
-          height: "80%",
+          width: { md: "90%", lg: "80%" },
+          gap: { xs: "5em", md: "none" },
+          height: "auto",
+          backgroundColor: "background.dark",
           display: "flex",
-          justifyContent: "space-between",
+          flexDirection: {
+            xs: "column",
+            sm: "column",
+            md: "row",
+          },
           alignItems: "center",
+          justifyContent: "space-between",
           padding: "0em 3em",
         }}
       >
@@ -128,8 +137,10 @@ const HomeLearnMore = ({ learnMoreData }) => {
             variant="contained"
             href="/contact"
             sx={{
-              width: "30%",
               marginTop: "2em",
+              width: { xs: "250px", md: "200px", xl: "200px" },
+              height: "40px",
+              borderRadius: "0px",
               backgroundColor: "#373e02",
               color: "#d9d9d9",
               border: "2px solid #d9d9d9",
@@ -146,8 +157,8 @@ const HomeLearnMore = ({ learnMoreData }) => {
         {/* IMAGE */}
         <Box
           sx={{
-            width: { md: "35%", lg: "30%" },
-            height: { md: "60%", lg: "70%", xl: "85%" },
+            width: { xs: "80%", md: "25%", lg: "30%" },
+            aspectRatio: "4 / 5",
             position: "relative",
           }}
         >
