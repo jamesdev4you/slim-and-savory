@@ -52,7 +52,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
     >
       <Box
         sx={{
-          width: { md: "90%", lg: "80%" },
+          width: { xs: "100%", md: "90%", lg: "80%" },
           gap: { xs: "5em", md: "none" },
           height: "auto",
           backgroundColor: "background.dark",
@@ -64,13 +64,13 @@ const HomeLearnMore = ({ learnMoreData }) => {
           },
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0em 3em",
+          padding: { xs: "none", md: "0em 3em" },
         }}
       >
         {/* TEXT CONTENT */}
         <Box
           sx={{
-            width: { md: "60%", lg: "70%" },
+            width: { xs: "95%", md: "60%", lg: "70%" },
             padding: "3em 0em",
             display: "flex",
             flexDirection: "column",
@@ -157,7 +157,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
         {/* IMAGE */}
         <Box
           sx={{
-            width: { xs: "80%", md: "25%", lg: "30%" },
+            width: { xs: "90%", md: "25%", lg: "30%" },
             aspectRatio: "4 / 5",
             position: "relative",
           }}

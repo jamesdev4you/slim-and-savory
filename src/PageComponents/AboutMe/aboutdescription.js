@@ -27,7 +27,11 @@ const AboutDescription = ({ data }) => {
           height: "100%",
           maxHeight: { lg: "700px", xl: "850px" },
           display: "flex",
-          flexDirection: { xs: "column", sm: "column", md: "row" },
+          flexDirection: {
+            xs: "column-reverse",
+            sm: "column-reverse",
+            md: "row",
+          },
           alignItems: "center",
           justifyContent: "space-between",
           padding: { xs: "3em", md: "0 3em" },

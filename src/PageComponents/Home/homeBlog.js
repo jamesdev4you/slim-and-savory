@@ -23,7 +23,7 @@ const HomeBlog = ({ posts }) => {
   return (
     <Box
       sx={{
-        width: "90%",
+        width: "100%",
         minHeight: "100vh",
         margin: "auto",
         display: "flex",
@@ -87,7 +87,7 @@ const HomeBlog = ({ posts }) => {
                 textDecoration: "none",
                 color: "inherit",
                 width: "100%",
-                maxWidth: "220px",
+                maxWidth: "300px",
               }}
             >
               <Box

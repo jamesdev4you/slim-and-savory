@@ -77,7 +77,7 @@ export default function SinglePostLayout({ post, recentPosts }: Props) {
       sx={{
         display: "flex",
         flexDirection: "column",
-        gap: { md: "1em", lg: "4em" },
+        gap: { xs: "10em", md: "1em", lg: "4em" },
       }}
     >
       <Box

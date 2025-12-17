@@ -29,7 +29,7 @@ const HomeCookbook = ({ cookbookData }) => {
     >
       <Box
         sx={{
-          width: { md: "90%", lg: "80%" },
+          width: { xs: "100%", md: "90%", lg: "80%" },
           gap: { xs: "5em", md: "none" },
           height: "auto",
           backgroundColor: "background.dark",
@@ -41,7 +41,7 @@ const HomeCookbook = ({ cookbookData }) => {
           },
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0em 3em",
+          padding: { xs: "none", md: "0em 3em" },
         }}
       >
         {/* IMAGE */}

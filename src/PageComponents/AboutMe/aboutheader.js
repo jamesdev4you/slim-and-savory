@@ -26,7 +26,7 @@ const AboutHeader = ({ data }) => {
     >
       <Box
         sx={{
-          width: { md: "85%", lg: "80%" },
+          width: { xs: "100%", md: "85%", lg: "80%" },
           height: "100%",
           maxHeight: { lg: "700px", xl: "850px" },
           display: "flex",
@@ -59,7 +59,7 @@ const AboutHeader = ({ data }) => {
         {/* RIGHT TEXT — unchanged layout */}
         <Box
           sx={{
-            width: { xs: "90%", sm: "55%", md: "60%", lg: "50%" },
+            width: { xs: "100%", sm: "55%", md: "60%", lg: "50%" },
             padding: "3em 0em",
             height: { xl: "90%", md: "100%" },
             display: "flex",
