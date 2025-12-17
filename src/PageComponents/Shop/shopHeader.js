@@ -31,7 +31,7 @@ const ShopHeader = ({
         sx={{
           color: "primary.dark",
           mb: { xs: "1em", sm: "2em" },
-          display: { xs: "none", md: "inlane" },
+          display: { xs: "none", md: "inline" },
         }}
       >
         {subtitle}

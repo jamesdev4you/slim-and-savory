@@ -16,7 +16,7 @@ const ArrowLeft = ({ onClick }) => (
     aria-label="Previous slide"
     style={{
       position: "absolute",
-      left: "0px",
+      left: "8px",
       top: "50%",
       transform: "translateY(-50%)",
       background: "#373e02",
@@ -39,7 +39,7 @@ const ArrowRight = ({ onClick }) => (
     aria-label="Next slide"
     style={{
       position: "absolute",
-      right: "0px",
+      right: "8px",
       top: "50%",
       transform: "translateY(-50%)",
       background: "#373e02",
@@ -59,6 +59,7 @@ const ArrowRight = ({ onClick }) => (
 const HomeShop = () => {
   const [items, setItems] = useState([]);
   const swiperRef = useRef(null);
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 480;
 
   useEffect(() => {
     async function loadItems() {
@@ -105,6 +106,7 @@ const HomeShop = () => {
         <Box
           sx={{
             width: "100%",
+            minWidth: 0,
             position: "relative",
             overflow: "visible",
           }}
@@ -114,7 +116,9 @@ const HomeShop = () => {
 
           <Swiper
             modules={[Navigation]}
-            loop
+            loop={!isMobile}
+            observer
+            observeParents
             grabCursor
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             breakpoints={{
@@ -147,8 +151,9 @@ const HomeShop = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                      width: "70%",
+                      width: "100%",
                       maxWidth: "200px",
+                      mx: "auto",
                       borderRadius: "12px",
                       overflow: "hidden",
                       textDecoration: "none",
