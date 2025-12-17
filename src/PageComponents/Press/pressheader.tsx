@@ -1,9 +1,17 @@
 "use client";
 import React from "react";
 import { Typography, Box } from "@mui/material";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const PressHeader = ({ videoheader }: { videoheader?: any }) => {
   const videoUrl = videoheader?.video?.asset?.url;
+
+  const handleScroll = () => {
+    const target = document.getElementById("press-videos");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <Box
@@ -105,6 +113,32 @@ const PressHeader = ({ videoheader }: { videoheader?: any }) => {
         {videoheader?.title ??
           "Check out some of my step-by-step cooking videos!"}
       </Typography>
+      <Box
+        onClick={handleScroll}
+        sx={{
+          position: "absolute",
+          bottom: 0,
+          width: "100%",
+          height: "10%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          zIndex: 3,
+          cursor: "pointer",
+          transition: "background-color 0.3s ease",
+          "&:hover": {
+            backgroundColor: "rgba(255,255,255,0.05)",
+          },
+        }}
+      >
+        <KeyboardArrowDownIcon
+          sx={{
+            color: "white",
+            fontSize: { xs: "2.5rem", md: "3rem" },
+            animation: "bounce 2s infinite",
+          }}
+        />
+      </Box>
     </Box>
   );
 };

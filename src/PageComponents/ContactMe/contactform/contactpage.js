@@ -69,7 +69,7 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
         <Box
           sx={{
             width: {
-              xl: "40%",
+              xl: "50%",
               lg: "40%",
               md: "40%",
               sm: "90%",
@@ -101,7 +101,7 @@ const ContactPage = ({ subtitle, title, description, ctaLabel, ctaHref }) => {
         <Box
           sx={{
             width: {
-              xl: "auto",
+              xl: "40%",
               lg: "auto",
               md: "50%",
               sm: "90%",

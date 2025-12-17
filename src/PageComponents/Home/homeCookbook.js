@@ -94,11 +94,13 @@ const HomeCookbook = ({ cookbookData }) => {
           <Box
             sx={{
               color: "primary.dark",
+
               fontSize: "20px",
               width: { xs: "80%", md: "100%" },
               textAlign: "center",
               "& p": {
                 lineHeight: "1",
+
                 marginBottom: { xs: ".1em", md: "1rem" },
               },
             }}

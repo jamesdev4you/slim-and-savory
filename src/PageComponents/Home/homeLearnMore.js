@@ -101,7 +101,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
               color: "primary.dark",
               fontSize: "20px",
               width: "100%",
-              textAlign: { xs: "center", md: "left" },
+              textAlign: { xs: "center", md: "center" },
               "& p": {
                 lineHeight: "1",
                 marginBottom: "1rem",

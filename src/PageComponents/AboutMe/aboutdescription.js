@@ -52,21 +52,65 @@ const AboutDescription = ({ data }) => {
         >
           <Typography
             variant="p"
-            sx={{ color: "secondary.main", fontWeight: "bold" }}
+            sx={{
+              display: { xs: "flex", xl: "none" },
+              color: "secondary.main",
+              fontWeight: "bold",
+            }}
           >
             {paragraphOne}
           </Typography>
 
           <Typography
             variant="p"
-            sx={{ color: "secondary.main", fontWeight: "bold" }}
+            sx={{
+              display: { xs: "flex", xl: "none" },
+              color: "secondary.main",
+              fontWeight: "bold",
+            }}
           >
             {paragraphTwo}
           </Typography>
 
           <Typography
             variant="p"
-            sx={{ color: "secondary.main", fontWeight: "bold" }}
+            sx={{
+              display: { xs: "flex", xl: "none" },
+              color: "secondary.main",
+              fontWeight: "bold",
+            }}
+          >
+            {paragraphThree}
+          </Typography>
+          <Typography
+            variant="h5"
+            sx={{
+              display: { xs: "none", xl: "flex" },
+              color: "secondary.main",
+              fontWeight: "bold",
+            }}
+          >
+            {paragraphOne}
+          </Typography>
+
+          <Typography
+            variant="h5"
+            sx={{
+              display: { xs: "none", xl: "flex" },
+              color: "secondary.main",
+              fontWeight: "bold",
+            }}
+          >
+            {paragraphTwo}
+          </Typography>
+
+          <Typography
+            variant="h5"
+            sx={{
+              display: { xs: "none", xl: "flex" },
+              color: "secondary.main",
+              fontWeight: "bold",
+            }}
           >
             {paragraphThree}
           </Typography>

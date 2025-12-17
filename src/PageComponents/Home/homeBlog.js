@@ -37,7 +37,7 @@ const HomeBlog = ({ posts }) => {
       {/* Header — unchanged */}
       <Box
         sx={{
-          width: "90%",
+          width: { xs: "90%", xl: "80%" },
           display: "flex",
           justifyContent: { xs: "center", md: "space-between" },
           alignItems: "center",
@@ -68,7 +68,7 @@ const HomeBlog = ({ posts }) => {
       {/* Cards — same flex layout */}
       <Box
         sx={{
-          width: "90%",
+          width: { xs: "90%", xl: "80%" },
           display: "flex",
           flexWrap: "wrap",
           justifyContent: { xs: "center", md: "space-between" },

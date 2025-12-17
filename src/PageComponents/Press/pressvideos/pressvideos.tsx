@@ -9,7 +9,7 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
   console.log("VIDEO THUMB:", videos);
 
   return (
-    <Box sx={{ width: "auto" }}>
+    <Box id="press-videos" sx={{ width: "auto" }}>
       {videos.map((video, index) => {
         const isEven = index % 2 === 0;
 
@@ -22,7 +22,12 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
             key={video._id || index}
             sx={{
               height: { md: "auto", lg: "80vh" },
-              padding: { xs: "1em", md: "10em 0em", lg: "none" },
+              padding: {
+                xs: "3em 1em",
+
+                md: "5em 0em",
+                lg: "none",
+              },
               width: "100%",
               backgroundColor: bgColor,
               borderBottom: "1px solid",
@@ -39,7 +44,7 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
             {/* Thumbnail */}
             <Box
               sx={{
-                width: { xs: "90%", md: "40vw" },
+                width: { xs: "90%", md: "80%", lg: "40vw" },
                 aspectRatio: "16 / 9",
                 position: "relative",
                 borderRadius: "5px",
@@ -59,8 +64,8 @@ const PressVideos = ({ videos }: { videos: any[] }) => {
             {/* Content */}
             <Box
               sx={{
-                width: { xs: "90%", md: "35vw" },
-                height: { lg: "100%", xl: "55%" },
+                width: { xs: "90%", md: "80%", lg: "35vw" },
+                height: { lg: "auto", xl: "auto" },
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
