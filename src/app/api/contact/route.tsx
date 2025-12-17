@@ -7,7 +7,9 @@ export async function POST(req: Request) {
       throw new Error("RESEND_API_KEY is missing");
     }
 
+    // ✅ SAFE: only runs at request-time
     const resend = new Resend(process.env.RESEND_API_KEY);
+
     const { firstName, lastName, email, phone, message } = await req.json();
 
     if (!firstName || !email || !message) {
