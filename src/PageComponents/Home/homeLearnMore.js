@@ -42,6 +42,8 @@ const HomeLearnMore = ({ learnMoreData }) => {
     <Box
       sx={{
         display: "flex",
+        flexDirection: { xs: "column", sm: "column", md: "row" },
+
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
@@ -70,17 +72,27 @@ const HomeLearnMore = ({ learnMoreData }) => {
         {/* TEXT CONTENT */}
         <Box
           sx={{
-            width: { xs: "95%", md: "60%", lg: "70%" },
-            padding: "3em 0em",
+            width: { xs: "80%", md: "75%", lg: "70%" },
+            height: "90%",
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+
+            gap: { lg: "none", xl: ".5em" },
           }}
         >
           <Typography variant="h4" sx={{ color: "primary.dark" }}>
             {subtitle}
           </Typography>
 
-          <Typography variant="h3" sx={{ color: "primary.dark" }}>
+          <Typography
+            variant="h3"
+            sx={{
+              color: "primary.dark",
+              textAlign: { xs: "center", md: "left" },
+            }}
+          >
             {title}
           </Typography>
 
@@ -89,7 +101,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
               color: "primary.dark",
               fontSize: "20px",
               width: "100%",
-              textAlign: "left",
+              textAlign: { xs: "center", md: "left" },
               "& p": {
                 lineHeight: "1",
                 marginBottom: "1rem",
@@ -102,7 +114,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
           {/* SOCIAL ICONS (unchanged) */}
           <Box
             sx={{
-              width: { xl: "40%", md: "60%" },
+              width: { xs: "100%", md: "60%", xl: "40%" },
               display: "flex",
               justifyContent: "space-between",
               marginTop: "1em",
@@ -138,7 +150,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
             href="/contact"
             sx={{
               marginTop: "2em",
-              width: { xs: "250px", md: "200px", xl: "200px" },
+              width: { xs: "100%", md: "200px", xl: "200px" },
               height: "40px",
               borderRadius: "0px",
               backgroundColor: "#373e02",
@@ -157,7 +169,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
         {/* IMAGE */}
         <Box
           sx={{
-            width: { xs: "90%", md: "25%", lg: "30%" },
+            width: { xs: "80%", md: "25%", lg: "30%" },
             aspectRatio: "4 / 5",
             position: "relative",
           }}
