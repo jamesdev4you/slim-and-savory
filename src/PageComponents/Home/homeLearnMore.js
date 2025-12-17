@@ -48,7 +48,7 @@ const HomeLearnMore = ({ learnMoreData }) => {
         justifyContent: "center",
         width: "100%",
         pb: { xs: "10vh", md: "none" },
-        pt: { xs: "5vh", md: "none" },
+        pt: { xs: "10vh", md: "none" },
         height: { xs: "auto", md: "50vh", lg: "70vh" },
       }}
     >
