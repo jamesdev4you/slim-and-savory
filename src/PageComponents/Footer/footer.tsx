@@ -96,14 +96,24 @@ const Footer = ({ footer }) => {
             Explore
           </Typography>
 
-          <FooterLink href="/recipes?category=high-protein">
-            High Protein
-          </FooterLink>
-          <FooterLink href="/recipes?dietary=low-carb">Low Carb</FooterLink>
-          <FooterLink href="/recipes?dietary=gluten-free">
-            Gluten Free
-          </FooterLink>
-          <FooterLink href="/videos">Cooking Videos</FooterLink>
+          {footer?.exploreItems?.length ? (
+            footer.exploreItems.map((item, idx) => (
+              <FooterLink
+                key={`${item?.title || "explore"}-${idx}`}
+                href="/recipes"
+              >
+                {item?.title}
+              </FooterLink>
+            ))
+          ) : (
+            // optional fallback if nothing is set in CMS yet
+            <>
+              <FooterLink href="/recipes">High Protein</FooterLink>
+              <FooterLink href="/recipes">Low Carb</FooterLink>
+              <FooterLink href="/recipes">Gluten Free</FooterLink>
+              <FooterLink href="/recipes">Cooking Videos</FooterLink>
+            </>
+          )}
         </Box>
 
         {/* Contact (CMS) */}
@@ -125,8 +135,8 @@ const Footer = ({ footer }) => {
           </Typography>
 
           {footer?.contactEmail && (
-            <FooterLink href={`mailto:${footer.contactEmail}`}>
-              {footer.contactEmail}
+            <FooterLink href={`mailto:${footer?.contactEmail}`}>
+              {footer?.contactEmail}
             </FooterLink>
           )}
         </Box>

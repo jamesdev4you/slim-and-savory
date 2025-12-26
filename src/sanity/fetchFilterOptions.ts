@@ -1,4 +1,5 @@
 import { client } from "./client";
+import { unstable_noStore as noStore } from "next/cache";
 
 export type FilterOption = { title: string; value: string };
 export type FilterGroup = {
@@ -18,6 +19,8 @@ export async function fetchFilterGroup(
   type: "category" | "cookingTime" | "dietary" | "ingredientMajor",
   heading: string
 ): Promise<FilterGroup> {
+  noStore();
+
   const options = await client.fetch<FilterOption[]>(FILTER_QUERY, { type });
   return { heading, type, options };
 }

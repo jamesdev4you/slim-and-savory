@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 export const StyledAnimatedButton = styled(Button)(({ theme }) => ({
   WebkitTapHighlightColor: "transparent",
   WebkitAppearance: "button",
-  backgroundColor: "#7c8e76",
+  backgroundColor: "#373e02",
   backgroundImage: "none",
   color: "#ffffff",
   cursor: "pointer",
@@ -16,7 +16,7 @@ export const StyledAnimatedButton = styled(Button)(({ theme }) => ({
   textTransform: "uppercase",
   padding: "20px 45px",
   borderRadius: "0px",
-  border: "1px solid #a0c49d",
+  border: "1px solid #d9d9d9",
   transition: "all .2s ease",
 
   "&:disabled": {
@@ -35,8 +35,7 @@ export const StyledAnimatedButton = styled(Button)(({ theme }) => ({
 
   "&:hover": {
     borderWidth: "1px",
-    borderColor: "#373e02",
-    color: "#373e02",
+    borderColor: "#a0c49d",
   },
 }));
 

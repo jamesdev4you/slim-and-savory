@@ -1,4 +1,5 @@
 import { client } from "./client";
+import { unstable_noStore as noStore } from "next/cache";
 
 /** ---- Types ---- */
 export type PostRef = {
@@ -49,6 +50,8 @@ export type PostDetail = PostCard & {
 };
 
 export async function fetchRecentPosts(limit = 4) {
+  noStore();
+
   return client.fetch(
     `
     *[_type == "post"]
@@ -179,6 +182,8 @@ const POST_SLUGS_QUERY = /* groq */ `
 `;
 
 export async function fetchSinglePost(slug: string) {
+  noStore();
+
   if (!slug) {
     console.error("Slug missing in fetchSinglePost");
     return null;

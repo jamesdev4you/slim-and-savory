@@ -20,7 +20,7 @@ const ShopHeader = ({
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        width: { xs: "95%", md: "90%" },
+        width: "100%",
       }}
     >
       <Typography variant="h2" sx={{ color: "primary.dark" }}>
